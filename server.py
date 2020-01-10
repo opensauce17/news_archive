@@ -41,31 +41,30 @@ def index():
     print(today)
 
     #headlines = za_news.query.filter_by(news_type='headlines').all()
-    headlines = za_news.query.filter(and_(za_news.news_type == 'headlines', za_news.publishedAt.like('%'today'%')).all()
+    headlines = za_news.query.filter(and_(za_news.news_type == 'headlines', za_news.publishedAt.like(f'%{today}%')))
+    #print(headlines)
     #print(posts)
-    for headline in headlines:
-        #print(headline.publishedAt)
-        source = headline.source
-        author = headline.author
-        title = headline.title
-        description = headline.description
-        url = headline.url
-        image = headline.urlToImage
-        date = headline.publishedAt
-        content = headline.content
+    # for headline in headlines:
+    #     #print(headline.publishedAt)
+    #     source = headline.source
+    #     author = headline.author
+    #     title = headline.title
+    #     description = headline.description
+    #     url = headline.url
+    #     image = headline.urlToImage
+    #     date = headline.publishedAt
+    #     content = headline.content
+    #
+    #     print(source)
+    #     print(author)
+    #     print(title)
+    #     print(description)
+    #     print(url)
+    #     print(image)
+    #     print(date)
+    #     print(content)
 
-        # print(source)
-        # print(author)
-        # print(title)
-        # print(description)
-        # print(url)
-        # print(image)
-        # print(date)
-        # print(content)
-
-
-
-    return render_template('index.html')
+    return render_template('index.html', headlines=headlines)
 
 
 if __name__ == '__main__':
