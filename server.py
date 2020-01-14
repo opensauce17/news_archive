@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, message_flashed, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from sqlalchemy import and_
 
 import sqlite3
@@ -38,33 +38,48 @@ def index():
 
     today = datetime.now()
     today = str(today).split(" ", 1)[0]
-    print(today)
-
-    #headlines = za_news.query.filter_by(news_type='headlines').all()
+    yesterday = date.today() - timedelta(days=1)
     headlines = za_news.query.filter(and_(za_news.news_type == 'headlines', za_news.publishedAt.like(f'%{today}%')))
-    #print(headlines)
-    #print(posts)
-    # for headline in headlines:
-    #     #print(headline.publishedAt)
-    #     source = headline.source
-    #     author = headline.author
-    #     title = headline.title
-    #     description = headline.description
-    #     url = headline.url
-    #     image = headline.urlToImage
-    #     date = headline.publishedAt
-    #     content = headline.content
-    #
-    #     print(source)
-    #     print(author)
-    #     print(title)
-    #     print(description)
-    #     print(url)
-    #     print(image)
-    #     print(date)
-    #     print(content)
 
     return render_template('index.html', headlines=headlines)
+
+@app.route('/business')
+def business():
+    today = datetime.now()
+    today = str(today).split(" ", 1)[0]
+    yesterday = date.today() - timedelta(days=1)
+    business = za_news.query.filter(and_(za_news.news_type == 'business', za_news.publishedAt.like(f'%{today}%')))
+
+    return render_template('business.html', business=business)
+
+
+@app.route('/technology')
+def technology():
+    today = datetime.now()
+    today = str(today).split(" ", 1)[0]
+    yesterday = date.today() - timedelta(days=1)
+    technology = za_news.query.filter(and_(za_news.news_type == 'technology', za_news.publishedAt.like(f'%{today}%')))
+
+    return render_template('technology.html', technology=technology)
+
+@app.route('/sports')
+def sports():
+    today = datetime.now()
+    today = str(today).split(" ", 1)[0]
+    yesterday = date.today() - timedelta(days=1)
+    sports = za_news.query.filter(and_(za_news.news_type == 'sports', za_news.publishedAt.like(f'%{today}%')))
+
+    return render_template('sports.html', sports=sports)
+
+@app.route('/entertainment')
+def entertainment():
+    today = datetime.now()
+    today = str(today).split(" ", 1)[0]
+    yesterday = date.today() - timedelta(days=1)
+    entertainment = za_news.query.filter(and_(za_news.news_type == 'entertainment', za_news.publishedAt.like(f'%{today}%')))
+
+    return render_template('entertainment.html', entertainment=entertainment)
+
 
 
 if __name__ == '__main__':

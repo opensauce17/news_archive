@@ -3,16 +3,16 @@
 
 <div class="container">
     <div class="row">
-   {% for headline in headlines %}
+   {% for sports in sports %}
   <div class="col-sm-4 mb-3 d-flex">
     <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-     <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image" height="170">
+     <img class="card-img-top" src="{{ sports.urlToImage }}" alt="Card image" height="170">
       <div class="card-body">
-        <h6 class="card-title"><a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a></h5>
-        <p class="card-subtitle"> {{ headline.description }} </p>
+        <h6 class="card-title"><a href="{{ sports.url }}" target="_blank">{{ sports.title }}</a></h5>
+        <p class="card-subtitle"> {{ sports.description }} </p>
             <hr>
         <font size="2" class="post-meta">
-            Posted by {{ headline.source }} on {{ headline.publishedAt }}
+            Posted by {{ sports.source }} on {{ sports.publishedAt }}
             <br>
          </font>
       </div>
@@ -21,5 +21,6 @@
     {% endfor %}
 </div>
 </div>
+
 
 {% endblock %}

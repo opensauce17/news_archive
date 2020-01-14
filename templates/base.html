@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Daily News Archive</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav-wrapper">
+  <div class="logo">
+      <i class="fas fa-archive"></i> <strong>DAILY NEWS ARCHIVE</strong>
+  </div>
+  <div class="burger-icon"><i class="fas fa-bars"></i> MENU</div>
+  <ul class="nav-items main-nav mobile-hide">
+    <li class="list-item"><a href="{{ url_for('index') }}">Headlines</a></li>
+    <li class="list-item"><a href="{{ url_for('business') }}">Business</a></li>
+    <li class="list-item"><a href="{{ url_for('technology') }}">Technology</a></li>
+    <li class="list-item"><a href="{{ url_for('sports') }}">Sports</a></li>
+    <li class="list-item"><a href="{{ url_for('entertainment') }}">Entertainment</a></li>
+  </ul>
+</nav>
+
+{% block content %}{% endblock %}
+
+
+</body>
+</html>
