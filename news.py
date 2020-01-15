@@ -85,6 +85,42 @@ def za_technology():
 
         sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
 
+
+def za_health():
+
+    za_health = newsapi.get_top_headlines(category='health', language='en', country='za')
+
+    for each_article in za_health['articles']:
+        source = each_article['source']['name']
+        author = each_article['author']
+        title = each_article['title']
+        description = each_article['description']
+        url = each_article['url']
+        urlToImage = each_article['urlToImage']
+        publishedAt = each_article['publishedAt']
+        content = each_article['content']
+        news_type = 'health'
+
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+
+
+def za_science():
+
+    za_science = newsapi.get_top_headlines(category='science', language='en', country='za')
+
+    for each_article in za_science['articles']:
+        source = each_article['source']['name']
+        author = each_article['author']
+        title = each_article['title']
+        description = each_article['description']
+        url = each_article['url']
+        urlToImage = each_article['urlToImage']
+        publishedAt = each_article['publishedAt']
+        content = each_article['content']
+        news_type = 'science'
+
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+
 def za_sports():
 
     za_sports = newsapi.get_top_headlines(category='sports', language='en', country='za')
@@ -123,6 +159,8 @@ def main():
 
     za_top_headlines()
     za_business()
+    za_health()
+    za_science()
     za_technology()
     za_sports()
     za_entertainment()

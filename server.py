@@ -33,50 +33,77 @@ class za_news(db.Model):
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
 
-@app.route('/')
+@app.route('/za/')
 def index():
 
     today = datetime.now()
     today = str(today).split(" ", 1)[0]
     yesterday = date.today() - timedelta(days=1)
-    headlines = za_news.query.filter(and_(za_news.news_type == 'headlines', za_news.publishedAt.like(f'%{today}%')))
+    headlines = za_news.query.filter(and_(za_news.news_type == 'headlines', za_news.publishedAt.like(f'%{today}%')))\
+        .order_by(za_news.publishedAt.desc())
 
     return render_template('index.html', headlines=headlines)
 
-@app.route('/business')
+@app.route('/za/business')
 def business():
     today = datetime.now()
     today = str(today).split(" ", 1)[0]
     yesterday = date.today() - timedelta(days=1)
-    business = za_news.query.filter(and_(za_news.news_type == 'business', za_news.publishedAt.like(f'%{today}%')))
+    business = za_news.query.filter(and_(za_news.news_type == 'business', za_news.publishedAt.like(f'%{today}%')))\
+        .order_by(za_news.publishedAt.desc())
 
     return render_template('business.html', business=business)
 
 
-@app.route('/technology')
+@app.route('/za/technology')
 def technology():
     today = datetime.now()
     today = str(today).split(" ", 1)[0]
     yesterday = date.today() - timedelta(days=1)
-    technology = za_news.query.filter(and_(za_news.news_type == 'technology', za_news.publishedAt.like(f'%{today}%')))
+    technology = za_news.query.filter(and_(za_news.news_type == 'technology', za_news.publishedAt.like(f'%{today}%')))\
+        .order_by(za_news.publishedAt.desc())
 
     return render_template('technology.html', technology=technology)
 
-@app.route('/sports')
+@app.route('/za/sports')
 def sports():
     today = datetime.now()
     today = str(today).split(" ", 1)[0]
     yesterday = date.today() - timedelta(days=1)
-    sports = za_news.query.filter(and_(za_news.news_type == 'sports', za_news.publishedAt.like(f'%{today}%')))
+    sports = za_news.query.filter(and_(za_news.news_type == 'sports', za_news.publishedAt.like(f'%{today}%')))\
+        .order_by(za_news.publishedAt.desc())
 
     return render_template('sports.html', sports=sports)
 
-@app.route('/entertainment')
+
+@app.route('/za/health')
+def health():
+    today = datetime.now()
+    today = str(today).split(" ", 1)[0]
+    yesterday = date.today() - timedelta(days=1)
+    health = za_news.query.filter(and_(za_news.news_type == 'health', za_news.publishedAt.like(f'%{today}%')))\
+        .order_by(za_news.publishedAt.desc())
+
+    return render_template('health.html', health=health)
+
+@app.route('/za/science')
+def science():
+    today = datetime.now()
+    today = str(today).split(" ", 1)[0]
+    yesterday = date.today() - timedelta(days=1)
+    science = za_news.query.filter(and_(za_news.news_type == 'science', za_news.publishedAt.like(f'%{today}%')))\
+        .order_by(za_news.publishedAt.desc())
+
+    return render_template('science.html', science=science)
+
+
+@app.route('/za/entertainment')
 def entertainment():
     today = datetime.now()
     today = str(today).split(" ", 1)[0]
     yesterday = date.today() - timedelta(days=1)
-    entertainment = za_news.query.filter(and_(za_news.news_type == 'entertainment', za_news.publishedAt.like(f'%{today}%')))
+    entertainment = za_news.query.filter(and_(za_news.news_type == 'entertainment', za_news.publishedAt
+                                              .like(f'%{today}%'))).order_by(za_news.publishedAt.desc())
 
     return render_template('entertainment.html', entertainment=entertainment)
 

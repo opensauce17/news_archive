@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 <title>Daily News Archive</title>
 <meta charset="utf-8">
@@ -11,12 +11,47 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="app.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
 </head>
 <body>
 
-<nav class="nav-wrapper">
+
+<!-- Just an image -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <nav class="navbar nav-wrapper navbar-light bg-light">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+              <img src="https://www.countryflags.io/za/shiny/64.png" width="50" height="50" alt="">
+
+            </a>
+                      <a class="nav-item nav-link" href="{{ url_for('index') }}">HEADLINES</a>
+                      <a class="nav-item nav-link" href="{{ url_for('business') }}">BUSINESS</a>
+                      <a class="nav-item nav-link" href="{{ url_for('technology') }}">TECHNOLOGY</a>
+                      <a class="nav-item nav-link" href="{{ url_for('health') }}">HEALTH</a>
+                      <a class="nav-item nav-link" href="{{ url_for('science') }}">SCIENCE</a>
+                      <a class="nav-item nav-link" href="{{ url_for('sports') }}">SPORT</a>
+                      <a class="nav-item nav-link" href="{{ url_for('entertainment') }}">ENTERTAINMENT</a>
+        </nav>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm offset-sm-1 text-center">
+     <form class="form-inline justify-content-center" action="">
+
+             <input type="date" class="form-control mb-2 mr-sm-2" placeholder="Date" id="date">
+
+             <input type="input" class="form-control mb-2 mr-sm-2" placeholder="Country" id="country">
+             <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+    </div>
+    </div>
+  </div>
+
+<!--<nav class="nav-wrapper">
   <div class="logo">
       <i class="fas fa-archive"></i> <strong>DAILY NEWS ARCHIVE</strong>
   </div>
@@ -28,7 +63,7 @@
     <li class="list-item"><a href="{{ url_for('sports') }}">Sports</a></li>
     <li class="list-item"><a href="{{ url_for('entertainment') }}">Entertainment</a></li>
   </ul>
-</nav>
+</nav> -->
 
 {% block content %}{% endblock %}
 
