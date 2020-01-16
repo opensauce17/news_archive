@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-<title>Daily News Archive</title>
+<title>South African Daily News Archive</title>
 <meta charset="utf-8">
 <link rel="shortcut icon" href="{{ url_for('static', filename='images/newspaper.png') }}" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +20,12 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-        <nav class="navbar nav-wrapper navbar-light bg-light">
+        <nav class="navbar nav-wrapper navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ url_for('index') }}">
               <img src="https://www.countryflags.io/za/shiny/64.png" width="50" height="50" alt="">
+                SA Daily News Archive
+
+
 
             </a>
                       <a class="nav-item nav-link" href="{{ url_for('index') }}">HEADLINES</a>
@@ -40,11 +43,20 @@
 <div class="container">
   <div class="row">
     <div class="col-sm offset-sm-1 text-center">
-     <form class="form-inline justify-content-center" action="">
+     <form class="form-inline justify-content-center" action="/search">
 
-             <input type="date" class="form-control mb-2 mr-sm-2" placeholder="Date" id="date">
+             <input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="Date" name="date" id="date" min="2020-01-09">
 
-             <input type="input" class="form-control mb-2 mr-sm-2" placeholder="Country" id="country">
+             <!--<input type="input" class="form-control mb-2 mr-sm-2" placeholder="Country" name="country" id="country">-->
+             <select name="newstype" class="form-control mb-2 mr-sm-2" id="newstype">
+                 <option value="headlines">  Headlines  </option>
+                 <option value="business">  Business  </option>
+                 <option value="technology">  Technology  </option>
+                 <option value="health">  Health  </option>
+                 <option value="science">  Science  </option>
+                 <option value="sports">  Sport  </option>
+                 <option value="entertainment">  Entertainment  </option>
+             </select>
              <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
     </div>
