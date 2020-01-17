@@ -43,25 +43,25 @@
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li id="headlines" class="nav-item active">
                       <a class="nav-item nav-link" href="{{ url_for('index') }}">HEADLINES</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="business" class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('business') }}">BUSINESS</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="technology"  class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('technology') }}">TECHNOLOGY</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="health" class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('health') }}">HEALTH</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="science" class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('science') }}">SCIENCE</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="sport" class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('sports') }}">SPORT</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="entertainment" class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('entertainment') }}">ENTERTAINMENT</a>
                   </li>
                     <li class="navbar-nav mr-auto">
@@ -72,21 +72,6 @@
                    </li> -->
                 </ul>
             </div>
-
-
-           <!--<form class="form-inline" action="/search">
-             <input type="date" class="form-control mr-sm-2" value="" placeholder="Date" name="date" id="date" min="2020-01-09">
-             <select name="newstype" class="form-control mb-2 mr-sm-2" id="newstype">
-                 <option value="headlines">  Headlines  </option>
-                 <option value="business">  Business  </option>
-                 <option value="technology">  Technology  </option>
-                 <option value="health">  Health  </option>
-                 <option value="science">  Science  </option>
-                 <option value="sports">  Sport  </option>
-                 <option value="entertainment">  Entertainment  </option>
-             </select>
-             <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            </form> -->
         </nav>
     </div>
   </div>
@@ -116,20 +101,6 @@
     </div>
   </div>
 <hr>
-
-<!--<nav class="nav-wrapper">
-  <div class="logo">
-      <i class="fas fa-archive"></i> <strong>DAILY NEWS ARCHIVE</strong>
-  </div>
-  <div class="burger-icon"><i class="fas fa-bars"></i> MENU</div>
-  <ul class="nav-items main-nav mobile-hide">
-    <li class="list-item"><a href="{{ url_for('index') }}">Headlines</a></li>
-    <li class="list-item"><a href="{{ url_for('business') }}">Business</a></li>
-    <li class="list-item"><a href="{{ url_for('technology') }}">Technology</a></li>
-    <li class="list-item"><a href="{{ url_for('sports') }}">Sports</a></li>
-    <li class="list-item"><a href="{{ url_for('entertainment') }}">Entertainment</a></li>
-  </ul>
-</nav> -->
 
 {% block content %}{% endblock %}
 
