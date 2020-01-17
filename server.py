@@ -103,8 +103,9 @@ def index():
     today_date = str(today_date).split(" ", 1)[0]
     headlines = za_news.query.filter(and_(za_news.news_type == 'headlines', za_news.publishedAt.like(f'%{today_date}%')))\
         .order_by(za_news.publishedAt.desc())
+    news_type = 'headlines'
 
-    return render_template('index.html', headlines=headlines, today=today)
+    return render_template('index.html', headlines=headlines, today=today, news_type=news_type)
 
 @app.route('/business', methods=['GET', 'POST'])
 def business():
@@ -113,8 +114,9 @@ def business():
     today_date = str(today_date).split(" ", 1)[0]
     business = za_news.query.filter(and_(za_news.news_type == 'business', za_news.publishedAt.like(f'%{today_date}%')))\
         .order_by(za_news.publishedAt.desc())
+    news_type = 'business'
 
-    return render_template('business.html', business=business, today=today)
+    return render_template('business.html', business=business, today=today, news_type=news_type)
 
 
 @app.route('/technology', methods=['GET', 'POST'])
@@ -124,8 +126,9 @@ def technology():
     today_date = str(today_date).split(" ", 1)[0]
     technology = za_news.query.filter(and_(za_news.news_type == 'technology', za_news.publishedAt.like(f'%{today_date}%')))\
         .order_by(za_news.publishedAt.desc())
+    news_type = 'technology'
 
-    return render_template('technology.html', technology=technology, today=today)
+    return render_template('technology.html', technology=technology, today=today, news_type=news_type)
 
 @app.route('/health', methods=['GET', 'POST'])
 def health():
@@ -134,8 +137,9 @@ def health():
     today_date = str(today_date).split(" ", 1)[0]
     health = za_news.query.filter(and_(za_news.news_type == 'health', za_news.publishedAt.like(f'%{today_date}%')))\
         .order_by(za_news.publishedAt.desc())
+    news_type = 'health'
 
-    return render_template('health.html', health=health, today=today)
+    return render_template('health.html', health=health, today=today, news_type=news_type)
 
 @app.route('/science', methods=['GET', 'POST'])
 def science():
@@ -144,8 +148,9 @@ def science():
     today_date = str(today_date).split(" ", 1)[0]
     science = za_news.query.filter(and_(za_news.news_type == 'science', za_news.publishedAt.like(f'%{today_date}%')))\
         .order_by(za_news.publishedAt.desc())
+    news_type = 'science'
 
-    return render_template('science.html', science=science, today=today)
+    return render_template('science.html', science=science, today=today, news_type=news_type)
 
 @app.route('/sports', methods=['GET', 'POST'])
 def sports():
@@ -154,8 +159,9 @@ def sports():
     today_date = str(today_date).split(" ", 1)[0]
     sports = za_news.query.filter(and_(za_news.news_type == 'sports', za_news.publishedAt.like(f'%{today_date}%')))\
         .order_by(za_news.publishedAt.desc())
+    news_type = 'sports'
 
-    return render_template('sports.html', sports=sports, today=today)
+    return render_template('sports.html', sports=sports, today=today, news_type=news_type)
 
 @app.route('/entertainment', methods=['GET', 'POST'])
 def entertainment():
@@ -164,8 +170,9 @@ def entertainment():
     today_date = str(today_date).split(" ", 1)[0]
     entertainment = za_news.query.filter(and_(za_news.news_type == 'entertainment', za_news.publishedAt
                                               .like(f'%{today_date}%'))).order_by(za_news.publishedAt.desc())
+    news_type = 'entertainment'
 
-    return render_template('entertainment.html', entertainment=entertainment, today=today)
+    return render_template('entertainment.html', entertainment=entertainment, today=today, news_type=news_type)
 
 
 

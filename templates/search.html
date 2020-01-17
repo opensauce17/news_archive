@@ -4,11 +4,6 @@
 
 
 {% if news_type == 'headlines' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
 
@@ -35,11 +30,6 @@
   {% endif %}
 
 {% if news_type == 'business' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} News for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
    {% for business in business %}
@@ -66,11 +56,6 @@
 
 
 {% if news_type == 'technology' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} News for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
    {% for technology in technology %}
@@ -96,11 +81,6 @@
   {% endif %}
 
 {% if news_type == 'health' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} News for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
    {% for health in health %}
@@ -126,11 +106,6 @@
   {% endif %}
 
 {% if news_type == 'science' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} News for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
    {% for science in science %}
@@ -156,11 +131,6 @@
   {% endif %}
 
 {% if news_type == 'sports' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} News for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
    {% for sports in sports %}
@@ -186,11 +156,6 @@
   {% endif %}
 
 {% if news_type == 'entertainment' %}
-<div class="container" style="margin-bottom: 15px;">
-    <div class="row justify-content-center">
-        <h3> {{ news_type|capitalize }} News for {{ today }}</h3>
-    </div>
-</div>
 <div class="container">
     <div class="row">
    {% for entertainment in entertainment %}
