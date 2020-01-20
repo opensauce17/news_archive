@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import and_
 from news.models import za_news
 from news.models import us_news
+from news.models import au_news
 
 main = Blueprint('main', __name__)
 
@@ -43,4 +44,16 @@ def country():
 
         return render_template('us/index.html', headlines=headlines, today=today, news_type=news_type)
 
+    if country == "au":
+
+        today = datetime.now().strftime("%d %B, %Y")
+        today_date = datetime.now()
+        today_date = str(today_date).split(" ", 1)[0]
+        headlines = au_news.query.filter(
+            and_(au_news.news_type == 'headlines', au_news.publishedAt.like(f'%{today_date}%'))) \
+            .order_by(au_news.publishedAt.desc())
+        news_type = 'headlines'
+
+
+        return render_template('au/index.html', headlines=headlines, today=today, news_type=news_type)
 
