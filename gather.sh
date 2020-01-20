@@ -1,15 +1,15 @@
 #!/bin/bash
 
-gather/au_news.py
-gather/ca_news.py
-gather/nz_news.py
-gather/gb_news.py
-gather/us_news.py
-gather/za_news.py
+/opt/news_archive/gather/au_news.py
+/opt/news_archive/gather/ca_news.py
+/opt/news_archive/gather/nz_news.py
+/opt/news_archive/gather/gb_news.py
+/opt/news_archive/gather/us_news.py
+/opt/news_archive/gather/za_news.py
 
 message="auto-commit from $USER@$(hostname -s) on $(date)"
 GIT=`which git`
-#REPO_DIR=~/org
+REPO_DIR=/opt/news_archive
 #cd ${REPO_DIR}
 ${GIT} add --all .
 ${GIT} commit -m "$message"
