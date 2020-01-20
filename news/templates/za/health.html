@@ -1,22 +1,23 @@
-{% extends "base.html" %}
+{% extends "za/base.html" %}
 {% block content %}
+
 
 <div class="container">
     <div class="row">
-   {% for technology in technology %}
+   {% for health in health %}
   <div class="col-sm-4 mb-3 d-flex">
     <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-       {% if technology.urlToImage == None %}
+        {% if health.urlToImage == None %}
      <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
        {% else %}
-     <img class="card-img-top" src="{{ technology.urlToImage }}" alt="Card image" height="170">
+     <img class="card-img-top" src="{{ health.urlToImage }}" alt="Card image" height="170">
         {% endif %}
       <div class="card-body">
-        <h6 class="card-title"><a href="{{ technology.url }}" target="_blank">{{ technology.title }}</a></h5>
-        <p class="card-subtitle"> {{ technology.description }} </p>
+        <h6 class="card-title"><a href="{{ health.url }}" target="_blank">{{ health.title }}</a></h5>
+        <p class="card-subtitle"> {{ health.description }} </p>
             <hr>
         <font size="2" class="post-meta">
-            Posted by {{ technology.source }} on {{ technology.publishedAt }}
+            Posted by {{ health.source }} on {{ health.publishedAt }}
             <br>
          </font>
       </div>
@@ -37,7 +38,7 @@
 <script>
    $(document).ready(function(){
    $(".active").removeClass("active");
-   $("#technology").addClass("active");
+   $("#health").addClass("active");
 });
 </script>
 

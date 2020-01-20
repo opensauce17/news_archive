@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<title>South African Daily News Archive</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/eye.png') }}" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+</head>
+<body>
+
+<div class="heightAdder"></div>
+
+<div class="container">
+    <center><img src="{{ url_for('static', filename='images/eye.png') }}" width=200px height="200px"><h4>THE WORLD DAILY NEWS ARCHIVE</h4></center>
+        <hr>
+        <div class="row justify-content-sm-center">
+             <div class="col col-sm-4">
+<div class="form-screen">
+        <div class="card account-dialog">
+            <div class="card-header bg-light text-dark">Select Country</div>
+            <div class="card-body">
+                <form action="/country">
+                    <div class="form-group">
+                        <select name="country" class="form-control mb-2 mr-sm-2" id="country">
+                            <option value="za">  South Africa  </option>
+                            <!--<option value="business">  Business  </option>
+                            <option value="technology">  Technology  </option>
+                            <option value="health">  Health  </option>
+                            <option value="science">  Science  </option>
+                            <option value="sports">  Sport  </option>
+                            <option value="entertainment">  Entertainment  </option> -->
+                       </select>
+                    </div>
+                    <div class="account-dialog-actions">
+                        <button type="submit" class="btn btn-dark">Select</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

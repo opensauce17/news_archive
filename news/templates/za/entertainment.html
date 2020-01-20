@@ -1,23 +1,22 @@
-{% extends "base.html" %}
+{% extends "za/base.html" %}
 {% block content %}
-
 
 <div class="container">
     <div class="row">
-   {% for health in health %}
+   {% for entertainment in entertainment %}
   <div class="col-sm-4 mb-3 d-flex">
     <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if health.urlToImage == None %}
+       {% if entertainment.urlToImage == None %}
      <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
        {% else %}
-     <img class="card-img-top" src="{{ health.urlToImage }}" alt="Card image" height="170">
+     <img class="card-img-top" src="{{ entertainment.urlToImage }}" alt="Card image" height="170">
         {% endif %}
       <div class="card-body">
-        <h6 class="card-title"><a href="{{ health.url }}" target="_blank">{{ health.title }}</a></h5>
-        <p class="card-subtitle"> {{ health.description }} </p>
+        <h6 class="card-title"><a href="{{ entertainment.url }}" target="_blank">{{ entertainment.title }}</a></h5>
+        <p class="card-subtitle"> {{ entertainment.description }} </p>
             <hr>
         <font size="2" class="post-meta">
-            Posted by {{ health.source }} on {{ health.publishedAt }}
+            Posted by {{ entertainment.source }} on {{ entertainment.publishedAt }}
             <br>
          </font>
       </div>
@@ -36,10 +35,12 @@
 </footer>
 
 <script>
+
    $(document).ready(function(){
    $(".active").removeClass("active");
-   $("#health").addClass("active");
+   $("#entertainment").addClass("active");
 });
+
 </script>
 
 {% endblock %}

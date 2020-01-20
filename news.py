@@ -6,11 +6,11 @@ import sqlite3
 newsapi = NewsApiClient(api_key='ba7975edd96d4cecb9a952702565769a')
 
 
-
+### DATABASE INSERTS ###
 def sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type):
 
     try:
-        sqliteConnection = sqlite3.connect('db/db.db')
+        sqliteConnection = sqlite3.connect('news/db/db.db')
         cursor = sqliteConnection.cursor()
         print("Successfully Connected to SQLite")
 
@@ -32,6 +32,9 @@ def sql_insert(source, author, title, description, url, urlToImage, publishedAt,
         if (sqliteConnection):
             sqliteConnection.close()
             print("The SQLite connection is closed")
+
+
+### SOUTH AFRICA ####
 
 def za_top_headlines():
 
@@ -154,6 +157,8 @@ def za_entertainment():
         news_type = 'entertainment'
 
         sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+
+### END SOUTH AFRICA ###
 
 def main():
 

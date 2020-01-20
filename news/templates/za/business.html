@@ -1,22 +1,22 @@
-{% extends "base.html" %}
+{% extends "za/base.html" %}
 {% block content %}
 
 <div class="container">
     <div class="row">
-   {% for entertainment in entertainment %}
+   {% for business in business %}
   <div class="col-sm-4 mb-3 d-flex">
     <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-       {% if entertainment.urlToImage == None %}
+        {% if business.urlToImage == None %}
      <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
        {% else %}
-     <img class="card-img-top" src="{{ entertainment.urlToImage }}" alt="Card image" height="170">
+     <img class="card-img-top" src="{{ business.urlToImage }}" alt="Card image" height="170">
         {% endif %}
       <div class="card-body">
-        <h6 class="card-title"><a href="{{ entertainment.url }}" target="_blank">{{ entertainment.title }}</a></h5>
-        <p class="card-subtitle"> {{ entertainment.description }} </p>
+        <h6 class="card-title"><a href="{{ business.url }}" target="_blank">{{ business.title }}</a></h5>
+        <p class="card-subtitle"> {{ business.description }} </p>
             <hr>
         <font size="2" class="post-meta">
-            Posted by {{ entertainment.source }} on {{ entertainment.publishedAt }}
+            Posted by {{ business.source }} on {{ business.publishedAt }}
             <br>
          </font>
       </div>
@@ -35,12 +35,10 @@
 </footer>
 
 <script>
-
    $(document).ready(function(){
    $(".active").removeClass("active");
-   $("#entertainment").addClass("active");
+   $("#business").addClass("active");
 });
-
 </script>
 
 {% endblock %}
