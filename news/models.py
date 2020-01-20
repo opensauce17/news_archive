@@ -10,8 +10,6 @@ class za_news(db.Model):
     description = db.Column(db.String(100))
     url = db.Column(db.String(100))
     urlToImage = db.Column(db.String(100))
-    #publishedAt = db.Column(db.DateTime)
     publishedAt = db.Column(db.Text)
-    #publishedAt = db.Column(db.String(100))
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
