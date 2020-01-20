@@ -1,0 +1,44 @@
+{% extends "gb/base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+   {% for sports in sports %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+       {% if sports.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ sports.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ sports.url }}" target="_blank">{{ sports.title }}</a></h5>
+        <p class="card-subtitle"> {{ sports.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ sports.source }} on {{ sports.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mikehyland.com" target="_blank"> mikehyland.com</a>
+  </div>
+
+</footer>
+
+<script>
+   $(document).ready(function(){
+   $(".active").removeClass("active");
+   $("#sport").addClass("active");
+});
+</script>
+
+{% endblock %}
