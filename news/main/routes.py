@@ -2,6 +2,7 @@ from flask import render_template, request, url_for, redirect, message_flashed, 
 from datetime import datetime
 from sqlalchemy import and_
 from news.models import za_news
+from news.models import us_news
 
 main = Blueprint('main', __name__)
 
@@ -30,6 +31,16 @@ def country():
         return render_template('za/index.html', headlines=headlines, today=today, news_type=news_type)
 
     if country == "us":
-        return render_template('za/index.html')
+
+        today = datetime.now().strftime("%d %B, %Y")
+        today_date = datetime.now()
+        today_date = str(today_date).split(" ", 1)[0]
+        headlines = us_news.query.filter(
+            and_(us_news.news_type == 'headlines', za_news.publishedAt.like(f'%{today_date}%'))) \
+            .order_by(za_news.publishedAt.desc())
+        news_type = 'headlines'
+
+
+        return render_template('us/index.html', headlines=headlines, today=today, news_type=news_type)
 
 
