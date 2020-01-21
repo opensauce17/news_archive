@@ -11,6 +11,8 @@ message="auto-commit from Mike Hyland  on $(date)"
 GIT=`which git`
 REPO_DIR=/opt/news_archive
 cd ${REPO_DIR}
+${GIT} config user.email "opensauce17@gmail.com"
+${GIT} config user.name "Mike Hyland"
 ${GIT} add --all .
 ${GIT} commit -m "$message"
 ${GIT} checkout master
