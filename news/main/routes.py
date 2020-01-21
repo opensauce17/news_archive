@@ -41,7 +41,7 @@ def country():
         today_date = str(today_date).split(" ", 1)[0]
         headlines = us_news.query.filter(
             and_(us_news.news_type == 'headlines', us_news.publishedAt.like(f'%{today_date}%'))) \
-            .order_by(za_news.publishedAt.desc())
+            .order_by(us_news.publishedAt.desc())
         news_type = 'headlines'
 
 
