@@ -10,7 +10,7 @@ newsapi = NewsApiClient(api_key='ba7975edd96d4cecb9a952702565769a')
 def sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type):
 
     try:
-        sqliteConnection = sqlite3.connect('news/db/db.db')
+        sqliteConnection = sqlite3.connect('/opt/news_archive/news/db/db.db')
         cursor = sqliteConnection.cursor()
         print("Successfully Connected to SQLite")
 
