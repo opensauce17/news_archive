@@ -1,11 +1,11 @@
 #!/bin/bash
 
-/opt/news_archive/gather/au_news.py
-/opt/news_archive/gather/ca_news.py
-/opt/news_archive/gather/nz_news.py
-/opt/news_archive/gather/gb_news.py
-/opt/news_archive/gather/us_news.py
-/opt/news_archive/gather/za_news.py
+#/opt/news_archive/gather/au_news.py
+#/opt/news_archive/gather/ca_news.py
+#/opt/news_archive/gather/nz_news.py
+#/opt/news_archive/gather/gb_news.py
+#/opt/news_archive/gather/us_news.py
+#/opt/news_archive/gather/za_news.py
 
 message="auto-commit from Mike Hyland  on $(date)"
 GIT=`which git`
