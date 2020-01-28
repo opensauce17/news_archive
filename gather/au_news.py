@@ -2,8 +2,16 @@
 
 from newsapi import NewsApiClient
 import sqlite3
+from envious import load_env
+import os
 
-newsapi = NewsApiClient(api_key='ba7975edd96d4cecb9a952702565769a')
+os.environ['ENV_FILE'] = os.path.dirname(os.path.abspath(__file__)) + '/.env'
+load_env()
+api_key = os.getenv('API_KEY')
+
+
+#newsapi = NewsApiClient(api_key='ba7975edd96d4cecb9a952702565769a')
+newsapi = NewsApiClient(api_key=api_key)
 
 
 ### DATABASE INSERTS ###
