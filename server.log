@@ -1,8 +1,0 @@
-15-Jun-19 10:25:25 	 _internal 	 WARNING 		  * Debugger is active!
-15-Jun-19 10:25:26 	 _internal 	 INFO 		  * Debugger PIN: 250-909-383
-15-Jun-19 10:25:40 	 _internal 	 INFO 		 127.0.0.1 - - [15/Jun/2019 10:25:40] "[37mGET / HTTP/1.1[0m" 200 -
-15-Jun-19 10:25:40 	 _internal 	 INFO 		 127.0.0.1 - - [15/Jun/2019 10:25:40] "[36mGET /static/css/normalize.css HTTP/1.1[0m" 304 -
-15-Jun-19 10:25:40 	 _internal 	 INFO 		 127.0.0.1 - - [15/Jun/2019 10:25:40] "[36mGET /static/css/skeleton.css HTTP/1.1[0m" 304 -
-15-Jun-19 10:25:40 	 _internal 	 INFO 		 127.0.0.1 - - [15/Jun/2019 10:25:40] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
-15-Jun-19 10:25:40 	 _internal 	 INFO 		 127.0.0.1 - - [15/Jun/2019 10:25:40] "[37mGET /static/js/site.js HTTP/1.1[0m" 200 -
-15-Jun-19 10:25:40 	 _internal 	 INFO 		 127.0.0.1 - - [15/Jun/2019 10:25:40] "[37mGET /static/images/Kapplogo3.png HTTP/1.1[0m" 200 -
