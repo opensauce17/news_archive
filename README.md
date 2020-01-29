@@ -17,7 +17,7 @@ All news articles are displayed from latest to oldest.
 
 1. Python 3
 2. Flask Web Framework
-3. API KEYS FOR the <a href="https://newsapi.org/" target="_blank">News API</a>
+3. API Keys for the <a href="https://newsapi.org/" target="_blank">News API</a>
 
 ## Config File for API Keys
 
