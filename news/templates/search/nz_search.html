@@ -1,0 +1,452 @@
+{% extends "search/base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+
+{% if news_type == 'Headlines' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for headline in nz_headlines %}
+        {% for nz_headline in headline %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_headline.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_headline.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_headline.url }}" target="_blank">{{ nz_headline.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_headline.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_headline.source }} on {{ nz_headline.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Business' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for business in nz_business %}
+        {% for nz_business in business %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_business.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_business.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_business.url }}" target="_blank">{{ nz_business.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_business.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_business.source }} on {{ nz_business.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Technology' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for technology in nz_technology %}
+        {% for nz_technology in technology %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_technology.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_technology.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_technology.url }}" target="_blank">{{ nz_technology.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_technology.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_technology.source }} on {{ nz_technology.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Health' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for health in nz_health %}
+        {% for nz_health in health %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_health.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_health.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_health.url }}" target="_blank">{{ nz_health.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_health.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_health.source }} on {{ nz_health.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Science' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for health in nz_science %}
+        {% for nz_science in health %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_science.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_science.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_science.url }}" target="_blank">{{ nz_science.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_science.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_science.source }} on {{ nz_science.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Sport' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for sport in nz_sport %}
+        {% for nz_sport in sport %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_sport.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_sport.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_sport.url }}" target="_blank">{{ nz_sport.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_sport.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_sport.source }} on {{ nz_sport.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Entertainment' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for entertainment in nz_entertainment %}
+        {% for nz_entertainment in entertainment %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_entertainment.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_entertainment.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_entertainment.url }}" target="_blank">{{ nz_entertainment.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_entertainment.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_entertainment.source }} on {{ nz_entertainment.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+
+{% if news_type == 'Headlines' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for headlines in nz_search_headlines %}
+        {% for nz_search_headlines in headlines %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_headlines.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_headlines.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_headlines.url }}" target="_blank">{{ nz_search_headlines.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_headlines.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_headlines.source }} on {{ nz_search_headlines.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Business' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for business in nz_search_business %}
+        {% for nz_search_business in business %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_business.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_business.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_business.url }}" target="_blank">{{ nz_search_business.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_business.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_business.source }} on {{ nz_search_business.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Technology' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for technology in nz_search_technology %}
+        {% for nz_search_technology in technology %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_technology.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_technology.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_technology.url }}" target="_blank">{{ nz_search_technology.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_technology.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_technology.source }} on {{ nz_search_technology.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Health' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for health in nz_search_health %}
+        {% for nz_search_health in health %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_health.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_health.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_health.url }}" target="_blank">{{ nz_search_health.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_health.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_health.source }} on {{ nz_search_health.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Science' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for science in nz_search_science %}
+        {% for nz_search_science in science %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_science.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_science.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_science.url }}" target="_blank">{{ nz_search_science.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_science.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_science.source }} on {{ nz_search_science.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Sport' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for sport in nz_search_sport %}
+        {% for nz_search_sport in sport %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_sport.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_sport.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_sport.url }}" target="_blank">{{ nz_search_sport.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_sport.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_sport.source }} on {{ nz_search_sport.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Entertainment' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for entertainment in nz_search_entertainment %}
+        {% for nz_search_entertainment in entertainment %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if nz_search_entertainment.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ nz_search_entertainment.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ nz_search_entertainment.url }}" target="_blank">{{ nz_search_entertainment.title }}</a></h6>
+        <p class="card-subtitle"> {{ nz_search_entertainment.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ nz_search_entertainment.source }} on {{ nz_search_entertainment.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+
+<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mikehyland.com" target="_blank"> mikehyland.com</a>
+  </div>
+
+</footer>
+
+{% endblock %}

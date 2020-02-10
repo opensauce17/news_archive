@@ -61,7 +61,7 @@
              </button>
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li id="headlines" class="nav-item active">
                       <a class="nav-item nav-link" href="{{ url_for('ca.index') }}">HEADLINES</a>
                     </li>
@@ -82,11 +82,20 @@
                     </li>
                     <li id="entertainment" class="nav-item">
                       <a class="nav-item nav-link" href="{{ url_for('ca.entertainment') }}">ENTERTAINMENT</a>
+                    </li>
+                </ul>
+                    <ul class="navbar-nav ml-auto">
+                <!--   <li class="navbar-nav mr-auto">
+                    <a href="#"><img src="{{ url_for('static', filename='images/stats_icon.png') }}" data-toggle="modal" data-target="#exampleModalStatsCenter" width="30" height="30" alt="Image"></a>
+                   </li> -->
                     <li class="navbar-nav mr-auto">
-                    <a href="#"><img src="{{ url_for('static', filename='images/country_icon.png') }}" data-toggle="modal" data-target="#exampleModalCountryCenter" width="40" height="40" alt="Image"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='images/search_icon.png') }}" data-toggle="modal" data-target="#exampleModalSearchCenter" width="30" height="30" alt="Image"></a>
                    </li>
                     <li class="navbar-nav mr-auto">
-                     <a href="#"><img src="{{ url_for('static', filename='images/info.png') }}" data-toggle="modal" data-target="#exampleModalFormCenter" width="40" height="40" alt="Image"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='images/country_icon.png') }}" data-toggle="modal" data-target="#exampleModalCountryCenter" width="30" height="30" alt="Image"></a>
+                   </li>
+                    <li class="navbar-nav mr-auto">
+                     <a href="#"><img src="{{ url_for('static', filename='images/info.png') }}" data-toggle="modal" data-target="#exampleModalFormCenter" width="30" height="30" alt="Image"></a>
                    </li>
                   <li class="navbar-nav mr-auto">
                 </ul>
@@ -99,8 +108,8 @@
 
 <div class="container">
   <div class="row" style="padding-top: 0px;">
-    <div class="col-sm offset-sm-1 text-center">
-        Search News by Date and Category
+    <div class="col-lg-8 offset-sm-2" >
+        <center>Search Canada News by Date and Category</center>
      <form class="form-inline justify-content-center" action="/ca/search">
 
              <input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="Date" name="date" id="date" min="2020-01-20">
@@ -120,6 +129,115 @@
 
     </div>
   </div>
+
+<!-- Modal Search Submit Form -->
+<div class="modal fade" id="exampleModalSearchCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">Advanced Archive Search</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+
+    <div class="col-lg-14 offset-sm-1">
+     <form class="form-inline" action="/search">
+
+         <!--<input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="From Date" name="from_date" id="from_date" min="2020-01-20" style="width: 204px;"> -->
+         <input placeholder="From Date" class="textbox-n form-control mb-2 mr-sm-2" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="from_date" id="from_date" min="2020-01-20" required style="width: 204px;"/>
+
+         <input placeholder="To Date"   class="textbox-n form-control mb-2 mr-sm-2" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="to_date" id="to_date" min="2020-01-20"  required style="width: 204px;"/>
+
+             <select name="country" class="form-control mb-2 mr-sm-2" id="search_country" style="width: 204px;">
+                 <!--<option value="" disabled selected>Country</option> -->
+                 <option value="Australia">  Australia  </option>
+                 <option value="Canada">  Canada  </option>
+                 <option value="Great Britain">  Great Britain  </option>
+                 <option value="New Zealand">  New Zealand  </option>
+                 <option value="South Africa">  South Africa  </option>
+                 <option value="United States">  United States  </option>
+             </select>
+
+             <select name="newstype" class="form-control mb-2 mr-sm-2" id="news_type" style="width: 204px;">
+                <!-- <option value="" disabled selected>News Category</option> -->
+                 <option value="Headlines">  Headlines  </option>
+                 <option value="Business">  Business  </option>
+                 <option value="Technology">  Technology  </option>
+                 <option value="Health">  Health  </option>
+                 <option value="Science">  Science  </option>
+                 <option value="Sport">  Sport  </option>
+                 <option value="Entertainment">  Entertainment  </option>
+             </select>
+         <input type="input" class="form-control mb-2 mr-sm-2"  size="48" value="" placeholder="Search words/phrases" name="search_bar" id="search_bar" required>
+
+          <button type="submit" class="btn btn-primary mb-3">Search</button>
+         <div class="col-sm-14 offset-sm-1">
+         <input type="checkbox" id="search_everything" name="search_everything" onclick='disableFields()'>
+             Search Everything<br>
+         <input type="checkbox" id="exclude_search_bar" name="exclude_search_bar" onclick='disabledSearchField()'>
+             Date, Category and Country Only
+         </div>
+             </form>
+
+         <script>
+
+                  var ids = ['from_date','to_date','search_country','news_type']
+
+
+                  function disableFields() {
+
+                  var box = document.getElementById("search_everything");
+
+                  if (box.checked) {
+
+                      for (var i = 0; i < ids.length; i++) {
+                      document.getElementById(ids[i]).setAttribute("disabled","disabled");
+                   }
+
+                 } else {
+
+                       for (var i = 0; i < ids.length; i++) {
+                       document.getElementById(ids[i]).removeAttribute("disabled", "disabled")
+
+                   }
+              }
+             }
+       </script>
+
+         <script>
+
+             function disabledSearchField() {
+
+             var box = document.getElementById("exclude_search_bar");
+
+             if (box.checked) {
+                document.getElementById('search_bar').setAttribute('disabled','disabled');
+
+                } else {
+                 document.getElementById('search_bar').removeAttribute('disabled','disabled')
+                 }
+
+             }
+        </script>
+
+
+    </div>
+
+    </div>
+
+
+
+
+  </div>
+  </div>
+</div>
+
+
+
 
 <!-- Modal City Submit Form -->
 <div class="modal fade" id="exampleModalCountryCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -186,10 +304,12 @@
                  per selected country, category and date. The navigation items will display today's news in the selected categories for the selected country.
              </p>
              <p style="text-align: justify;">
-                 The search mechanism queries the database by date and category within the selected country and allows the user to view archived news articles.
+                 There are two search mechanisms: <b>country specific search</b> and <b>advanced search</b>.
              </p>
              <p style="text-align: justify;">
-                 All news articles are displayed from latest to oldest.
+                 The country specific search mechanism is found at the top of each country page and queries the
+                 database by date and category within the selected country and allows the user to view archived news articles. The advanced search mechanism is found on the navigation bar
+                 and offers the user a variety of search features.
              </p>
            </center>
 

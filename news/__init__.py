@@ -11,6 +11,7 @@ app.config['SECRET_KEY'] = 'CGVC39xyCk8lUmR6DzT_LA'
 db = SQLAlchemy(app)
 
 from news.main.routes import main
+from news.search.routes import global_search
 from news.za.routes import za
 from news.us.routes import us
 from news.au.routes import au
@@ -26,3 +27,4 @@ app.register_blueprint(au)
 app.register_blueprint(ca)
 app.register_blueprint(nz)
 app.register_blueprint(gb)
+app.register_blueprint(global_search)

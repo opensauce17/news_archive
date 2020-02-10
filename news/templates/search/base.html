@@ -11,7 +11,7 @@
   gtag('config', 'UA-154720817-4');
 </script>
 
-<title>The World News Archive</title>
+<title>World News Archive</title>
 <meta charset="utf-8">
 <link rel="shortcut icon" href="{{ url_for('static', filename='images/eye.png') }}" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,14 +39,14 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light text-dark fixed-top justify-content-center justify-content-between">
 
             <a class="navbar-brand mr-1" href="{{ url_for('main.index') }}">
-              <!--<img src="https://www.countryflags.io/au/shiny/32.png">-->
+              <!--<img src="https://www.countryflags.io/us/shiny/32.png">-->
               <img src="{{ url_for('static', filename='images/eye.png') }}" width=50px height="50px">
-                 </a>
+                </a>
 
-                <strong><font size="4">The World News Archive</font>
+            <strong><font size="4">The World News Archive</font>
                 <br>
-                 <font size="2">Australia <img src="https://www.countryflags.io/au/shiny/32.png" style="padding-left: 10px;">
-                    {{ news_type|capitalize }} {{ today }}
+                <!--  <font size="2">United States <img src="https://www.countryflags.io/us/shiny/32.png" style="padding-left: 10px;">
+                    {{ news_type|capitalize }} {{ today }} -->
 
 
                 </font></strong>
@@ -61,30 +61,26 @@
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
                 <ul class="navbar-nav ml-auto">
-                    <li id="headlines" class="nav-item active">
-                      <a class="nav-item nav-link" href="{{ url_for('au.index') }}">HEADLINES</a>
+                    {% if search == None %}
+                    <li>
+                         <font size="5">{{ country }} {{ news_type }}</font> between <font size="5">{{ from_date }}</font> and <font size="5">{{ to_date }}</font>
                     </li>
-                    <li id="business" class="nav-item">
-                      <a class="nav-item nav-link" href="{{ url_for('au.business') }}">BUSINESS</a>
+                    {% elif date_category_country != 'on' and search_everything != 'on' %}
+                     <li>
+                         <font size="5">{{ country }} {{ news_type }}</font> between <font size="5">{{ from_date }}</font> and <font size="5">{{ to_date }}</font>
+                         <br>
+                         <center>Search Item: <font size="5">{{ search }}</font></center>
                     </li>
-                    <li id="technology"  class="nav-item">
-                      <a class="nav-item nav-link" href="{{ url_for('au.technology') }}">TECHNOLOGY</a>
+                     {% elif search_everything == 'on' and date_category_country != 'on' %}
+                    <li>
+                         <font size="5">All Countries, All Categories, All Dates </font>
+                        <br>
+                        <center>Search Item: <font size="5">{{ search }}</font></center>
                     </li>
-                    <li id="health" class="nav-item">
-                      <a class="nav-item nav-link" href="{{ url_for('au.health') }}">HEALTH</a>
-                    </li>
-                    <li id="science" class="nav-item">
-                      <a class="nav-item nav-link" href="{{ url_for('au.science') }}">SCIENCE</a>
-                    </li>
-                    <li id="sport" class="nav-item">
-                      <a class="nav-item nav-link" href="{{ url_for('au.sports') }}">SPORT</a>
-                    </li>
-                    <li id="entertainment" class="nav-item">
-                      <a class="nav-item nav-link" href="{{ url_for('au.entertainment') }}">ENTERTAINMENT</a>
-                    </li>
+                    {% endif %}
                 </ul>
-                <ul class="navbar-nav ml-auto">
-                <!--    <li class="navbar-nav">
+                 <ul class="navbar-nav ml-auto">
+                 <!--  <li class="navbar-nav">
                     <a href="#"><img src="{{ url_for('static', filename='images/stats_icon.png') }}" data-toggle="modal" data-target="#exampleModalStatsCenter" width="30" height="30" alt="Image"></a>
                    </li> -->
                     <li class="navbar-nav">
@@ -103,32 +99,6 @@
     </div>
   </div>
 </div>
-
-
-<div class="container">
-  <div class="row" style="padding-top: 0px;">
-    <div class="col-lg-8 offset-sm-2" >
-        <center>Search Australia News by Date and Category</center>
-     <form class="form-inline justify-content-center" action="/au/search">
-
-             <input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="Date" name="date" id="date" min="2020-01-20">
-
-             <select name="newstype" class="form-control mb-2 mr-sm-2" id="newstype">
-                 <option value="headlines">  Headlines  </option>
-                 <option value="business">  Business  </option>
-                 <option value="technology">  Technology  </option>
-                 <option value="health">  Health  </option>
-                 <option value="science">  Science  </option>
-                 <option value="sports">  Sport  </option>
-                 <option value="entertainment">  Entertainment  </option>
-             </select>
-             <button type="submit" class="btn btn-primary mb-2">Submit</button>
-    </form>
-    </div>
-
-    </div>
-  </div>
-
 
 
 <!-- Modal Search Submit Form -->
@@ -161,9 +131,10 @@
                  <option value="New Zealand">  New Zealand  </option>
                  <option value="South Africa">  South Africa  </option>
                  <option value="United States">  United States  </option>
+                <!-- <option value="All Countries">  All  </option> -->
              </select>
 
-             <select name="newstype" class="form-control mb-2 mr-sm-2" id="news_type" style="width: 204px;">
+             <select name="newstype" class="form-control mb-2 mr-sm-2" id="newstype" style="width: 204px;">
                 <!-- <option value="" disabled selected>News Category</option> -->
                  <option value="Headlines">  Headlines  </option>
                  <option value="Business">  Business  </option>
@@ -172,6 +143,7 @@
                  <option value="Science">  Science  </option>
                  <option value="Sport">  Sport  </option>
                  <option value="Entertainment">  Entertainment  </option>
+              <!--   <option value="All News">  All  </option> -->
              </select>
          <input type="input" class="form-control mb-2 mr-sm-2"  size="48" value="" placeholder="Search words/phrases" name="search_bar" id="search_bar" required>
 
@@ -186,7 +158,7 @@
 
          <script>
 
-                  var ids = ['from_date','to_date','search_country','news_type']
+                  var ids = ['from_date','to_date','search_country','newstype']
 
 
                   function disableFields() {
@@ -225,7 +197,6 @@
              }
         </script>
 
-
     </div>
 
     </div>
@@ -236,7 +207,6 @@
   </div>
   </div>
 </div>
-
 
 <!-- Modal City Submit Form -->
 <div class="modal fade" id="exampleModalCountryCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -320,6 +290,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
