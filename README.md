@@ -9,9 +9,10 @@ The gather.py script connects to the News API and gathers news data for selected
 
 The web application displays the news per selected country, category and date. The navigation items will display today's news in the selected categories for the selected country.
 
-The search mechanism queries the database by date and category within the selected country and allows the user to view archived news articles.
+There are two search mechanisms: country specific search and advanced search.
 
-All news articles are displayed from latest to oldest.
+The country specific search mechanism is found at the top of each country page and queries the database by date and category within the selected country and allows the user to view archived news articles. The advanced search mechanism is found on the navigation bar and offers the user a variety of search features.
+
 
 ## Requirements
 
