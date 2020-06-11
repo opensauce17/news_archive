@@ -98,3 +98,14 @@ def country():
 
 
         return render_template('gb/index.html', headlines=headlines, today=today, news_type=news_type)
+
+@main.route('/au/', methods=['GET', 'POST'])
+def au_headlines():
+    today = datetime.now().strftime("%d %B, %Y")
+    today_date = datetime.now()
+    today_date = str(today_date).split(" ", 1)[0]
+    headlines = au_news.query.filter(and_(au_news.news_type == 'headlines', au_news.publishedAt.like(f'%{today_date}%')))\
+        .order_by(au_news.publishedAt.desc())
+    news_type = 'headlines'
+
+    return render_template('au/index.html', headlines=headlines, today=today, news_type=news_type)

@@ -1,33 +1,38 @@
 {% extends "au/base.html" %}
 {% block content %}
 
+            <main class="dash-content">
+                <div class="container-fluid">
+                            <div class="container">
+                                    <div class="row">
+                                   {% for headline in headlines %}
+                                  <div class="col-sm-4 mb-3 d-flex">
+                                    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                        {% if headline.urlToImage == None %}
+                                     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+                                       {% else %}
+                                     <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image" height="170">
+                                        {% endif %}
+                                      <div class="card-body">
+                                        <h5 class="card-title"><a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a></h5>
+                                        <p class="card-subtitle"> {{ headline.description }} </p>
+                                          <br>
+                                            <hr>
+                                        <font size="2" class="post-meta">
+                                            Posted by {{ headline.source }} on {{ headline.publishedAt }}
+                                            <br>
+                                         </font>
+                                      </div>
+                                    </div>
+                                    </div>
+                                    {% endfor %}
 
+                            </div>
+                    </div>
+                    <!-- put your rows / columns here -->
+                </div>
+            </main>
 
-<div class="container">
-    <div class="row">
-   {% for headline in headlines %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if headline.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a></h5>
-        <p class="card-subtitle"> {{ headline.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ headline.source }} on {{ headline.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-
-</div>
-</div>
 
 <footer class="page-footer font-small blue">
 
