@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_user import login_required, UserManager, UserMixin, SQLAlchemyAdapter
 
 app = Flask(__name__)
 
@@ -7,9 +8,14 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'CGVC39xyCk8lUmR6DzT_LA'
+app.config['CFR_ENABLED'] = True
+app.config['USER_ENABLE_EMAIL'] = False
+app.config['USER_APP_NAME'] = 'The World News Archive'
 
 db = SQLAlchemy(app)
 
+
+from news.models import User
 from news.main.routes import main
 from news.search.routes import global_search
 from news.za.routes import za
@@ -19,6 +25,8 @@ from news.ca.routes import ca
 from news.nz.routes import nz
 from news.gb.routes import gb
 
+db_adapter = SQLAlchemyAdapter(db, User)
+user_manager = UserManager(db_adapter, app)
 
 app.register_blueprint(za)
 app.register_blueprint(main)

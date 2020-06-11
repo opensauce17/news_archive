@@ -1,4 +1,5 @@
 from news import db
+from flask_user import UserMixin
 
 # Define the za_news data-model
 class za_news(db.Model):
@@ -83,3 +84,11 @@ class gb_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+
+# Define the User model
+class User(db.Model, UserMixin):
+    __tablename__ = 'User'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(255), nullable=False, server_default='')
+    active = db.Column(db.Boolean(), nullable=False, server_default='0')

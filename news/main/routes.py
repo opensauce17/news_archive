@@ -1,4 +1,5 @@
 from flask import render_template, request, url_for, redirect, message_flashed, flash, jsonify, session, Blueprint
+from flask_user import login_required
 from datetime import datetime
 from sqlalchemy import and_
 from news.models import za_news
@@ -12,6 +13,7 @@ main = Blueprint('main', __name__)
 
 
 @main.route('/', methods=['GET', 'POST'])
+@login_required
 def index():
 
     return render_template('main/index.html')
@@ -100,6 +102,7 @@ def country():
         return render_template('gb/index.html', headlines=headlines, today=today, news_type=news_type)
 
 @main.route('/au/', methods=['GET', 'POST'])
+@login_required
 def au_headlines():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
