@@ -19,7 +19,7 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="/" class="spur-logo"><i class="far fa-newspaper"></i> <span>WNA</span></a>
+                <a href="/" class="spur-logo" ><img src="{{ url_for('static', filename='images/logo8.png') }}" width="142" height="100"></a>
             </header>
             <nav class="dash-nav-list">
                 <a href="/" class="dash-nav-item">
@@ -116,7 +116,7 @@
                 <a href="#!" class="searchbox-toggle">
                     <i class="fas fa-search"></i>
                 </a>
-                <form class="searchbox" action="/au/search">
+                <form class="searchbox" action="/gb/search">
                     <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
 
 
@@ -133,6 +133,7 @@
                     <!--<input type="text" class="searchbox-input" placeholder="type to search">-->
                     <div style="padding-right: 30px; padding-left: 0px;">
                         <input type="date" class="form-control mb-2 mr-sm-2" value="" placeholder="Date" name="date" id="date" min="2020-01-09">
+                        <input type="hidden" id="" name="newstype" value="{{ news_type }}">
                     </div>
 
                       <!-- <input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="Date" name="date" id="date" min="2020-01-20"> -->
