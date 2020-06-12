@@ -92,3 +92,5 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False, server_default='')
     active = db.Column(db.Boolean(), nullable=False, server_default='0')
+    pref_location = db.Column(db.String(50), nullable=True, unique=True)
+    pref_news_type = db.Column(db.String(50), nullable=True, unique=True)

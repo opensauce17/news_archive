@@ -1,5 +1,6 @@
 from flask import render_template, request, url_for, redirect, message_flashed, flash, jsonify, session, Blueprint
 from flask_user import login_required
+from flask_login import current_user
 from datetime import datetime
 from sqlalchemy import and_
 from news.models import za_news
@@ -8,6 +9,7 @@ from news.models import au_news
 from news.models import ca_news
 from news.models import nz_news
 from news.models import gb_news
+from news.models import User
 
 main = Blueprint('main', __name__)
 
@@ -16,7 +18,17 @@ main = Blueprint('main', __name__)
 @login_required
 def index():
 
-    return render_template('main/index.html')
+    username = current_user.username
+
+    user_data = User.query.all()
+
+    for user in user_data:
+        pref_location = user.pref_location
+        pref_news_type = user.pref_news_type
+
+
+
+    return render_template('main/index.html', username=username, user_data=user_data)
 
 
 @main.route('/country', methods=['GET', 'POST'])

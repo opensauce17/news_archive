@@ -141,6 +141,22 @@
                     </div>
                 </div>
             </header>
+                   {% for user in user_data %}
+                    {% if user.pref_location == ''%}
+                        <main class="dash-content">
+                            <div class="container-fluid">
+                                <div class="container">
+                                    <div class="row">
+                                        Hi {{ username }}. You have no default favourites set. Please go to your profile page and set your favourites.
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+
+                    {% else %}
+                      {{ user.pref_location }}
+                    {% endif %}
+                   {% endfor %}
 
 
         </div>
