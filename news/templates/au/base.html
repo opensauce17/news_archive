@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/spur.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/chart-js-config.js') }}"></script>
-    <title>World News Network</title>
+    <title>The World News Archive</title>
 </head>
 
 <body>
@@ -37,79 +37,75 @@
                         <a href="{{ url_for('au.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
                     </div>
                 </div>
-                <div class="dash-nav-dropdown ">
+               <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                     <img src="https://www.countryflags.io/ca/shiny/32.png" style="padding-right : 10px;">CA </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Headlines</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Business</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Technology</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Health</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Science</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Sport</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Entertainment</a>
+                        <a href="{{ url_for('ca.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('ca.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('ca.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('ca.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('ca.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('ca.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('ca.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
                     </div>
                 </div>
-                <div class="dash-nav-dropdown">
+                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                          <img src="https://www.countryflags.io/gb/shiny/32.png" style="padding-right : 10px;"> GB</a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Headlines</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Business</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Technology</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Health</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Science</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Sport</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Entertainment</a>
+                        <a href="{{ url_for('gb.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('gb.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('gb.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('gb.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('gb.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('gb.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('gb.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                          <img src="https://www.countryflags.io/nz/shiny/32.png" style="padding-right : 10px;"> NZ</a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Headlines</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Business</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Technology</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Health</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Science</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Sport</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Entertainment</a>
+                        <a href="{{ url_for('nz.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('nz.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('nz.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('nz.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('nz.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('nz.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('nz.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
                     </div>
                 </div>
-                <div class="dash-nav-dropdown">
+               <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                          <img src="https://www.countryflags.io/za/shiny/32.png" style="padding-right : 10px;"> ZA</a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Headlines</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Business</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Technology</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Health</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Science</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Sport</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Entertainment</a>
+                        <a href="{{ url_for('za.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('za.business') }}l" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('za.technology') }}l" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('za.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('za.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('za.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('za.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
                     </div>
                 </div>
                  <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                          <img src="https://www.countryflags.io/us/shiny/32.png" style="padding-right : 10px;"> USA</a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Headlines</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Business</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Technology</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Health</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Science</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Sport</a>
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Entertainment</a>
+                        <a href="{{ url_for('us.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('us.business') }}l" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('us.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('us.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('us.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('us.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('us.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
                     </div>
                 </div>
-              <div class="dash-nav-dropdown">
-                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-info"></i> About </a>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="dash-nav-dropdown-item">GitHub</a>
-                        <a href="http://hackerthemes.com" target="_blank" class="dash-nav-dropdown-item">HackerThemes</a>
-                    </div>
-                </div>
+                <a href="/" class="dash-nav-item">
+                  <i class="fas fa-user"></i> Profile </a>
+                 <a href="/" class="dash-nav-item">
+                  <i class="fas fa-info"></i> About </a>
             </nav>
         </div>
         <div class="dash-app">
@@ -128,7 +124,7 @@
                     <img src="https://www.countryflags.io/au/shiny/64.png" style="padding-left: 10px;" class="navbar-nav mr-auto">
 
                     <div  class="navbar-nav mr-auto">
-                        <font size="5"><b>{{ news_type|upper }} NEWS</b></font>
+                        <font size="5"><b>AUSTRALIA {{ news_type|upper }} NEWS</b></font>
                     </div>
                     <div style="padding-right: 10px; padding-left: 0px;">
                         {{ today }}
