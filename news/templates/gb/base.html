@@ -124,17 +124,18 @@
                     <img src="https://www.countryflags.io/gb/shiny/64.png" style="padding-left: 10px;" class="navbar-nav mr-auto">
 
                     <div  class="navbar-nav mr-auto">
-                        <font size="5"><b>GREAT BRITAIN {{ news_type|upper }} NEWS</b></font>
+                        <font size="5"><b>GREAT BRITAIN {{ news_type|upper }}</b></font>
                     </div>
                     <div style="padding-right: 10px; padding-left: 0px;">
                         {{ today }}
                     </div>
-                    <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button>
+
                     <!--<input type="text" class="searchbox-input" placeholder="type to search">-->
-                    <div style="padding-right: 30px; padding-left: 0px;">
+                    <div style="padding-right: 10px; padding-left: 10px;">
                         <input type="date" class="form-control mb-2 mr-sm-2" value="" placeholder="Date" name="date" id="date" min="2020-01-09">
                         <input type="hidden" id="" name="newstype" value="{{ news_type }}">
                     </div>
+                    <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button>
 
                       <!-- <input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="Date" name="date" id="date" min="2020-01-20"> -->
                        <!--<button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button> -->
