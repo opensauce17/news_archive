@@ -70,3 +70,20 @@ def index():
 
     return render_template('main/index.html', username=username, user_data=user_data, default_settings=default_settings,
                            news_type=news_type, today=today, location=location)
+
+@main.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+
+    today = datetime.now().strftime("%d %B, %Y")
+
+    return render_template('main/profile.html', today=today)
+
+
+@main.route('/comments', methods=['GET', 'POST'])
+@login_required
+def comments():
+
+    today = datetime.now().strftime("%d %B, %Y")
+
+    return render_template('main/comments.html', today=today)
