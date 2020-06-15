@@ -185,20 +185,6 @@
                                                 <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
                                                     {% else %}
                                                 <img class="card-img-top" src="{{ i.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
-                                                <!--<form class="searchbox" action="{{ url_for('main.comments') }}">
-                                                <div class="spur-card-menu">
-                                                    <div class="dropdown show" >
-                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
-                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                                <a class="dropdown-item" href="#"><font size="1">Archive Link</font></a>
-                                                                <input type="hidden" name="news_id" value="{{ i.id }}">
-                                                                <input type="hidden" name="newstype" value="{{ news_type }}">
-                                                                <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
-                                                                <!--<a class="dropdown-item" type="submit" href=""><font size="1">Comments</font></a>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                                </form> -->
                                                  {% endif %}
                                             </div>
                                            <div class="col-md-8">
@@ -209,6 +195,7 @@
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                                                 <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
                                                                 <input type="hidden" name="news_id" value="{{ i.id }}">
+                                                                <input type="hidden" name="location" value="{{ location }}">
                                                                 <input type="hidden" name="newstype" value="{{ news_type }}">
                                                                 <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
                                                                 <!--<a class="dropdown-item" type="submit" href=""><font size="1">Comments</font></a> -->
@@ -221,12 +208,6 @@
                                                     Posted by {{ i.source }} on {{ i.publishedAt }}
                                                 </font>
                                            </div>
-                                           <!--   <div class="card-body">
-                                                <h6 class="card-title"><a href="{{ i.url }}" target="_blank">{{ i.title }}</a></h6>
-                                                <p class="card-text">{{ i.description }}</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                              </div>
-                                            </div> -->
                                           </div>
                                         </div>
                                  {% endfor %}
