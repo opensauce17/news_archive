@@ -94,4 +94,40 @@ def comments():
             and_(au_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+
+    elif location == 'ca':
+        article = ca_news.query.filter(
+            and_(ca_news.id == news_id)
+        )
+
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+
+    elif location == 'gb':
+        article = gb_news.query.filter(
+            and_(gb_news.id == news_id)
+        )
+
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+
+    elif location == 'nz':
+        article = nz_news.query.filter(
+            and_(nz_news.id == news_id)
+        )
+
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+
+    elif location == 'za':
+        article = za_news.query.filter(
+            and_(za_news.id == news_id)
+        )
+
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+
+    elif location == 'us':
+        article = us_news.query.filter(
+            and_(us_news.id == news_id)
+        )
+
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+
