@@ -160,66 +160,50 @@
                     </div>
                 </div>
             </header>
-            {% for user in user_data %}
-                    {% if user.pref_location == '' %}
-                        <main class="dash-content">
-                            <div class="container-fluid">
-                                <div class="container">
-                                    <div class="row">
-                                        Hi {{ username }}. You have no default favourites set. Please go to your profile page and set your favourites.
-                                    </div>
-                                </div>
-                            </div>
-                        </main>
-                    {% else %}
             <main class="dash-content">
                 <div class="container-fluid">
                             <div class="container">
                                 <div class="row">
-                               {% for default in default_settings %}
-                                    {% for i in default %}
-                                    <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                               {% for article in article %}
+                                    <div class="card mb-3 ml-3 d-flex" style="max-width: 1080px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                 {% if i.urlToImage == None %}
-                                                <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="100" >
+                                                 {% if article.urlToImage == None %}
+                                                <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="250" style=" object-fit: cover;" >
                                                     {% else %}
-                                                <img class="card-img-top" src="{{ i.urlToImage }}" alt="Card image" height="100" style="border-style: double; object-fit: cover;">
-                                                <div class="spur-card-menu">
-                                                    <div class="dropdown show" >
-                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
-                                                           <!--<div class="ml-3 mb-1 mt-1"><font size="1">More</font></div>-->
-                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                                <a class="dropdown-item" href="#"><font size="1">Archive Link</font></a>
-                                                                    <a class="dropdown-item" href="#"><font size="1">Comments</font></a>
-                                                            </div>
-                                                    </div>
-                                               </div>
+                                                <img class="card-img-top" src="{{ article.urlToImage }}" alt="Card image" height="250" style="object-fit: cover;">
                                                  {% endif %}
                                             </div>
                                            <div class="col-md-8">
-                                               <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ i.url }}" target="_blank">{{ i.title }}</a></p>
-                                                <font size="1" class="post-meta">
-                                                    Posted by {{ i.source }} on {{ i.publishedAt }}
+                                               <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                                <div class="spur-card-menu">
+                                                    <div class="dropdown show" >
+                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                                <!--<a class="dropdown-item" type="submit" href=""><font size="1">Comments</font></a> -->
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                                </form>
+                                               <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></p>
+                                               <div class="card-subtitle">
+                                                   {{ article.description }}
+                                               </div>
+                                               <br>
+
+                                              <font size="1" class="post-meta">
+                                                    Posted by {{ article.source }} on {{ article.publishedAt }}
                                                 </font>
                                            </div>
-                                           <!--   <div class="card-body">
-                                                <h6 class="card-title"><a href="{{ i.url }}" target="_blank">{{ i.title }}</a></h6>
-                                                <p class="card-text">{{ i.description }}</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                              </div>
-                                            </div> -->
                                           </div>
                                         </div>
                                  {% endfor %}
-                              {% endfor %}
 
                                </div>
                             </div>
                 </div>
             </main>
-       {% endif %}
-   {% endfor %}
     </div>
 </div>
 

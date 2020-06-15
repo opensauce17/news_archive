@@ -85,5 +85,13 @@ def profile():
 def comments():
 
     today = datetime.now().strftime("%d %B, %Y")
+    news_id = request.args.get('news_id')
+    location = request.args.get('location')
+    news_type = request.args.get('newstype')
 
-    return render_template('main/comments.html', today=today)
+    if location == 'au':
+        article = au_news.query.filter(
+            and_(au_news.id == news_id)
+        )
+
+        return render_template('main/comments.html', today=today, article=article)
