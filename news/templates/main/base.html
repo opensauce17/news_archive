@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/spur.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chart-js-config.js') }}"></script>
+    <title>The World News Archive</title>
+</head>
+
+<body>
+    <div class="dash">
+        <div class="dash-nav dash-nav-dark">
+            <header>
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="/" class="spur-logo" ><img src="{{ url_for('static', filename='images/logo8.png') }}" width="142" height="100"></a>
+            </header>
+            <nav class="dash-nav-list">
+                <a href="/" class="dash-nav-item">
+                  <i class="fas fa-home"></i>  Home </a>
+                <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <img src="https://www.countryflags.io/au/shiny/32.png" style="padding-right : 10px;"> AUS </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{ url_for('au.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('au.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('au.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('au.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('au.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('au.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('au.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
+                    </div>
+                </div>
+               <div class="dash-nav-dropdown ">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                    <img src="https://www.countryflags.io/ca/shiny/32.png" style="padding-right : 10px;">CA </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{ url_for('ca.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('ca.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('ca.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('ca.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('ca.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('ca.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('ca.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
+                    </div>
+                </div>
+                 <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                         <img src="https://www.countryflags.io/gb/shiny/32.png" style="padding-right : 10px;"> GB</a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{ url_for('gb.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('gb.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('gb.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('gb.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('gb.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('gb.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('gb.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
+                    </div>
+                </div>
+                <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                         <img src="https://www.countryflags.io/nz/shiny/32.png" style="padding-right : 10px;"> NZ</a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{ url_for('nz.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('nz.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('nz.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('nz.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('nz.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('nz.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('nz.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
+                    </div>
+                </div>
+               <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                         <img src="https://www.countryflags.io/za/shiny/32.png" style="padding-right : 10px;"> ZA</a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{ url_for('za.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('za.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('za.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('za.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('za.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('za.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('za.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
+                    </div>
+                </div>
+                 <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                         <img src="https://www.countryflags.io/us/shiny/32.png" style="padding-right : 10px;"> USA</a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{ url_for('us.index') }}" class="dash-nav-dropdown-item">Headlines</a>
+                        <a href="{{ url_for('us.business') }}" class="dash-nav-dropdown-item">Business</a>
+                        <a href="{{ url_for('us.technology') }}" class="dash-nav-dropdown-item">Technology</a>
+                        <a href="{{ url_for('us.health') }}" class="dash-nav-dropdown-item">Health</a>
+                        <a href="{{ url_for('us.science') }}" class="dash-nav-dropdown-item">Science</a>
+                        <a href="{{ url_for('us.sports') }}" class="dash-nav-dropdown-item">Sport</a>
+                        <a href="{{ url_for('us.entertainment') }}" class="dash-nav-dropdown-item">Entertainment</a>
+                    </div>
+                </div>
+                <a href="{{ url_for('main.profile') }}" class="dash-nav-item">
+                  <i class="fas fa-user"></i> Profile </a>
+                 <a href="/" class="dash-nav-item">
+                  <i class="fas fa-info"></i> About </a>
+            </nav>
+        </div>
+        <div class="dash-app">
+            <header class="dash-toolbar">
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="#!" class="searchbox-toggle">
+                    <i class="fas fa-search"></i>
+                </a>
+
+            <div style="padding-right: 0px; padding-left: 30px;">
+                {% if location == 'gb' %}
+                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Great Britain.
+                {% elif location == 'us' %}
+                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from the United States.
+                {% elif location == 'za' %}
+                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from South Africa.
+                {% elif location == 'au' %}
+                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Australia.
+                {% elif location == 'nz' %}
+                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from New Zealand.
+                {% elif location == 'ca' %}
+                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Canada.
+                {% endif %}
+            </div>
+            <div class="tools">
+                    <div class="dropdown tools-item">
+                        <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <a class="dropdown-item" href="{{ url_for('main.profile') }}">Profile</a>
+                            <a class="dropdown-item" href="/user/sign-out">Logout</a>
+                        </div>
+                    </div>
+            </div>
+            </header>
+
+            {% block content %}{% endblock %}
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/spur.js') }}"></script>
+</body>
+
+</html>
