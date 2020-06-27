@@ -29,14 +29,16 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    {% for user in user_data %}
                                     <!--th scope="row">1</th>-->
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>mdo@yahoo.com</td>
-                                    <td>Headlines</td>
-                                    <td>Australia</td>
+                                    <td>{{ user.first_name }}</td>
+                                    <td>{{ user.last_name }}</td>
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.pref_news_type }}</td>
+                                    <td>{{ user.pref_location }}</td>
                                     <td>False</td>
+                                    {% endfor %}
                                 </tr>
                             </tbody>
                         </table>
@@ -44,8 +46,8 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary">Update Favourites</button>
-        <button class="btn btn-primary">Enable Comments</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#update_fav">Update Favourites</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#enable_comments">Enable Comments</button>
 
 
 

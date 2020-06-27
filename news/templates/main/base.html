@@ -131,7 +131,7 @@
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Australia.
                 {% elif location == 'nz' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from New Zealand.
-                {% elif location == 'ca' %}
+                {% elif location == 'canada' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Canada.
                 {% endif %}
             </div>
@@ -156,6 +156,60 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/spur.js') }}"></script>
+
+<!-- Modal Update Favourite Form -->
+<div class="modal fade" id="update_fav" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Update Favourites</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form action="/fav_updates" method="POST">
+                <div class="form-group">
+                    
+                <select name="news_type" class="form-control mb-2 mr-sm-2" id="new_type">
+                    <option value="headlines">Headlines</option>
+                    <option value="business">Business</option>
+                    <option value="technology">Technology</option>
+                    <option value="health">Health</option>
+                    <option value="science">Science</option>
+                    <option value="sport">Sport</option>
+                    <option value="entertainment">Entertainment</option>
+               </select>
+
+               <select name="country" class="form-control mb-2 mr-sm-2" id="country">
+                    <option value="au">Australia</option>
+                    <option value="ca">Canada</option>
+                    <option value="gb">Great Britain</option>
+                    <option value="nz">New Zealand</option>
+                    <option value="za">South Africa</option>
+                    <option value="us">United States</option>
+              </select>
+
+                </div>
+        <div class="alert alert-success" role="alert">
+            Select your favourite news type from your preferred location to be diplayed on your home page
+       </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+        </div>
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
 </body>
 
 </html>

@@ -139,6 +139,17 @@ def comments():
         return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
 
+@main.route('/fav_updates', methods=['POST'])
+@login_required
+def fav_updates():
+
+    news_type = request.args.get('news_type')
+    country = request.args.get('country')
+
+
+    return redirect(url_for('main.profile'))
+
+
 @main.route('/sso/', methods=['GET', 'POST'])
 @login_required
 def sso():
