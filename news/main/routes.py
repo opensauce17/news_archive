@@ -2,7 +2,8 @@ from flask import render_template, request, url_for, redirect, message_flashed, 
 from flask_user import login_required
 from flask_login import current_user
 from datetime import datetime
-from sqlalchemy import and_, tuple_
+from sqlalchemy import and_, tuple_, update
+from news import db
 from news.models import za_news
 from news.models import us_news
 from news.models import au_news
@@ -143,9 +144,17 @@ def comments():
 @login_required
 def fav_updates():
 
+    username = current_user.username
     news_type = request.args.get('news_type')
     country = request.args.get('country')
 
+    print(country)
+    print(news_type)
+
+    update = User.query.filter_by(username=username).first()
+    update.pref_location = country
+    update.pref_news_type = news_type
+    db.session.commit()
 
     return redirect(url_for('main.profile'))
 
