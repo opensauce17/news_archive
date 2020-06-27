@@ -10,6 +10,9 @@ from news.models import ca_news
 from news.models import nz_news
 from news.models import gb_news
 from news.models import User
+import json
+import codecs
+import hmac
 
 main = Blueprint('main', __name__)
 
@@ -94,40 +97,83 @@ def comments():
             and_(au_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
     elif location == 'ca':
         article = ca_news.query.filter(
             and_(ca_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
     elif location == 'gb':
         article = gb_news.query.filter(
             and_(gb_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
     elif location == 'nz':
         article = nz_news.query.filter(
             and_(nz_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
     elif location == 'za':
         article = za_news.query.filter(
             and_(za_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
     elif location == 'us':
         article = us_news.query.filter(
             and_(us_news.id == news_id)
         )
 
-        return render_template('main/comments.html', today=today, article=article, news_type=news_type)
+        return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
+
+
+@main.route('/sso/', methods=['GET', 'POST'])
+@login_required
+def sso():
+
+
+    secret = "753949c5067d66f7de309fa2ccba0b64ff7bbf9b5d8f72185110b532727f828f"
+    decode_hex = codecs.getdecoder("hex_codec")
+    secret_key = decode_hex(secret)[0]
+    print(secret_key)
+
+    token = request.args.get('token')
+    h_mac = request.args.get('hmac')
+    h_mac = decode_hex(h_mac)[0]
+    
+    #print(h_mac)
+    #h_mac = codecs.getencoder(request.args.get('hmac'))
+    #print(token)
+
+    email = "mike.hyland@theworldoftheweb.net"
+    name =  "Mike Hyland"
+    link = "https://theworldoftheweb.net"
+    photo = "https://i.imgur.com/XPAMYQN.jpg"
+
+
+    payload_dict = {
+        "token": token,
+        "email": email,
+        "name":  name,
+        "link":  link,
+        "photo": photo
+      }
+
+    payload_json = json.dumps(payload_dict)
+    print(payload_json)
+
+    h_mac = codecs.encode(hmac.new(payload_json, secret_key))
+    payload_hex = codecs.encode(payload_json)
+
+
+    return redirect(url_for("http://localhost:5100/api/oauth/sso/callback?payload=" + payload_hex + "&hmac=" + h_mac))
+    #return redirect(url_for("http://localhost:5100/api/oauth/sso/callback?payload=PAYLOAD&hmac=hmac"))
 

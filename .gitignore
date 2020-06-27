@@ -1,2 +1,3 @@
 gather/.env
 news/db/db.db
+news/main/__pycache__/
