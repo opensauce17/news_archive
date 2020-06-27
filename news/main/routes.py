@@ -79,8 +79,12 @@ def index():
 def profile():
 
     today = datetime.now().strftime("%d %B, %Y")
+    username = current_user.username
+    user_data = User.query.filter(
+    and_(User.username == username)
+    )
 
-    return render_template('main/profile.html', today=today)
+    return render_template('main/profile.html', today=today, username=username, user_data=user_data)
 
 
 @main.route('/comments', methods=['GET', 'POST'])
