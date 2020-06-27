@@ -1,75 +1,58 @@
 {% extends "main/base.html" %}
 {% block content %}
 
-            {% for user in user_data %}
-                    {% if user.pref_location == '' %}
-                        <main class="dash-content">
-                            <div class="container-fluid">
-                                <div class="container">
-                                    <div class="row">
-                                        Hi {{ username }}. You have no default favourites set. Please go to your profile page and set your favourites.
-                                    </div>
-                                </div>
-                            </div>
-                        </main>
-                    {% else %}
-            <main class="dash-content">
-                <div class="container-fluid">
-                            <div class="container">
-                                <div class="row">
-                               {% for default in default_settings %}
-                                    {% for i in default %}
-                                    <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                 {% if i.urlToImage == None %}
-                                                <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="100" >
-                                                    {% else %}
-                                                <img class="card-img-top" src="{{ i.urlToImage }}" alt="Card image" height="100" style="border-style: double; object-fit: cover;">
-                                                <div class="spur-card-menu">
-                                                    <div class="dropdown show" >
-                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
-                                                           <!--<div class="ml-3 mb-1 mt-1"><font size="1">More</font></div>-->
-                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                                <a class="dropdown-item" href="#"><font size="1">Archive Link</font></a>
-                                                                    <a class="dropdown-item" href="#"><font size="1">Comments</font></a>
-                                                            </div>
-                                                    </div>
-                                               </div>
-                                                 {% endif %}
-                                            </div>
-                                           <div class="col-md-8">
-                                               <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ i.url }}" target="_blank">{{ i.title }}</a></p>
-                                                <font size="1" class="post-meta">
-                                                    Posted by {{ i.source }} on {{ i.publishedAt }}
-                                                </font>
-                                           </div>
-                                           <!--   <div class="card-body">
-                                                <h6 class="card-title"><a href="{{ i.url }}" target="_blank">{{ i.title }}</a></h6>
-                                                <p class="card-text">{{ i.description }}</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                              </div>
-                                            </div> -->
-                                          </div>
-                                        </div>
-                                 {% endfor %}
-                              {% endfor %}
-
-                               </div>
-                            </div>
+<main class="dash-content">
+    <div class="container-fluid">
+        <h1 class="dash-title">Profile</h1>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card spur-card">
+                    <div class="card-header">
+                        <div class="spur-card-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div class="spur-card-title">User Details</div>
+                    </div>
+                    <div class="card-body ">
+                        <table class="table table-hover table-in-card">
+                            <thead>
+                                <tr>
+                                    <!--<th scope="col">#</th>-->
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">News Favourite</th>
+                                    <th scope="col">Location Favourite</th>
+                                    <th scope="col">Comments Enabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!--th scope="row">1</th>-->
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Headlines</td>
+                                    <td>Australia</td>
+                                    <td>False</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </main>
-       {% endif %}
-   {% endfor %}
-    </div>
-</div>
+            </div>
+        </div>
+        <button class="btn btn-primary">Update Favourites</button>
+        <button class="btn btn-primary">Enable Comments</button>
 
-<footer class="page-footer font-small blue">
+
+
+<!--<footer class="page-footer font-small blue">
 
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://mikehyland.com" target="_blank"> mikehyland.com</a>
   </div>
 
-</footer>
+</footer>-->
 
 {% endblock %}
