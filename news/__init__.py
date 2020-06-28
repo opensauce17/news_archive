@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_user import login_required, UserManager, UserMixin, SQLAlchemyAdapter
+from flask_mail import Mail
 
 app = Flask(__name__)
 
@@ -9,10 +10,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'CGVC39xyCk8lUmR6DzT_LA'
 app.config['CFR_ENABLED'] = True
-app.config['USER_ENABLE_EMAIL'] = False
+app.config['USER_ENABLE_EMAIL'] = True
+app.config.from_pyfile('../mail.cfg')
+app.config['USER_SEND_PASSWORD_CHANGED_EMAIL'] = False
+app.config['USER_SEND_REGISTERED_EMAIL'] = True
+app.config['USER_SEND_USERNAME_CHANGED_EMAIL'] = False
 app.config['USER_APP_NAME'] = 'The World News Archive'
 
 db = SQLAlchemy(app)
+mail = Mail(app)
 
 
 from news.models import User
