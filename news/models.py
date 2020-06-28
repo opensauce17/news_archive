@@ -89,11 +89,12 @@ class gb_news(db.Model):
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=True, unique=True)
-    last_name = db.Column(db.String(50), nullable=True, unique=True)
+    #first_name = db.Column(db.String(50), nullable=True, unique=True)
+    #last_name = db.Column(db.String(50), nullable=True, unique=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(100), nullable=True, unique=True)
     password = db.Column(db.String(255), nullable=False, server_default='')
     active = db.Column(db.Boolean(), nullable=False, server_default='0')
+    confirmed_at = db.Column(db.DateTime())
     pref_location = db.Column(db.String(50), nullable=True, unique=False)
     pref_news_type = db.Column(db.String(50), nullable=True, unique=False)

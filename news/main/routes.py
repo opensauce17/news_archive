@@ -39,7 +39,8 @@ def index():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
     today_date = str(today_date).split(" ", 1)[0]
-    news_type = user_defaults[1].lower()
+    #news_type = user_defaults[1].lower()
+    news_type = user_defaults[1]
     print(news_type)
     default_settings = []
     if location == "United States":
