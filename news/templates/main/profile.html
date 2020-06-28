@@ -3,7 +3,7 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Profile</h1>
+        <!--<h1 class="dash-title">Profile</h1>-->
         <div class="row">
             <div class="col-lg-12">
                 <div class="card spur-card">
@@ -25,6 +25,7 @@
                                     <th scope="col">News Favourite</th>
                                     <th scope="col">Location Favourite</th>
                                     <th scope="col">Comments Enabled</th>
+                                    <th scope="col">Update</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,6 +39,7 @@
                                     <td>{{ user.pref_news_type }}</td>
                                     <td>{{ user.pref_location }}</td>
                                     <td>False</td>
+                                    <td><button class="btn btn-primary" data-toggle="modal" data-target="#update_fav"><font size="2">Update</font></button></td>
                                     {% endfor %}
                                 </tr>
                             </tbody>
@@ -46,9 +48,8 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#update_fav">Update Favourites</button>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#enable_comments">Enable Comments</button>
-
+        <!--<button class="btn btn-primary" data-toggle="modal" data-target="#update_fav">Update Favourites</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#enable_comments">Enable Comments</button> -->
 
 
 <!--<footer class="page-footer font-small blue">

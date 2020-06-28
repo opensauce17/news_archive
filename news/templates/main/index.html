@@ -2,7 +2,7 @@
 {% block content %}
 
             {% for user in user_data %}
-                    {% if user.pref_location == '' %}
+                    {% if user.pref_location == None %}
                         <main class="dash-content">
                             <div class="container-fluid">
                                 <div class="container">

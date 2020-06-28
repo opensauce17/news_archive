@@ -34,38 +34,40 @@ def index():
         user_defaults.append(i.pref_news_type)
 
     location = user_defaults[0]
+    print(location)
 
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
     today_date = str(today_date).split(" ", 1)[0]
-    news_type = user_defaults[1]
+    news_type = user_defaults[1].lower()
+    print(news_type)
     default_settings = []
-    if location == "us":
+    if location == "United States":
         defaults = us_news.query.filter(
             and_(us_news.news_type == news_type, us_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(us_news.publishedAt.desc())
         default_settings.append(defaults)
-    if location == 'za':
+    if location == 'South Africa':
         defaults = za_news.query.filter(
             and_(za_news.news_type == news_type, za_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(za_news.publishedAt.desc())
         default_settings.append(defaults)
-    if location == 'au':
+    if location == 'Australia':
         defaults = au_news.query.filter(
             and_(au_news.news_type == news_type, au_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(au_news.publishedAt.desc())
         default_settings.append(defaults)
-    if location == 'ca':
+    if location == 'Canada':
         defaults = ca_news.query.filter(
             and_(ca_news.news_type == news_type, ca_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(ca_news.publishedAt.desc())
         default_settings.append(defaults)
-    if location == 'nz':
+    if location == 'New Zealand':
         defaults = nz_news.query.filter(
             and_(nz_news.news_type == news_type, nz_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(nz_news.publishedAt.desc())
         default_settings.append(defaults)
-    if location == 'gb':
+    if location == 'Great Britain':
         defaults = gb_news.query.filter(
             and_(gb_news.news_type == news_type, gb_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(gb_news.publishedAt.desc())
@@ -140,7 +142,7 @@ def comments():
         return render_template('main/comments.html', today=today, article=article, news_type=news_type, news_id=news_id)
 
 
-@main.route('/fav_updates', methods=['POST'])
+@main.route('/fav_updates', methods=['GET', 'POST'])
 @login_required
 def fav_updates():
 

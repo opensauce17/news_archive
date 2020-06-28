@@ -121,17 +121,17 @@
                 </a>
 
             <div style="padding-right: 0px; padding-left: 30px;">
-                {% if location == 'gb' %}
+                {% if location == 'Great Britain' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Great Britain.
-                {% elif location == 'us' %}
+                {% elif location == 'United States' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from the United States.
-                {% elif location == 'za' %}
+                {% elif location == 'South Africa' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from South Africa.
-                {% elif location == 'au' %}
+                {% elif location == 'Australia' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Australia.
-                {% elif location == 'nz' %}
+                {% elif location == 'New Zealand' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from New Zealand.
-                {% elif location == 'canada' %}
+                {% elif location == 'Canada' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Canada.
                 {% endif %}
             </div>
@@ -162,44 +162,51 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Update Favourites</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Update User Details</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-        <form action="/fav_updates" method="POST">
+            <div class="alert alert-success" role="alert">
+                Select your favourite news type from your preferred location to be diplayed on your home page
+           </div>
+        <form action="/fav_updates">
                 <div class="form-group">
                     
                 <select name="news_type" class="form-control mb-2 mr-sm-2" id="new_type">
-                    <option value="headlines">Headlines</option>
-                    <option value="business">Business</option>
-                    <option value="technology">Technology</option>
-                    <option value="health">Health</option>
-                    <option value="science">Science</option>
-                    <option value="sport">Sport</option>
-                    <option value="entertainment">Entertainment</option>
+                    <option value="Headlines">Headlines</option>
+                    <option value="Business">Business</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Health">Health</option>
+                    <option value="Science">Science</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Entertainment">Entertainment</option>
                </select>
 
                <select name="country" class="form-control mb-2 mr-sm-2" id="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="great britain">Great Britain</option>
-                    <option value="new zealand">New Zealand</option>
-                    <option value="south africa">South Africa</option>
-                    <option value="united states">United States</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Great Britain">Great Britain</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="United States">United States</option>
               </select>
 
                 </div>
-        <div class="alert alert-success" role="alert">
-            Select your favourite news type from your preferred location to be diplayed on your home page
-       </div>
+                <div class="alert alert-success" role="alert">
+                    Enable or disable comments on news articles
+               </div>
+               <div class="col-sm-14 offset-sm-1">
+               <input type="checkbox" id="comments" name="comments" value="Comments">
+                Comments<br><br>
+               </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-        </div>
-  
+       </form>
+        </div>  
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
