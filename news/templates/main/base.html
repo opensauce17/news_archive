@@ -168,13 +168,26 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="alert alert-success" role="alert">
-                Select your favourite news type from your preferred location to be diplayed on your home page
-           </div>
+           
         <form action="/fav_updates">
                 <div class="form-group">
+
+                <div class="alert alert-success" role="alert">
+                        Update your username
+                </div>
+
+                <div class="lm-3">
+                    <input type="text" id="uname" name="uname" value="{{ username }}" class="form-control lm-3" required>
+                </div>
+        
+                <br>
+
+                <div class="alert alert-success" role="alert">
+                    Select your favourite news type from your preferred location to be diplayed on your home page
+               </div>
                     
-                <select name="news_type" class="form-control mb-2 mr-sm-2" id="new_type">
+                <select name="news_type" class="form-control mb-2 mr-sm-2" id="news_type">
+                    <option value="None"></option>
                     <option value="Headlines">Headlines</option>
                     <option value="Business">Business</option>
                     <option value="Technology">Technology</option>
@@ -185,6 +198,7 @@
                </select>
 
                <select name="country" class="form-control mb-2 mr-sm-2" id="country">
+                   <option value="None"></option>
                     <option value="Australia">Australia</option>
                     <option value="Canada">Canada</option>
                     <option value="Great Britain">Great Britain</option>
@@ -213,7 +227,13 @@
   </div>
 
 
-
+<script>
+  $(document).ready(function() {
+  $('#country, #news_type') 
+  .find('option[value="None"]')
+  .text('');
+});
+</script>
 
 
 

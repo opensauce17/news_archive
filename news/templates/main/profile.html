@@ -18,8 +18,6 @@
                             <thead>
                                 <tr>
                                     <!--<th scope="col">#</th>-->
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Last</th>
                                     <th scope="col">User Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">News Favourite</th>
@@ -31,9 +29,6 @@
                             <tbody>
                                 <tr>
                                     {% for user in user_data %}
-                                    <!--th scope="row">1</th>-->
-                                    <td>{{ user.first_name }}</td>
-                                    <td>{{ user.last_name }}</td>
                                     <td>{{ user.username }}</td>
                                     <td>{{ user.email }}</td>
                                     <td>{{ user.pref_news_type }}</td>

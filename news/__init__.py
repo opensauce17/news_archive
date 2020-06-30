@@ -9,13 +9,19 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'CGVC39xyCk8lUmR6DzT_LA'
-app.config['CFR_ENABLED'] = True
+app.config['CSFR_ENABLED'] = True
 app.config['USER_ENABLE_EMAIL'] = True
+app.config['USER_ENABLE_CONFIRM_EMAIL'] = True
 app.config.from_pyfile('../mail.cfg')
-app.config['USER_SEND_PASSWORD_CHANGED_EMAIL'] = False
+app.config['USER_SEND_PASSWORD_CHANGED_EMAIL'] = True
 app.config['USER_SEND_REGISTERED_EMAIL'] = True
-app.config['USER_SEND_USERNAME_CHANGED_EMAIL'] = False
+app.config['USER_SEND_USERNAME_CHANGED_EMAIL'] = True
 app.config['USER_APP_NAME'] = 'The World News Archive'
+app.config['USER_AUTO_LOGIN'] = False
+#app.config['USER_AUTO_LOGIN_AFTER_CONFIRM'] = False
+app.config['USER_AUTO_LOGIN_AFTER_REGISTER'] = False
+#app.config['USER_AUTO_LOGIN_AT_LOGIN'] = False
+
 
 db = SQLAlchemy(app)
 mail = Mail(app)

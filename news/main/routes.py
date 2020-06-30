@@ -39,8 +39,11 @@ def index():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
     today_date = str(today_date).split(" ", 1)[0]
-    #news_type = user_defaults[1].lower()
     news_type = user_defaults[1]
+    if news_type == None:
+        news_type = user_defaults[1]
+    else:
+        news_type = user_defaults[1].lower()
     print(news_type)
     default_settings = []
     if location == "United States":
@@ -148,18 +151,24 @@ def comments():
 def fav_updates():
 
     username = current_user.username
+    uname = request.args.get('uname')
     news_type = request.args.get('news_type')
     country = request.args.get('country')
 
-    print(country)
-    print(news_type)
+    if news_type == 'None' and country == 'None':
+        update = User.query.filter_by(username=username).first()
+        update.username = uname
+        db.session.commit()
 
-    update = User.query.filter_by(username=username).first()
-    update.pref_location = country
-    update.pref_news_type = news_type
-    db.session.commit()
+        return redirect(url_for('main.profile'))
+    else:
+        update = User.query.filter_by(username=username).first()
+        update.pref_location = country
+        update.pref_news_type = news_type
+        update.username = uname
+        db.session.commit()
 
-    return redirect(url_for('main.profile'))
+        return redirect(url_for('main.profile'))
 
 
 @main.route('/sso/', methods=['GET', 'POST'])
