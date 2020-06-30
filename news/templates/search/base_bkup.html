@@ -1,0 +1,304 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154720817-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154720817-4');
+</script>
+
+<title>World News Archive</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/eye.png') }}" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- Just an image -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light text-dark fixed-top justify-content-center justify-content-between">
+
+            <a class="navbar-brand mr-1" href="{{ url_for('main.index') }}">
+              <!--<img src="https://www.countryflags.io/us/shiny/32.png">-->
+              <img src="{{ url_for('static', filename='images/eye.png') }}" width=50px height="50px">
+                </a>
+
+            <strong><font size="4">The World News Archive</font>
+                <br>
+                <!--  <font size="2">United States <img src="https://www.countryflags.io/us/shiny/32.png" style="padding-left: 10px;">
+                    {{ news_type|capitalize }} {{ today }} -->
+
+
+                </font></strong>
+                <br>
+
+
+
+
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                  <span class="navbar-toggler-icon"></span>
+             </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+                <ul class="navbar-nav ml-auto">
+                    {% if search == None %}
+                    <li>
+                         <font size="5">{{ country }} {{ news_type }}</font> between <font size="5">{{ from_date }}</font> and <font size="5">{{ to_date }}</font>
+                    </li>
+                    {% elif date_category_country != 'on' and search_everything != 'on' %}
+                     <li>
+                         <font size="5">{{ country }} {{ news_type }}</font> between <font size="5">{{ from_date }}</font> and <font size="5">{{ to_date }}</font>
+                         <br>
+                         <center>Search Item: <font size="5">{{ search }}</font></center>
+                    </li>
+                     {% elif search_everything == 'on' and date_category_country != 'on' %}
+                    <li>
+                         <font size="5">All Countries, All Categories, All Dates </font>
+                        <br>
+                        <center>Search Item: <font size="5">{{ search }}</font></center>
+                    </li>
+                    {% endif %}
+                </ul>
+                 <ul class="navbar-nav ml-auto">
+                 <!--  <li class="navbar-nav">
+                    <a href="#"><img src="{{ url_for('static', filename='images/stats_icon.png') }}" data-toggle="modal" data-target="#exampleModalStatsCenter" width="30" height="30" alt="Image"></a>
+                   </li> -->
+                    <li class="navbar-nav">
+                    <a href="#"><img src="{{ url_for('static', filename='images/search_icon.png') }}" data-toggle="modal" data-target="#exampleModalSearchCenter" width="30" height="30" alt="Image"></a>
+                   </li>
+                    <li class="navbar-nav">
+                    <a href="#"><img src="{{ url_for('static', filename='images/country_icon.png') }}" data-toggle="modal" data-target="#exampleModalCountryCenter" width="30" height="30" alt="Image"></a>
+                   </li>
+                    <li class="navbar-nav">
+                     <a href="#"><img src="{{ url_for('static', filename='images/info.png') }}" data-toggle="modal" data-target="#exampleModalFormCenter" width="30" height="30" alt="Image"></a>
+                   </li>
+                  <li class="navbar-nav mr-auto">
+                </ul>
+            </div>
+        </nav>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Search Submit Form -->
+<div class="modal fade" id="exampleModalSearchCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongTitle">Advanced Archive Search</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+
+    <div class="col-lg-14 offset-sm-1">
+     <form class="form-inline" action="/search">
+
+         <!--<input type="date" class="form-control mb-2 mr-sm-2"  value="" placeholder="From Date" name="from_date" id="from_date" min="2020-01-20" style="width: 204px;"> -->
+         <input placeholder="From Date" class="textbox-n form-control mb-2 mr-sm-2" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="from_date" id="from_date" min="2020-01-20" required style="width: 204px;"/>
+
+         <input placeholder="To Date"   class="textbox-n form-control mb-2 mr-sm-2" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="to_date" id="to_date" min="2020-01-20" required style="width: 204px;"/>
+
+             <select name="country" class="form-control mb-2 mr-sm-2" id="search_country" style="width: 204px;">
+                 <!--<option value="" disabled selected>Country</option> -->
+                 <option value="Australia">  Australia  </option>
+                 <option value="Canada">  Canada  </option>
+                 <option value="Great Britain">  Great Britain  </option>
+                 <option value="New Zealand">  New Zealand  </option>
+                 <option value="South Africa">  South Africa  </option>
+                 <option value="United States">  United States  </option>
+                <!-- <option value="All Countries">  All  </option> -->
+             </select>
+
+             <select name="newstype" class="form-control mb-2 mr-sm-2" id="newstype" style="width: 204px;">
+                <!-- <option value="" disabled selected>News Category</option> -->
+                 <option value="Headlines">  Headlines  </option>
+                 <option value="Business">  Business  </option>
+                 <option value="Technology">  Technology  </option>
+                 <option value="Health">  Health  </option>
+                 <option value="Science">  Science  </option>
+                 <option value="Sport">  Sport  </option>
+                 <option value="Entertainment">  Entertainment  </option>
+              <!--   <option value="All News">  All  </option> -->
+             </select>
+         <input type="input" class="form-control mb-2 mr-sm-2"  size="48" value="" placeholder="Search words/phrases" name="search_bar" id="search_bar" required>
+
+          <button type="submit" class="btn btn-primary mb-3">Search</button>
+         <div class="col-sm-14 offset-sm-1">
+         <input type="checkbox" id="search_everything" name="search_everything" onclick='disableFields()'>
+             Search Everything<br>
+         <input type="checkbox" id="exclude_search_bar" name="exclude_search_bar" onclick='disabledSearchField()'>
+             Date, Category and Country Only
+         </div>
+             </form>
+
+         <script>
+
+                  var ids = ['from_date','to_date','search_country','newstype']
+
+
+                  function disableFields() {
+
+                  var box = document.getElementById("search_everything");
+
+                  if (box.checked) {
+
+                      for (var i = 0; i < ids.length; i++) {
+                      document.getElementById(ids[i]).setAttribute("disabled","disabled");
+                   }
+
+                 } else {
+
+                       for (var i = 0; i < ids.length; i++) {
+                       document.getElementById(ids[i]).removeAttribute("disabled", "disabled")
+
+                   }
+              }
+             }
+       </script>
+
+         <script>
+
+             function disabledSearchField() {
+
+             var box = document.getElementById("exclude_search_bar");
+
+             if (box.checked) {
+                document.getElementById('search_bar').setAttribute('disabled','disabled');
+
+                } else {
+                 document.getElementById('search_bar').removeAttribute('disabled','disabled')
+                 }
+
+             }
+        </script>
+
+    </div>
+
+    </div>
+
+
+
+
+  </div>
+  </div>
+</div>
+
+<!-- Modal City Submit Form -->
+<div class="modal fade" id="exampleModalCountryCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+
+          <div class="container">
+              <center><img src="{{ url_for('static', filename='images/eye.png') }}" width=150px height="150px"><h4>THE WORLD NEWS ARCHIVE</h4></center>
+              <hr>
+
+            <div class="col col-sm-12">
+
+              <div class="form-screen">
+                <div class="card account-dialog">
+                   <div class="card-header bg-light text-dark">Select Country</div>
+
+                      <div class="card-body">
+                         <form action="/country">
+                             <div class="form-group">
+                                 <select name="country" class="form-control mb-2 mr-sm-2" id="country">
+                                      <option value="au">Australia</option>
+                                      <option value="ca">Canada</option>
+                                      <option value="gb">Great Britain</option>
+                                      <option value="nz">New Zealand</option>
+                                      <option value="za">South Africa</option>
+                                      <option value="us">United States</option>
+                                </select>
+                            </div>
+                               <div class="account-dialog-actions">
+                                 <button type="submit" class="btn btn-dark">Select</button>
+                              </div>
+                        </form>
+                    </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalFormCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">About The World News Archive</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <center><p style="text-align: justify;"><strong>The World News Archive</strong> is part of a portfolio suite featured on <a href="http://www.mikehyland.com" target="_blank">mikehyland.com</a></p>
+          <p style="text-align: justify;">This app utilises the <a href="https://newsapi.org/" target="_blank">News API</a> to gather and then display news articles published by world wide news outlets.
+             </p>
+             <p style="text-align: justify;">
+                 News items are gathered every 4 hours and stored in a sql database. The web application displays the news
+                 per selected country, category and date. The navigation items will display today's news in the selected categories for the selected country.
+             </p>
+             <p style="text-align: justify;">
+                 There are two search mechanisms: <b>country specific search</b> and <b>advanced search</b>.
+             </p>
+             <p style="text-align: justify;">
+                 The country specific search mechanism is found at the top of each country page and queries the
+                 database by date and category within the selected country and allows the user to view archived news articles. The advanced search mechanism is found on the navigation bar
+                 and offers the user a variety of search features.
+             </p>
+           </center>
+
+          <a href="https://github.com/opensauce17/news_archive" target="_blank"><center><p><i class="fa fa-github fa-5x"></i></p></center></a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% block content %}{% endblock %}
+
+
+</body>
+</html>
