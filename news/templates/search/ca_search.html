@@ -2,444 +2,664 @@
 {% block content %}
 
 
-<div class="container">
-    <div class="row">
 
 {% if news_type == 'Headlines' and search == None %}
-<div class="container">
-    <div class="row">
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for headline in ca_headlines %}
+                    {% for ca_headline in headline %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_headline.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_headline.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_headline.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_headline.url }}" target="_blank">{{ ca_headline.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_headline.source }} on {{ ca_headline.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-   {% for headline in ca_headlines %}
-        {% for ca_headline in headline %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_headline.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_headline.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_headline.url }}" target="_blank">{{ ca_headline.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_headline.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_headline.source }} on {{ ca_headline.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
-
-{% if news_type == 'Business' and search == None %}
-<div class="container">
-    <div class="row">
-
-   {% for business in ca_business %}
-        {% for ca_business in business %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_business.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_business.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_business.url }}" target="_blank">{{ ca_business.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_business.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_business.source }} on {{ ca_business.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
-
-{% if news_type == 'Technology' and search == None %}
-<div class="container">
-    <div class="row">
-
-   {% for technology in ca_technology %}
-        {% for ca_technology in technology %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_technology.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_technology.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_technology.url }}" target="_blank">{{ ca_technology.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_technology.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_technology.source }} on {{ ca_technology.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
-
-{% if news_type == 'Health' and search == None %}
-<div class="container">
-    <div class="row">
-
-   {% for health in ca_health %}
-        {% for ca_health in health %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_health.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_health.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_health.url }}" target="_blank">{{ ca_health.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_health.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_health.source }} on {{ ca_health.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
-
-{% if news_type == 'Science' and search == None %}
-<div class="container">
-    <div class="row">
-
-   {% for health in ca_science %}
-        {% for ca_science in health %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_science.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_science.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_science.url }}" target="_blank">{{ ca_science.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_science.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_science.source }} on {{ ca_science.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
-
-{% if news_type == 'Sport' and search == None %}
-<div class="container">
-    <div class="row">
-
-   {% for sport in ca_sport %}
-        {% for ca_sport in sport %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_sport.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_sport.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_sport.url }}" target="_blank">{{ ca_sport.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_sport.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_sport.source }} on {{ ca_sport.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
-
-{% if news_type == 'Entertainment' and search == None %}
-<div class="container">
-    <div class="row">
-
-   {% for entertainment in ca_entertainment %}
-        {% for ca_entertainment in entertainment %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_entertainment.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_entertainment.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_entertainment.url }}" target="_blank">{{ ca_entertainment.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_entertainment.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_entertainment.source }} on {{ ca_entertainment.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
-
-    </div>
-</div>
+                 </div>
+              </div>
+  </div>
+</main>
 
 
-{% if news_type == 'Headlines' and search != 'None' %}
-<div class="container">
-    <div class="row">
+{% elif news_type == 'Business' and search == None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for business in ca_business %}
+                    {% for ca_business in business %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_business.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_business.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_business.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_business.url }}" target="_blank">{{ ca_business.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_business.source }} on {{ ca_business.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-   {% for headlines in ca_search_headlines %}
-        {% for ca_search_headlines in headlines %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_headlines.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_headlines.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_headlines.url }}" target="_blank">{{ ca_search_headlines.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_headlines.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_headlines.source }} on {{ ca_search_headlines.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
 
-    </div>
-</div>
+                 </div>
+              </div>
+  </div>
+</main>
 
-{% if news_type == 'Business' and search != 'None' %}
-<div class="container">
-    <div class="row">
+{% elif news_type == 'Health' and search == None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for health in ca_health %}
+                    {% for ca_health in health %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_health.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_health.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_health.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_health.url }}" target="_blank">{{ ca_health.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_health.source }} on {{ ca_health.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-   {% for business in ca_search_business %}
-        {% for ca_search_business in business %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_business.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_business.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_business.url }}" target="_blank">{{ ca_search_business.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_business.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_business.source }} on {{ ca_search_business.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
+                 </div>
+              </div>
+  </div>
+</main>
 
-    </div>
-</div>
 
-{% if news_type == 'Technology' and search != 'None' %}
-<div class="container">
-    <div class="row">
+{% elif news_type == 'Technology' and search == None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for technology in ca_technology %}
+                    {% for ca_technology in technology %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_technology.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_technology.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_technology.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_technology.url }}" target="_blank">{{ ca_technology.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_technology.source }} on {{ ca_technology.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-   {% for technology in ca_search_technology %}
-        {% for ca_search_technology in technology %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_technology.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_technology.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_technology.url }}" target="_blank">{{ ca_search_technology.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_technology.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_technology.source }} on {{ ca_search_technology.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
+                 </div>
+              </div>
+  </div>
+</main>
 
-    </div>
-</div>
+{% elif news_type == 'Science' and search == None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for science in ca_science %}
+                    {% for ca_science in health %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_science.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_science.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_science.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_science.url }}" target="_blank">{{ ca_science.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_science.source }} on {{ ca_science.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-{% if news_type == 'Health' and search != 'None' %}
-<div class="container">
-    <div class="row">
+                 </div>
+              </div>
+  </div>
+</main>
 
-   {% for health in ca_search_health %}
-        {% for ca_search_health in health %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_health.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_health.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_health.url }}" target="_blank">{{ ca_search_health.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_health.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_health.source }} on {{ ca_search_health.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
 
-    </div>
-</div>
+{% elif news_type == 'Sport' and search == None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for sport in ca_sport %}
+                    {% for ca_sport in sport %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_sport.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_sport.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_sport.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_sport.url }}" target="_blank">{{ ca_sport.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_sport.source }} on {{ ca_sport.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-{% if news_type == 'Science' and search != 'None' %}
-<div class="container">
-    <div class="row">
+                 </div>
+              </div>
+  </div>
+</main>
 
-   {% for science in ca_search_science %}
-        {% for ca_search_science in science %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_science.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_science.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_science.url }}" target="_blank">{{ ca_search_science.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_science.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_science.source }} on {{ ca_search_science.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
 
-    </div>
-</div>
+{% elif news_type == 'Entertainment' and search == None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for entertainment in ca_entertainment %}
+                    {% for ca_entertainment in entertainment %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_entertainment.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_entertainment.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_entertainment.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_entertainment.url }}" target="_blank">{{ ca_entertainment.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_entertainment.source }} on {{ ca_entertainment.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-{% if news_type == 'Sport' and search != 'None' %}
-<div class="container">
-    <div class="row">
 
-   {% for sport in ca_search_sport %}
-        {% for ca_search_sport in sport %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_sport.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_sport.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_sport.url }}" target="_blank">{{ ca_search_sport.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_sport.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_sport.source }} on {{ ca_search_sport.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
+                 </div>
+              </div>
+  </div>
+</main>
 
-    </div>
-</div>
+<!--  -->
 
-{% if news_type == 'Entertainment' and search != 'None' %}
-<div class="container">
-    <div class="row">
+{% elif news_type == 'Headlines' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for headlines in ca_search_headlines %}
+                    {% for ca_search_headlines in headlines %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_headlines.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_headlines.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_headlines.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_headlines.url }}" target="_blank">{{ ca_search_headlines.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_headlines.source }} on {{ ca_search_headlines.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
 
-   {% for entertainment in ca_search_entertainment %}
-        {% for ca_search_entertainment in entertainment %}
-  <div class="col-sm-4 mb-3 d-flex">
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        {% if ca_search_entertainment.urlToImage == None %}
-     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
-       {% else %}
-     <img class="card-img-top" src="{{ ca_search_entertainment.urlToImage }}" alt="Card image" height="170">
-        {% endif %}
-      <div class="card-body">
-        <h6 class="card-title"><a href="{{ ca_search_entertainment.url }}" target="_blank">{{ ca_search_entertainment.title }}</a></h6>
-        <p class="card-subtitle"> {{ ca_search_entertainment.description }} </p>
-            <hr>
-        <font size="2" class="post-meta">
-            Posted by {{ ca_search_entertainment.source }} on {{ ca_search_entertainment.publishedAt }}
-            <br>
-         </font>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-  {% endfor %}
- {% endif %}
+                 </div>
+              </div>
+  </div>
+</main>
 
-    </div>
-</div>
 
+{% elif news_type == 'Business' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for business in ca_search_business %}
+                    {% for ca_search_business in business %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_business.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_business.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_business.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_business.url }}" target="_blank">{{ ca_search_business.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_business.source }} on {{ ca_search_business.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
+
+
+                 </div>
+              </div>
+  </div>
+</main>
+
+{% elif news_type == 'Health' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for health in ca_search_health %}
+                    {% for ca_search_health in health %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_health.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_health.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_health.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_health.url }}" target="_blank">{{ ca_search_health.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_health.source }} on {{ ca_search_health.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
+
+                 </div>
+              </div>
+  </div>
+</main>
+
+
+{% elif news_type == 'Technology' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for technology in ca_search_technology %}
+                    {% for ca_search_technology in technology %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_technology.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_technology.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_technology.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_technology.url }}" target="_blank">{{ ca_search_technology.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_technology.source }} on {{ ca_search_technology.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
+
+                 </div>
+              </div>
+  </div>
+</main>
+
+{% elif news_type == 'Science' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for science in ca_search_science %}
+                    {% for ca_search_science in science %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_science.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_science.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_science.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_science.url }}" target="_blank">{{ ca_search_science.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_science.source }} on {{ ca_search_science.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
+
+                 </div>
+              </div>
+  </div>
+</main>
+
+
+{% elif news_type == 'Sport' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for sport in ca_search_sport %}
+                    {% for ca_search_sport in sport %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_sport.ca_search_sport == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_sport.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_sport.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_sport.url }}" target="_blank">{{ ca_search_sport.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_sport.source }} on {{ ca_search_sport.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
+
+                 </div>
+              </div>
+  </div>
+</main>
+
+
+{% elif news_type == 'Entertainment' and search != None %}
+<main class="dash-content">
+  <div class="container-fluid">
+                 <div class="container">
+                  <div class="row">
+                    {% for entertainment in ca_search_entertainment %}
+                    {% for ca_search_entertainment in entertainment %}
+                      <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                          <div class="row">
+                              <div class="col-md-4">
+                                   {% if ca_search_entertainment.urlToImage == None %}
+                                  <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                      {% else %}
+                                  <img class="card-img-top" src="{{ ca_search_entertainment.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                   {% endif %}
+                              </div>
+                             <div class="col-md-8">
+                                 <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                  <div class="spur-card-menu">
+                                      <div class="dropdown show" >
+                                          <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                  <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                  <input type="hidden" name="news_id" value="{{ ca_search_entertainment.id }}">
+                                                  <input type="hidden" name="location" value="ca">
+                                                  <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                  <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                              </div>
+                                      </div>
+                                  </div>
+                                  </form>
+                                 <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ ca_search_entertainment.url }}" target="_blank">{{ ca_search_entertainment.title }}</a></p>
+                                  <font size="1" class="post-meta">
+                                      Posted by {{ ca_search_entertainment.source }} on {{ ca_search_entertainment.publishedAt }}
+                                  </font>
+                             </div>
+                            </div>
+                          </div>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+
+                 </div>
+              </div>
+  </div>
+</main>
 
 <footer class="page-footer font-small blue">
 
