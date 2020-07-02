@@ -24,8 +24,27 @@
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                                                 <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
                                                                 <input type="hidden" name="news_id" value="{{ everything_search.id }}">
+                                                                
+                                                                {% if 'gb' in everything_search|string %}
+                                                                <input type="hidden" name="location" value="gb">
+                                                                {% endif %}
+                                                                {% if 'us' in everything_search|string %}
+                                                                <input type="hidden" name="location" value="us">
+                                                                {% endif %}
+                                                                {% if 'au' in everything_search|string %}
                                                                 <input type="hidden" name="location" value="au">
-                                                                <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                                {% endif %}
+                                                                {% if 'nz' in everything_search|string %}
+                                                                <input type="hidden" name="location" value="nz">
+                                                                {% endif %}
+                                                                {% if 'za' in everything_search|string %}
+                                                                <input type="hidden" name="location" value="za">
+                                                                {% endif %}
+                                                                {% if 'ca' in everything_search|string %}
+                                                                <input type="hidden" name="location" value="ca">
+                                                                {% endif %}
+                          
+                                                                <!--<input type="hidden" name="newstype" value="{{ news_type }}">-->
                                                                 <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
                                                             </div>
                                                     </div>
