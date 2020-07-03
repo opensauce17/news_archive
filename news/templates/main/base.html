@@ -121,17 +121,17 @@
                 </a>
 
             <div style="padding-right: 0px; padding-left: 30px;">
-                {% if location == 'Great Britain' %}
+                {% if location == 'gb' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Great Britain.
-                {% elif location == 'United States' %}
+                {% elif location == 'us' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from the United States.
-                {% elif location == 'South Africa' %}
+                {% elif location == 'za' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from South Africa.
-                {% elif location == 'Australia' %}
+                {% elif location == 'au' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Australia.
-                {% elif location == 'New Zealand' %}
+                {% elif location == 'nz' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from New Zealand.
-                {% elif location == 'Canada' %}
+                {% elif location == 'ca' %}
                     Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Canada.
                 {% endif %}
             </div>

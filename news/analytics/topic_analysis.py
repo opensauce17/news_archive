@@ -1,9 +1,11 @@
 #! /usr/bin/env python
-
+from PyDictionary import PyDictionary
+import collections
 from datetime import datetime, date, timedelta
 from sqlalchemy import and_
 import sqlite3
 
+dictionary=PyDictionary()
 conn = sqlite3.connect('/Users/michael.hyland/python_prod/news_archive/news/db/db.db')
 cur = conn.cursor()
 
@@ -30,47 +32,61 @@ d2 = date(int(t_year), int(t_month), int(t_day))
 
 dd = [d1 + timedelta(days=x) for x in range((d2 - d1).days + 1)]
 
-d = "'%2020-01-20%'"
-sqlite_select_query = "SELECT description FROM au_news WHERE publishedAt LIKE {}".format(d)
-#print(sqlite_select_query)
+for d in dd:
+    d = f"'%{d}%'"
+    sqlite_select_query = "SELECT description, content, title FROM za_news WHERE publishedAt LIKE {} AND news_type = 'headlines'".format(d)
 
-cur.execute(sqlite_select_query)
-
-rows = cur.fetchall()
-
-words = []
-
-try:
-    for row in rows:
-        l = (list(row))
-        for i in l:
-            words.append(i)
-        #s = ' '.join(l)
-        #print(s)
-except TypeError:
-    pass
-
-print(words)
-#print(rows)
-
-""" for d in dd:
-    #d = f"'%{d}%'"
-    d = "'%2020-01-20%'"
-    sqlite_select_query = "SELECT description FROM au_news WHERE publishedAt LIKE {}".format(d)
-    print(sqlite_select_query) """
-"""     cur.execute(sqlite_select_query)
+    cur.execute(sqlite_select_query)
 
     rows = cur.fetchall()
 
-    print(rows)
-    wait(10) """
+    words = []
 
-"""     headlines = []
+    try:
+        for row in rows:
+            l = (list(row))
+            for i in l:
+                words.append(i)
 
-    for row in rows:
-        headlines.append(row)
+    except TypeError:
+        pass
 
-    print(headlines)
-         """
+    word_list = []
 
+    for i in words:
+        try:
+            for word in i.split():
+                w = word.replace(".", "").replace(",", "")
+                #print(w)
+                word_list.append(w)
+        except AttributeError:
+            pass
+
+
+    collection = [item for item, count in collections.Counter(word_list).items() if count > 10]
+
+    remove_words = ['and', 'the', 'for', 'are', 'at', 'The', 'is', 'a', 'on', 'was', 'it', 'an', 'in',
+     'of', 'but', 'be', 'he', 'she', 'A', 'up', 'can', 'at', 'by', 'can', 'now', 'his', 'for', 'his',
+     'her', 'hers', 'all', 'you', 'that', 'their', 'not', 'this', 'will', 'new', 'as', 'have', 'from',
+     'with', 'been', 'more', 'after', 'which', 'has', 'to', 'its', 'people', 'one', 'over', 'about',
+     'just', 'some', 'who', 'could', 'said', 'out', 'they', 'or', 'may', 'your', 'during', 'than', 'had',
+    'first', 'into', '-', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+    'years', 'game', 'study', 'says', 'In', 'in', 'were', 'how', 'time', 'we', 'when', 'our',
+    'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'I', 'what', 'coming',
+    'found', 'Some', 'some', 'know', 'week', 'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December', 'many', 'if', 'like', 'them',
+    'most', 'get', 'between', 'best', 'even', 'would', 'do', 'This', 'But', 'but', 'should', 'also',
+    'see', 'back', 'It', 'All', 'News', 'Australia', 'Australian', 'NEWScomau', 'chars]', '2020', '2019',
+    'say', 'no', 'On', 'there', 'off', 'Is' ,'As', 'so', "it's", 'To', 'any', 'news', 'while', 'other', 'take',
+    '--', 'announced' ,'look', 'last', 'man', '…', 'against', 'according', '—', '|', '1', '2', '3', '4',
+    '5', '6', '7', '8', '9', '10', '/', 'One', 'You', 'year', 'day', 'make', 'way', 'By', 'ago', 'With', '–',
+    'For', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', 'From', 'down', 'free', 'home', 'latest',
+    'South', 'Africa', 'season', 'World', 'New Zealand', 'Canada', 'Zealand', 'company', 'long', 'around',
+    'next']
+    
+    new_collection = [word for word in collection if word not in remove_words]
+
+    d = d.replace("'", "").replace("%", "")
+    print(d + ' ' + ' '.join(new_collection))
+    print('\n')
 

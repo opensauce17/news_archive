@@ -44,38 +44,44 @@ def index():
         news_type = user_defaults[1]
     else:
         news_type = user_defaults[1].lower()
-    print(news_type)
+
     default_settings = []
     if location == "United States":
         defaults = us_news.query.filter(
             and_(us_news.news_type == news_type, us_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(us_news.publishedAt.desc())
         default_settings.append(defaults)
+        location = 'us'
     if location == 'South Africa':
         defaults = za_news.query.filter(
             and_(za_news.news_type == news_type, za_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(za_news.publishedAt.desc())
         default_settings.append(defaults)
+        location = 'za'
     if location == 'Australia':
         defaults = au_news.query.filter(
             and_(au_news.news_type == news_type, au_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(au_news.publishedAt.desc())
         default_settings.append(defaults)
+        location = 'au'
     if location == 'Canada':
         defaults = ca_news.query.filter(
             and_(ca_news.news_type == news_type, ca_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(ca_news.publishedAt.desc())
         default_settings.append(defaults)
+        location = 'ca'
     if location == 'New Zealand':
         defaults = nz_news.query.filter(
             and_(nz_news.news_type == news_type, nz_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(nz_news.publishedAt.desc())
         default_settings.append(defaults)
+        location = 'nz'
     if location == 'Great Britain':
         defaults = gb_news.query.filter(
             and_(gb_news.news_type == news_type, gb_news.publishedAt.like(f'%{today_date}%'))) \
             .order_by(gb_news.publishedAt.desc())
         default_settings.append(defaults)
+        location = 'gb'
 
 
     return render_template('main/index.html', username=username, user_data=user_data, default_settings=default_settings,
