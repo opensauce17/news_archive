@@ -13,7 +13,216 @@
                             </div>
                         </main>
                     {% else %}
-            <main class="dash-content">
+                    <main class="dash-content">
+                        <div class="container-fluid">
+                            
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="stats stats-primary">
+                                        {% if location == 'au' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/au/shiny/64.png"> TITLES </h3>
+                                        {% elif location == 'us' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/us/shiny/64.png"> TITLES </h3>
+                                        {% elif location == 'ca' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/ca/shiny/64.png"> TITLES </h3>
+                                        {% elif location == 'gb' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/gb/shiny/64.png"> TITLES </h3>
+                                        {% elif location == 'nz' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/nz/shiny/64.png"> TITLES </h3>
+                                        {% elif location == 'za' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/za/shiny/64.png"> TITLES </h3>
+                                        {% endif %}
+                                        <div class="stats-content">
+                                            <div class="stats-icon">
+                                                <i class="fas fa-list-alt"></i>
+                                            </div>
+                                            <div class="stats-data">
+                                                <div class="stats-number">55,853</div>
+                                                <div class="stats-change">
+                                                    <!--<span class="stats-percentage">+17.5%</span>-->
+                                                    <span class="stats-timeframe">for the last 30 days</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="stats stats-info">
+                                        {% if location == 'au' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/au/shiny/64.png"> AUTHORS </h3>
+                                        {% elif location == 'us' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/us/shiny/64.png"> AUTHORS </h3>
+                                        {% elif location == 'ca' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/ca/shiny/64.png"> AUTHORS </h3>
+                                        {% elif location == 'gb' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/gb/shiny/64.png"> AUTHORS </h3>
+                                        {% elif location == 'nz' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/nz/shiny/64.png"> AUTHORS </h3>
+                                        {% elif location == 'za' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/za/shiny/64.png"> AUTHORS </h3>
+                                        {% endif %}
+                                        <div class="stats-content">
+                                            <div class="stats-icon">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </div>
+                                            <div class="stats-data">
+                                                <div class="stats-number">12,956</div>
+                                                <div class="stats-change">
+                                                    <!--<span class="stats-percentage">+17.5%</span>-->
+                                                    <span class="stats-timeframe">for the last 30 days</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="stats stats-success">
+                                        {% if location == 'au' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/au/shiny/64.png"> SOURCES </h3>
+                                        {% elif location == 'us' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/us/shiny/64.png"> SOURCES </h3>
+                                        {% elif location == 'ca' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/ca/shiny/64.png"> SOURCES </h3>
+                                        {% elif location == 'gb' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/gb/shiny/64.png"> SOURCES </h3>
+                                        {% elif location == 'nz' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/nz/shiny/64.png"> SOURCES </h3>
+                                        {% elif location == 'za' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/za/shiny/64.png"> SOURCES </h3>
+                                        {% endif %}
+                                        <div class="stats-content">
+                                            <div class="stats-icon">
+                                                <i class="fas fa-newspaper"></i>
+                                            </div>
+                                            <div class="stats-data">
+                                                <div class="stats-number">2,705</div>
+                                                <div class="stats-change">
+                                                    <!--<span class="stats-percentage">+17.5%</span>-->
+                                                    <span class="stats-timeframe">for the last 30 days</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                    </main>
+
+                    <main class="dash-content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="card spur-card">
+                                        <div class="card-header">
+                                            <div class="spur-card-icon">
+                                                {% if location == 'au' %}
+                                                <img src="https://www.countryflags.io/au/shiny/32.png">
+                                                {% elif location == 'us' %}
+                                                <img src="https://www.countryflags.io/us/shiny/32.png">
+                                                {% elif location == 'ca' %}
+                                                <img src="https://www.countryflags.io/ca/shiny/32.png">
+                                                {% elif location == 'gb' %}
+                                                <img src="https://www.countryflags.io/gb/shiny/32.png">
+                                                {% elif location == 'nz' %}
+                                                <img src="https://www.countryflags.io/nz/shiny/32.png">
+                                                {% elif location == 'za' %}
+                                                <img src="https://www.countryflags.io/za/shiny/32.png">
+                                                {% endif %}
+                                            </div>
+                                            <div class="spur-card-title"> Data Per Month 2020</div>
+                                        </div>
+                                        <div class="card-body spur-card-body-chart">
+                                            <canvas id="spurChartjsTwoBars"></canvas>
+                                            <script>
+                                                var ctx = document.getElementById("spurChartjsTwoBars").getContext('2d');
+                                                var myChart = new Chart(ctx, {
+                                                    type: 'bar',
+                                                    data: {
+                                                        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                                                        datasets: [{
+                                                            label: 'Titles',
+                                                            data: [24776 , 53801, 64453, 62340, 62658, 59852, 8496],
+                                                            backgroundColor: window.chartColors.primary,
+                                                            borderColor: 'transparent'
+                                                        }, {
+                                                            label: 'Authors',
+                                                            data: [6898, 11804, 14744, 14597, 14234, 13746, 3544],
+                                                            backgroundColor: window.chartColors.info,
+                                                            borderColor: 'transparent'
+                                                        },{
+                                                            label: 'Sources',
+                                                            data: [1924, 2583, 3009, 2821, 3740, 2783, 1164],
+                                                            backgroundColor: window.chartColors.success,
+                                                            borderColor: 'transparent'
+                                                        }]
+                                                    },
+                                                    options: {
+                                                        legend: {
+                                                            display: false
+                                                        },
+                                                        scales: {
+                                                            yAxes: [{
+                                                                ticks: {
+                                                                    beginAtZero: true
+                                                                }
+                                                            }]
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card spur-card">
+                                        <div class="card-header ">
+                                            <div class="spur-card-icon">
+                                                {% if location == 'au' %}
+                                                <img src="https://www.countryflags.io/au/shiny/32.png">
+                                                {% elif location == 'us' %}
+                                                <img src="https://www.countryflags.io/us/shiny/32.png">
+                                                {% elif location == 'ca' %}
+                                                <img src="https://www.countryflags.io/ca/shiny/32.png">
+                                                {% elif location == 'gb' %}
+                                                <img src="https://www.countryflags.io/gb/shiny/32.png">
+                                                {% elif location == 'nz' %}
+                                                <img src="https://www.countryflags.io/nz/shiny/32.png">
+                                                {% elif location == 'za' %}
+                                                <img src="https://www.countryflags.io/za/shiny/32.png">
+                                                {% endif %}
+                                            </div>
+                                            <div class="spur-card-title"> {{ news_type|capitalize }} </div>
+                                        </div>
+                                        <div class="card-body">
+                                        <div class="notifications">
+                                        {% for default in default_settings %}
+                                        {% for i in default %}
+                                        <a href="{{ i.url }} " target="_blank" class="notification">
+                                            <div class="notification-icon">
+                                                <i class="fas fa-list-alt"></i>
+                                            </div>
+                                            <div class="notification-text"><font size="1">{{ i.title }}</font></div>
+                                            <span class="notification-time"><font size="1">{{i.source}}</font></span>
+                                        </a>
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                            
+
+                                           
+                                            
+                    
+                        
+                    </main>
+
+
+            <!--<main class="dash-content">
                 <div class="container-fluid">
                             <div class="container">
                                 <div class="row">
@@ -39,7 +248,7 @@
                                                                 <input type="hidden" name="location" value="{{ location }}">
                                                                 <input type="hidden" name="newstype" value="{{ news_type }}">
                                                                 <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
-                                                                <!--<a class="dropdown-item" type="submit" href=""><font size="1">Comments</font></a> -->
+                                                                <!--<a class="dropdown-item" type="submit" href=""><font size="1">Comments</font></a>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -61,7 +270,7 @@
        {% endif %}
    {% endfor %}
     </div>
-</div>
+</div> -->
 
 <footer class="page-footer font-small blue">
 
