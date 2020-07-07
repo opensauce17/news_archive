@@ -119,22 +119,25 @@
                 <a href="#!" class="searchbox-toggle">
                     <i class="fas fa-search"></i>
                 </a>
+                <form class="searchbox" action="/all_search">
+                    <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
+                    <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button>
+                    <input type="text" name="search_item" class="searchbox-input" placeholder="Search" required>
+                    <!--{% if location == 'au' %}
+                    <input type="text" class="searchbox-input" placeholder="Search in {{news_type|capitalize}} for Australia" required>
+                    {% elif location == 'ca' %}
+                    <input type="text" class="searchbox-input" placeholder="Search in {{news_type|capitalize}} for Canada" required>
+                    {% elif location == 'gb' %}
+                    <input type="text" class="searchbox-input" placeholder="Search in {{news_type|capitalize}} for Great Britain" required>
+                    {% elif location == 'nz' %}
+                    <input type="text" class="searchbox-input" placeholder="Search in {{news_type|capitalize}} for New Zealand" required>
+                    {% elif location == 'us' %}
+                    <input type="text" class="searchbox-input" placeholder="Search in {{news_type|capitalize}} for United States" required>
+                    {% elif location == 'za' %}
+                    <input type="text" class="searchbox-input" placeholder="Search in {{news_type|capitalize}} for South Africa" required>
+                    {% endif %} -->
 
-            <div style="padding-right: 0px; padding-left: 30px;">
-                {% if location == 'gb' %}
-                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Great Britain.
-                {% elif location == 'us' %}
-                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from the United States.
-                {% elif location == 'za' %}
-                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from South Africa.
-                {% elif location == 'au' %}
-                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Australia.
-                {% elif location == 'nz' %}
-                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from New Zealand.
-                {% elif location == 'ca' %}
-                    Hi {{ username }}. Your current news favourites are set to {{ news_type|capitalize }} from Canada.
-                {% endif %}
-            </div>
+                </form>
             <div class="tools">
                     <div class="dropdown tools-item">
                         <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

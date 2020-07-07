@@ -1,5 +1,7 @@
 from flask import render_template, request, url_for, redirect, message_flashed, flash, jsonify, session, Blueprint
 from datetime import datetime, date, timedelta
+import requests
+import json
 from sqlalchemy import and_
 from news.models import za_news
 from news.models import us_news
@@ -1419,3 +1421,32 @@ def search():
         flash('message')
 
         return render_template('search/everything_search.html')
+
+
+@global_search.route('/all_search', methods=['GET', 'POST'])
+def all_search():
+
+    search_item = request.args.get('search_item')
+    url = 'http://localhost:9200/news_data/_search?q={}'
+    x = requests.get(url.format(search_item))
+    result = json.loads(x.text)
+    articles = result['hits']['hits']
+
+    batch = []
+
+    for i in articles:
+        b = {
+            "title": i['_source']['title'],
+            "source": i['_source']['source'],
+            "publishedat": i['_source']['publishedat'],
+            "url": i['_source']['url'],
+            "urltoimage": i['_source']['urltoimage'],
+            "news_type": i['_source']['news_type']
+        }
+        batch.append(b)
+
+
+    print(batch)
+
+    return render_template('search/main_search.html', batch=batch)
+

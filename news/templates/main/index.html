@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="card spur-card">
-                                        <div class="card-header ">
+                                        <div class="card-header">
                                             <div class="spur-card-icon">
                                                 {% if location == 'au' %}
                                                 <img src="https://www.countryflags.io/au/shiny/32.png">
@@ -193,7 +193,7 @@
                                             </div>
                                             <div class="spur-card-title"> {{ news_type|capitalize }} </div>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body" style="max-height: 404px; overflow-y: auto;">
                                         <div class="notifications">
                                         {% for default in default_settings %}
                                         {% for i in default %}
