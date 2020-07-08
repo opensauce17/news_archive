@@ -75,7 +75,7 @@ for d in dd:
             pass
 
 
-    collection = [item for item, count in collections.Counter(word_list).items() if count > 50]
+    collection = [item for item, count in collections.Counter(word_list).items() if count > 150]
 
     remove_words = ['and', 'the', 'for', 'are', 'at', 'The', 'is', 'a', 'on', 'was', 'it', 'an', 'in',
      'of', 'but', 'be', 'he', 'she', 'A', 'up', 'can', 'at', 'by', 'can', 'now', 'his', 'for', 'his',

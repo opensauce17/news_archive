@@ -174,7 +174,7 @@ def fav_updates():
         update.username = uname
         db.session.commit()
 
-        return redirect(url_for('main.profile'))
+        return redirect(url_for('main.index'))
 
 
 @main.route('/sso/', methods=['GET', 'POST'])
