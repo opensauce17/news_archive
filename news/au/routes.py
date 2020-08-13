@@ -75,7 +75,7 @@ def index_country():
 
 
 @au.route('/au/', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def index():
 
     if request.method == 'POST':
@@ -91,7 +91,7 @@ def index():
     return render_template('au/index.html', headlines=headlines, today=today, news_type=news_type)
 
 @au.route('/au/business', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def business():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
@@ -104,7 +104,7 @@ def business():
 
 
 @au.route('/au/technology', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def technology():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
@@ -116,7 +116,7 @@ def technology():
     return render_template('au/technology.html', technology=technology, today=today, news_type=news_type)
 
 @au.route('/au/health', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def health():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
@@ -128,7 +128,7 @@ def health():
     return render_template('au/health.html', health=health, today=today, news_type=news_type)
 
 @au.route('/au/science', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def science():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
@@ -140,7 +140,7 @@ def science():
     return render_template('au/science.html', science=science, today=today, news_type=news_type)
 
 @au.route('/au/sports', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def sports():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()
@@ -152,7 +152,7 @@ def sports():
     return render_template('au/sports.html', sports=sports, today=today, news_type=news_type)
 
 @au.route('/au/entertainment', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def entertainment():
     today = datetime.now().strftime("%d %B, %Y")
     today_date = datetime.now()

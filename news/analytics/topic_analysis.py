@@ -10,7 +10,7 @@ conn = sqlite3.connect('/Users/michael.hyland/python_prod/news_archive/news/db/d
 cur = conn.cursor()
 
 from_date = "2020-07-01"
-to_date = "2020-07-06"
+to_date = "2020-07-14"
 
 f_from_date = datetime.strptime(from_date, "%Y-%m-%d")
 f_from_full_date = f_from_date.strftime("%d %B, %Y")

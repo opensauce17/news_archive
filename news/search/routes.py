@@ -1421,3 +1421,41 @@ def search():
         flash('message')
 
         return render_template('search/everything_search.html')
+
+@global_search.route('/all_search', methods=['GET', 'POST'])
+def all_search():
+
+    search = request.args.get('search_item')
+
+
+    everything_search = []
+
+    au_search_everything = au_news.query.filter(and_(au_news.description.contains(search) | au_news.title.contains(search)))
+
+    everything_search.append(au_search_everything)
+
+    ca_search_everything = ca_news.query.filter(and_(ca_news.description.contains(search) | ca_news.title.contains(search)))
+
+    everything_search.append(ca_search_everything)
+
+    gb_search_everything = gb_news.query.filter(and_(gb_news.description.contains(search) | gb_news.title.contains(search)))
+
+    everything_search.append(gb_search_everything)
+
+    nz_search_everything = nz_news.query.filter(and_(nz_news.description.contains(search) | nz_news.title.contains(search)))
+
+    everything_search.append(nz_search_everything)
+
+    za_search_everything = za_news.query.filter(and_(za_news.description.contains(search) | za_news.title.contains(search)))
+
+    everything_search.append(za_search_everything)
+
+    us_search_everything = us_news.query.filter(and_(us_news.description.contains(search) | us_news.title.contains(search)))
+
+    everything_search.append(us_search_everything)
+
+    return render_template('search/everything_search.html', everything_search=everything_search)
+
+    #news_type=news_type, everything_search=everything_search, country=country,
+    #                           search_everything=search_everything, date_category_country=date_category_country, search=search
+
