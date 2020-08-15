@@ -7,31 +7,18 @@
         <div class="container-fluid">
             <div class="row">
             {% for headline in headlines %}
-                <div class="col-lg-4 p-3 d-flex">
-                    <div class="stats stats-light">
-                        <!-- TITLES -->
-                        <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
+            <div class="col-lg-4 p-3 d-flex">
+                <div class="card-transparent">
                         {% if headline.urlToImage == None %}
-                        <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                        <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% else %}
-                        <img class="card-img-top img-responsive flex-row" src="{{ headline.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                        <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% endif %}
-                        <a class="mt-3" href="{{ headline.url }}" target="_blank" style="font-family: Helvetica Neue">{{ headline.title }}</a>
-                        <div class="stats-content">
-                            <div class="stats-icon">
-                                    <!-- <div class="col-lg-6">
-                                    <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image"  style="object-fit: cover;">
-                                    </div> -->
-                            </div>
-                            <div class="stats-data">
-                        
-                                <div class="stats-change">
-                                    <!--<span class="stats-percentage">+17.5%</span>-->
-                                    <span class="stats-timeframe"><strong><font size=2>Posted by {{ headline.source }} on {{ headline.publishedAt }}</font></strong></span>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                          <p class="card-text"> <a class="mt-3" href="{{ headline.url }}" target="_blank" style="font-family: Helvetica Neue">{{ headline.title }}</a></p>
+                          <span class="stats-timeframe"><strong><font size=2>Posted by {{ headline.source }} on {{ headline.publishedAt }}</font></strong></span>
                         </div>
-                    </div>
+                      </div>
                 </div>
         {% endfor %}
     {% endif %}
@@ -39,189 +26,134 @@
 
 {% if news_type == 'business' %}
 <main class="dash-content">
+    <div class="container-fluid">
+        <div class="row">
+        {% for business in business %}
+        <div class="col-lg-4 p-3 d-flex">
+            <div class="card-transparent">
+                    {% if business.urlToImage == None %}
+                    <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% else %}
+                    <img class="card-img-top" src="{{ business.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% endif %}
+                    <div class="card-body">
+                      <p class="card-text"> <a class="mt-3" href="{{ business.url }}" target="_blank" style="font-family: Helvetica Neue">{{ business.title }}</a></p>
+                      <span class="stats-timeframe"><strong><font size=2>Posted by {{ business.source }} on {{ business.publishedAt }}</font></strong></span>
+                    </div>
+                  </div>
+            </div>
+    {% endfor %}
+{% endif %}
+</main>
+
+
+    {% if news_type == 'technology' %}
+    <main class="dash-content">
         <div class="container-fluid">
             <div class="row">
-            {% for business in business %}
-                <div class="col-lg-4 p-3 d-flex">
-                    <div class="stats stats-light">
-                        <!-- TITLES -->
-                        <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
-                        {% if business.urlToImage == None %}
-                        <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+            {% for technology in technology %}
+            <div class="col-lg-4 p-3 d-flex">
+                <div class="card-transparent">
+                        {% if technology.urlToImage == None %}
+                        <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% else %}
-                        <img class="card-img-top img-responsive flex-row" src="{{ business.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                        <img class="card-img-top" src="{{ technology.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% endif %}
-                        <a class="mt-3" href="{{ business.url }}" target="_blank" style="font-family: Helvetica Neue">{{ business.title }}</a>
-                        <div class="stats-content">
-
-                            <div class="stats-data">
-                                   
-                                <div class="stats-change">
-                                    <!--<span class="stats-percentage">+17.5%</span>-->
-                                    <span class="stats-timeframe"><strong><font size=2>Posted by {{ business.source }} on {{ business.publishedAt }}</font></strong></span>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                          <p class="card-text"> <a class="mt-3" href="{{ technology.url }}" target="_blank" style="font-family: Helvetica Neue">{{ technology.title }}</a></p>
+                          <span class="stats-timeframe"><strong><font size=2>Posted by {{ technology.source }} on {{ technology.publishedAt }}</font></strong></span>
                         </div>
-                    </div>
+                      </div>
                 </div>
         {% endfor %}
     {% endif %}
     </main>
-
-    {% if news_type == 'technology' %}
-    <main class="dash-content">
+        {% if news_type == 'health' %}
+        <main class="dash-content">
             <div class="container-fluid">
                 <div class="row">
-                {% for technology in technology %}
-                    <div class="col-lg-4 p-3 d-flex">
-                        <div class="stats stats-light">
-                            <!-- TITLES -->
-                            <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
-                            {% if technology.urlToImage == None %}
-                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                {% for health in health %}
+                <div class="col-lg-4 p-3 d-flex">
+                    <div class="card-transparent">
+                            {% if health.urlToImage == None %}
+                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                             {% else %}
-                            <img class="card-img-top img-responsive flex-row" src="{{ technology.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            <img class="card-img-top" src="{{ health.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                             {% endif %}
-                            <a class="mt-3" href="{{ technology.url }}" target="_blank" style="font-family: Helvetica Neue">{{ technology.title }}</a>
-                            <div class="stats-content">
-    
-                                <div class="stats-data">
-                                        
-                                    <div class="stats-change">
-                                        <!--<span class="stats-percentage">+17.5%</span>-->
-                                        <span class="stats-timeframe"><strong><font size=2>Posted by {{ technology.source }} on {{ technology.publishedAt }}</font></strong></span>
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                              <p class="card-text"> <a class="mt-3" href="{{ health.url }}" target="_blank" style="font-family: Helvetica Neue">{{ health.title }}</a></p>
+                              <span class="stats-timeframe"><strong><font size=2>Posted by {{ health.source }} on {{ health.publishedAt }}</font></strong></span>
                             </div>
-                        </div>
+                          </div>
                     </div>
             {% endfor %}
         {% endif %}
         </main>
 
-        {% if news_type == 'health' %}
-        <main class="dash-content">
+            {% if news_type == 'science' %}
+            <main class="dash-content">
                 <div class="container-fluid">
                     <div class="row">
-                    {% for health in health %}
-                        <div class="col-lg-4 p-3 d-flex">
-                            <div class="stats stats-light">
-                                <!-- TITLES -->
-                                <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
-                                {% if health.urlToImage == None %}
-                                <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% for science in science %}
+                    <div class="col-lg-4 p-3 d-flex">
+                        <div class="card-transparent">
+                                {% if science.urlToImage == None %}
+                                <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                 {% else %}
-                                <img class="card-img-top img-responsive flex-row" src="{{ health.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                <img class="card-img-top" src="{{ science.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                 {% endif %}
-                                <a class="mt-3" href="{{ health.url }}" target="_blank" style="font-family: Helvetica Neue">{{ health.title }}</a>
-                                <div class="stats-content">
-        
-                                    <div class="stats-data">
-                                            
-                                        <div class="stats-change">
-                                            <!--<span class="stats-percentage">+17.5%</span>-->
-                                            <span class="stats-timeframe"><strong><font size=2>Posted by {{ health.source }} on {{ health.publishedAt }}</font></strong></span>
-                                        </div>
-                                    </div>
+                                <div class="card-body">
+                                  <p class="card-text"> <a class="mt-3" href="{{ science.url }}" target="_blank" style="font-family: Helvetica Neue">{{ science.title }}</a></p>
+                                  <span class="stats-timeframe"><strong><font size=2>Posted by {{ science.source }} on {{ science.publishedAt }}</font></strong></span>
                                 </div>
-                            </div>
+                              </div>
                         </div>
                 {% endfor %}
             {% endif %}
             </main>
 
-            {% if news_type == 'science' %}
-            <main class="dash-content">
+                {% if news_type == 'sports' %}
+                <main class="dash-content">
                     <div class="container-fluid">
                         <div class="row">
-                        {% for science in science %}
-                            <div class="col-lg-4 p-3 d-flex">
-                                <div class="stats stats-light">
-                                    <!-- TITLES -->
-                                    <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
-                                    {% if science.urlToImage == None %}
-                                    <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                        {% for sports in sports %}
+                        <div class="col-lg-4 p-3 d-flex">
+                            <div class="card-transparent">
+                                    {% if sports.urlToImage == None %}
+                                    <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% else %}
-                                    <img class="card-img-top img-responsive flex-row" src="{{ science.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                    <img class="card-img-top" src="{{ sports.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% endif %}
-                                    <a class="mt-3" href="{{ science.url }}" target="_blank" style="font-family: Helvetica Neue">{{ science.title }}</a>
-                                    <div class="stats-content">
-            
-                                        <div class="stats-data">
-                                                
-                                            <div class="stats-change">
-                                                <!--<span class="stats-percentage">+17.5%</span>-->
-                                                <span class="stats-timeframe"><strong><font size=2>Posted by {{ science.source }} on {{ science.publishedAt }}</font></strong></span>
-                                            </div>
-                                        </div>
+                                    <div class="card-body">
+                                      <p class="card-text"> <a class="mt-3" href="{{ sports.url }}" target="_blank" style="font-family: Helvetica Neue">{{ sports.title }}</a></p>
+                                      <span class="stats-timeframe"><strong><font size=2>Posted by {{ sports.source }} on {{ sports.publishedAt }}</font></strong></span>
                                     </div>
-                                </div>
+                                  </div>
                             </div>
                     {% endfor %}
                 {% endif %}
+
                 </main>
-
-                {% if news_type == 'sports' %}
-                <main class="dash-content">
-                        <div class="container-fluid">
-                            <div class="row">
-                            {% for sport in sports %}
-                                <div class="col-lg-4 p-3 d-flex">
-                                    <div class="stats stats-light">
-                                        <!-- TITLES -->
-                                        <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
-                                        {% if sport.urlToImage == None %}
-                                        <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
-                                        {% else %}
-                                        <img class="card-img-top img-responsive flex-row" src="{{ sport.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
-                                        {% endif %}
-                                        <a class="mt-3" href="{{ sport.url }}" target="_blank" style="font-family: Helvetica Neue">{{ sport.title }}</a>
-                                        <div class="stats-content">
-                
-                                            <div class="stats-data">
-                                                    
-                                                <div class="stats-change">
-                                                    <!--<span class="stats-percentage">+17.5%</span>-->
-                                                    <span class="stats-timeframe"><strong><font size=2>Posted by {{ sport.source }} on {{ sport.publishedAt }}</font></strong></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        {% endfor %}
-                    {% endif %}
-                    </main>
-
                     {% if news_type == 'entertainment' %}
                     <main class="dash-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                {% for entertainment in entertainment %}
-                                    <div class="col-lg-4 p-3 d-flex">
-                                        <div class="stats stats-light">
-                                            <!-- TITLES -->
-                                            <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
-                                            {% if entertainment.urlToImage == None %}
-                                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
-                                            {% else %}
-                                            <img class="card-img-top img-responsive flex-row" src="{{ entertainment.urlToImage }}" alt="Card image" style="padding: 0px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
-                                            {% endif %}
-                                            <a class="mt-3" href="{{ entertainment.url }}" target="_blank" style="font-family: Helvetica Neue">{{ entertainment.title }}</a>
-                                            <div class="stats-content">
-                    
-                                                <div class="stats-data">
-                                                        
-                                                    <div class="stats-change">
-                                                        <!--<span class="stats-percentage">+17.5%</span>-->
-                                                        <span class="stats-timeframe"><strong><font size=2>Posted by {{ entertainment.source }} on {{ entertainment.publishedAt }}</font></strong></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                        {% for entertainment in entertainment %}
+                        <div class="col-lg-4 p-3 d-flex">
+                            <div class="card-transparent">
+                                    {% if entertainment.urlToImage == None %}
+                                    <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ entertainment.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                    {% endif %}
+                                    <div class="card-body">
+                                      <p class="card-text"> <a class="mt-3" href="{{ entertainment.url }}" target="_blank" style="font-family: Helvetica Neue">{{ entertainment.title }}</a></p>
+                                      <span class="stats-timeframe"><strong><font size=2>Posted by {{ entertainment.source }} on {{ entertainment.publishedAt }}</font></strong></span>
                                     </div>
-                            {% endfor %}
-                        {% endif %}
-                        </main>
+                                  </div>
+                            </div>
+                    {% endfor %}
+                {% endif %}
     
 
 

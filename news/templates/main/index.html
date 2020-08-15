@@ -29,7 +29,7 @@
                                        </div> -->
                             
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="stats stats-primary">
                                         <!-- TITLES -->
                                         <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> TITLES </font></h3> -->
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="stats stats-info">
                                         <!-- AUTHORS -->
                                         <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> AUTHORS </font></h3> -->
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                              </div>
-                             <div class="col-lg-4">
+                             <div class="col-lg-3">
                                     <div class="stats stats-success">
                                         <!-- Sources -->
                                         <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> SOURCES </font></h3> -->
@@ -89,6 +89,26 @@
                                         </div>
                                     </div>
                              </div>
+                             <div class="col-lg-3">
+                                <div class="stats stats-danger">
+                                    <!-- Sources -->
+                                    <!-- <h3 class="stats-title"><img src="{{ url_for('static', filename='images/world_image.png') }}" width="40" height="40"> <font size="3"> SOURCES </font></h3> -->
+                                    <h3 class="stats-title"><font size="3"> TOP TALKING POINT </font></h3>
+                                    <div class="stats-content">
+                                        <div class="stats-icon">
+                                                <i class="fas fa-comments"></i>
+                                                
+                                        </div>
+                                        <div class="stats-data">
+                                                <div class="stats-number">COVID-19</div>
+                                            <div class="stats-change">
+                                                <!--<span class="stats-percentage">+17.5%</span>-->
+                                                <span class="stats-timeframe">Since January 2020</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                         </div>
                              
           
                                     <div class="col-xl-8">
@@ -120,7 +140,7 @@
                                                             labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                                                             datasets: [{
                                                                 // label: 'Blue',
-                                                                data: [1200, 1900, 3000, 5000, 2000, 1200, 1900, 3000, 5000, 2000, 5400, 3200],
+                                                                data: ["{{jan_total}}", "{{feb_total}}", "{{mar_total}}", "{{apr_total}}", "{{may_total}}", "{{jun_total}}", "{{jul_total}}", "{{aug_total}}", "{{sep_total}}", "{{oct_total}}", "{{nov_total}}", "{{dec_total}}"],
                                                                 backgroundColor: window.chartColors.primary,
                                                                 borderColor: 'transparent'
                                                             }]

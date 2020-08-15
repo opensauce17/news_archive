@@ -44,34 +44,49 @@ def index():
     today_date = datetime.now()
     today_date = str(today_date).split(" ", 1)[0]
 
-    con = sqlite3.connect("news/db/db.db")
+    #GET TAS STATS
 
-    cur = con.cursor()
+    f = open('news/analytics/tas.json')
+    tas_data = json.load(f)
+    for k,v in tas_data.items():
+        if k == 'total_titles':
+            total_titles = v
+        if k == 'total_authors':
+            total_authors = v
+        if k == 'total_sources':
+            total_sources = v
 
-    title_sql_query = "SELECT x.title, COUNT(DISTINCT x.[title]) FROM (SELECT [title] FROM [au_news] UNION ALL SELECT [title] FROM [ca_news]\
-    UNION ALL SELECT [title] FROM [gb_news] UNION  SELECT [title] FROM [nz_news] UNION  SELECT [title] FROM [us_news]\
-    UNION  SELECT [title] FROM [za_news]) x GROUP BY x.title"
-    cur.execute(title_sql_query)
-    total_titles = (list(cur))
-    total_titles = len(total_titles)
+    #GET MONTH STATS
+    f = open('news/analytics/per_month.json')
+    month_data = json.load(f)
+    for k,v in month_data.items():
+        if k == 'january':
+            jan_total = v
+        if k == 'february':
+            feb_total = v
+        if k == 'march':
+            mar_total = v
+        if k == 'april':
+            apr_total = v
+        if k == 'may':
+            may_total = v
+        if k == 'june':
+            jun_total = v
+        if k == 'july':
+            jul_total = v
+        if k == 'august':
+            aug_total = v
+        if k == 'september':
+            sep_total = v
+        if k == 'october':
+            oct_total = v
+        if k == 'november':
+            nov_total = v 
+        if k == 'december':
+            dec_total = v    
 
-    author_sql_query = "SELECT x.author, COUNT(DISTINCT x.[author]) FROM (SELECT [author] FROM [au_news] UNION ALL SELECT [author] FROM [ca_news]\
-    UNION ALL SELECT [author] FROM [gb_news] UNION  SELECT [author] FROM [nz_news] UNION  SELECT [author] FROM [us_news]\
-    UNION  SELECT [author] FROM [za_news]) x GROUP BY x.author"
 
-    cur.execute(author_sql_query)
-    total_authors = (list(cur))
-    total_authors = len(total_authors)
 
-    sources_sql_query = "SELECT x.source, COUNT(DISTINCT x.[source]) FROM (SELECT [source] FROM [au_news] UNION ALL SELECT [source] FROM [ca_news]\
-    UNION ALL SELECT [source] FROM [gb_news] UNION  SELECT [source] FROM [nz_news] UNION  SELECT [source] FROM [us_news]\
-    UNION  SELECT [source] FROM [za_news]) x GROUP BY x.source"
-
-    cur.execute(sources_sql_query)
-    total_sources = (list(cur))
-    total_sources =  len(total_sources)
-
-    con.close()
 
     # news_type = user_defaults[1]
     # if news_type == None:
@@ -1185,7 +1200,9 @@ def index():
     # total_au_entertainment_sources = au_entertainment_sources['aggregations']['type_count']['value']
 
 
-    return render_template('main/index.html', today=today, total_titles=total_titles, total_authors=total_authors, total_sources=total_sources)
+    return render_template('main/index.html', today=today, total_titles=total_titles, total_authors=total_authors, total_sources=total_sources, jan_total=jan_total, feb_total=feb_total,
+    mar_total=mar_total, apr_total=apr_total, may_total=may_total, jun_total=jun_total, jul_total=jul_total, aug_total=aug_total, sep_total=sep_total, oct_total=oct_total, nov_total=nov_total,
+    dec_total=dec_total)
                         # username=username, user_data=user_data, default_settings=default_settings, news_type=news_type,location=location
                         #      total_au_headlines_titles=total_au_headlines_titles,
                         #    total_au_headlines_authors=total_au_headlines_authors, total_au_headlines_sources=total_au_headlines_sources,

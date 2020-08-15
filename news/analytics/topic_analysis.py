@@ -9,7 +9,7 @@ dictionary=PyDictionary()
 conn = sqlite3.connect('/Users/michael.hyland/python_prod/news_archive/news/db/db.db')
 cur = conn.cursor()
 
-from_date = "2020-07-01"
+from_date = "2020-01-01"
 to_date = "2020-07-14"
 
 f_from_date = datetime.strptime(from_date, "%Y-%m-%d")
@@ -75,7 +75,7 @@ for d in dd:
             pass
 
 
-    collection = [item for item, count in collections.Counter(word_list).items() if count > 150]
+    collection = [item for item, count in collections.Counter(word_list).items() if count > 200]
 
     remove_words = ['and', 'the', 'for', 'are', 'at', 'The', 'is', 'a', 'on', 'was', 'it', 'an', 'in',
      'of', 'but', 'be', 'he', 'she', 'A', 'up', 'can', 'at', 'by', 'can', 'now', 'his', 'for', 'his',

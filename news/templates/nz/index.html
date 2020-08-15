@@ -2,56 +2,33 @@
 {% block content %}
 
 
-            <main class="dash-content">
-                <div class="container-fluid">
-                            <div class="container">
-                                <div class="row">
-                               {% for headline in headlines %}
-                                    <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                 {% if headline.urlToImage == None %}
-                                                <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
-                                                    {% else %}
-                                                <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
-                                                 {% endif %}
-                                            </div>
-                                           <div class="col-md-8">
-                                               <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
-                                                <div class="spur-card-menu">
-                                                    <div class="dropdown show" >
-                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
-                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                                <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
-                                                                <input type="hidden" name="news_id" value="{{ headline.id }}">
-                                                                <input type="hidden" name="location" value="nz">
-                                                                <input type="hidden" name="newstype" value="{{ news_type }}">
-                                                                <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                                </form>
-                                               <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a></p>
-                                                <font size="1" class="post-meta">
-                                                    Posted by {{ headline.source }} on {{ headline.publishedAt }}
-                                                </font>
-                                           </div>
-                                          </div>
-                                        </div>
-                              {% endfor %}
+<main class="dash-content">
+    <div class="container-fluid">
+        <div class="row">
+        {% for headline in headlines %}
+        <div class="col-lg-4 p-3 d-flex">
+            <div class="card-transparent">
+                    {% if headline.urlToImage == None %}
+                    <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% else %}
+                    <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% endif %}
+                    <div class="card-body">
+                      <p class="card-text"> <a class="mt-3" href="{{ headline.url }}" target="_blank" style="font-family: Helvetica Neue">{{ headline.title }}</a></p>
+                      <span class="stats-timeframe"><strong><font size=2>Posted by {{ headline.source }} on {{ headline.publishedAt }}</font></strong></span>
+                    </div>
+                  </div>
+            </div>
+    {% endfor %}
+</main>
 
-                               </div>
-                            </div>
-                </div>
-            </main>
-
-<footer class="page-footer font-small blue">
+<!-- <footer class="page-footer font-small blue">
 
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://mikehyland.com" target="_blank"> mikehyland.com</a>
   </div>
 
-</footer>
+</footer> -->
 
 
 {% endblock %}
