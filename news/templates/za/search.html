@@ -12,7 +12,7 @@
                         {% if headline.urlToImage == None %}
                         <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% else %}
-                        <img class="card-img-top" src="{{ headline.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                        <img class="card-img-top" src="{{ headline.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% endif %}
                         <div class="card-body">
                           <p class="card-text"> <a class="mt-3" href="{{ headline.url }}" target="_blank" style="font-family: Helvetica Neue">{{ headline.title }}</a></p>
@@ -34,7 +34,7 @@
                     {% if business.urlToImage == None %}
                     <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                     {% else %}
-                    <img class="card-img-top" src="{{ business.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    <img class="card-img-top" src="{{ business.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                     {% endif %}
                     <div class="card-body">
                       <p class="card-text"> <a class="mt-3" href="{{ business.url }}" target="_blank" style="font-family: Helvetica Neue">{{ business.title }}</a></p>
@@ -57,7 +57,7 @@
                         {% if technology.urlToImage == None %}
                         <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% else %}
-                        <img class="card-img-top" src="{{ technology.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                        <img class="card-img-top" src="{{ technology.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                         {% endif %}
                         <div class="card-body">
                           <p class="card-text"> <a class="mt-3" href="{{ technology.url }}" target="_blank" style="font-family: Helvetica Neue">{{ technology.title }}</a></p>
@@ -78,7 +78,7 @@
                             {% if health.urlToImage == None %}
                             <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                             {% else %}
-                            <img class="card-img-top" src="{{ health.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            <img class="card-img-top" src="{{ health.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                             {% endif %}
                             <div class="card-body">
                               <p class="card-text"> <a class="mt-3" href="{{ health.url }}" target="_blank" style="font-family: Helvetica Neue">{{ health.title }}</a></p>
@@ -100,7 +100,7 @@
                                 {% if science.urlToImage == None %}
                                 <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                 {% else %}
-                                <img class="card-img-top" src="{{ science.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                <img class="card-img-top" src="{{ science.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                 {% endif %}
                                 <div class="card-body">
                                   <p class="card-text"> <a class="mt-3" href="{{ science.url }}" target="_blank" style="font-family: Helvetica Neue">{{ science.title }}</a></p>
@@ -122,7 +122,7 @@
                                     {% if sports.urlToImage == None %}
                                     <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% else %}
-                                    <img class="card-img-top" src="{{ sports.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                    <img class="card-img-top" src="{{ sports.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% endif %}
                                     <div class="card-body">
                                       <p class="card-text"> <a class="mt-3" href="{{ sports.url }}" target="_blank" style="font-family: Helvetica Neue">{{ sports.title }}</a></p>
@@ -144,7 +144,7 @@
                                     {% if entertainment.urlToImage == None %}
                                     <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% else %}
-                                    <img class="card-img-top" src="{{ entertainment.urlToImage }}" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                    <img class="card-img-top" src="{{ entertainment.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% endif %}
                                     <div class="card-body">
                                       <p class="card-text"> <a class="mt-3" href="{{ entertainment.url }}" target="_blank" style="font-family: Helvetica Neue">{{ entertainment.title }}</a></p>
