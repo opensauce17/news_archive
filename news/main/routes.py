@@ -45,7 +45,6 @@ def index():
     today_date = str(today_date).split(" ", 1)[0]
 
     #GET TAS STATS
-
     f = open('news/analytics/tas.json')
     tas_data = json.load(f)
     for k,v in tas_data.items():
@@ -85,8 +84,41 @@ def index():
         if k == 'december':
             dec_total = v    
 
+    # GET TOTAL TITLE PER COUNTRY
+    f = open('news/analytics/country_totals.json')
+    country_totals = json.load(f)
+    for k,v in country_totals.items():
+        if k == 'au':
+            au_title_total = v
+        if k == 'ca':
+            ca_title_total = v
+        if k == 'gb':
+            gb_title_total = v
+        if k == 'nz':
+            nz_title_total = v
+        if k == 'us':
+            us_title_total = v
+        if k == 'za':
+            za_title_total = v
 
-
+    # GET TOTAL TITLE PER CATEGORY
+    f = open('news/analytics/title_per_category.json')
+    category_totals = json.load(f)
+    for k,v in category_totals.items():
+        if k == 'headlines':
+            total_headlines_cat = v
+        if k == 'business':
+            total_business_cat = v
+        if k == 'technology':
+            total_technology_cat = v
+        if k == 'health':
+            total_health_cat = v
+        if k == 'science':
+            total_science_cat = v
+        if k == 'sport':
+            total_sport_cat = v
+        if k == 'entertainment':
+            total_entertainment_cat = v
 
     # news_type = user_defaults[1]
     # if news_type == None:
@@ -1202,7 +1234,9 @@ def index():
 
     return render_template('main/index.html', today=today, total_titles=total_titles, total_authors=total_authors, total_sources=total_sources, jan_total=jan_total, feb_total=feb_total,
     mar_total=mar_total, apr_total=apr_total, may_total=may_total, jun_total=jun_total, jul_total=jul_total, aug_total=aug_total, sep_total=sep_total, oct_total=oct_total, nov_total=nov_total,
-    dec_total=dec_total)
+    dec_total=dec_total, au_title_total=au_title_total, ca_title_total=ca_title_total, gb_title_total=gb_title_total, nz_title_total=nz_title_total, us_title_total=us_title_total,
+    za_title_total=za_title_total, total_headlines_cat=total_headlines_cat, total_business_cat=total_business_cat, total_technology_cat=total_technology_cat, total_health_cat=total_health_cat,
+    total_science_cat=total_science_cat, total_sport_cat=total_sport_cat, total_entertainment_cat=total_entertainment_cat)
                         # username=username, user_data=user_data, default_settings=default_settings, news_type=news_type,location=location
                         #      total_au_headlines_titles=total_au_headlines_titles,
                         #    total_au_headlines_authors=total_au_headlines_authors, total_au_headlines_sources=total_au_headlines_sources,

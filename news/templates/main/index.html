@@ -115,20 +115,9 @@
                                         <div class="card spur-card">
                                             <div class="card-header">
                                                 <div class="spur-card-icon">
-                                                    <i class="fas fa-chart-bar"></i>
+                                                    <i class="fas fa-calendar-alt"></i>
                                                 </div>
                                                 <div class="spur-card-title"> Total Titles Per Month For 2020</div>
-                                                <!-- <div class="spur-card-menu">
-                                                    <div class="dropdown show">
-                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                             <div class="card-body spur-card-body-chart">
                                                 <canvas id="spurChartjsBar"></canvas>
@@ -167,20 +156,9 @@
                                                 <div class="card spur-card">
                                                     <div class="card-header">
                                                         <div class="spur-card-icon">
-                                                            <i class="fas fa-chart-pie"></i>
+                                                            <i class="fas fa-globe-americas"></i>
                                                         </div>
                                                         <div class="spur-card-title"> Total Titles Per Country Since January 2020 </div>
-                                                        <!-- <div class="spur-card-menu">
-                                                            <div class="dropdown show">
-                                                                <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                </a>
-                                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                                    <a class="dropdown-item" href="#">Action</a>
-                                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
                                                     </div>
                                                     <div class="card-body spur-card-body-chart">
                                                         <canvas id="spurChartjsDougnut"></canvas>
@@ -192,7 +170,7 @@
                                                                     labels: ["Australia", "Canada", "Great Britain", "New Zealand", "United States", "South Africa"],
                                                                     datasets: [{
                                                                         label: 'Week',
-                                                                        data: [12, 19, 3, 5, 2, 8],
+                                                                        data: ["{{au_title_total}}", "{{ca_title_total}}", "{{gb_title_total}}", "{{nz_title_total}}", "{{us_title_total}}", "{{za_title_total}}"],
                                                                         backgroundColor: [
                                                                             window.chartColors.primary,
                                                                             window.chartColors.secondary,
@@ -219,20 +197,9 @@
                                                 <div class="card spur-card">
                                                         <div class="card-header">
                                                             <div class="spur-card-icon">
-                                                                <i class="fas fa-chart-pie"></i>
+                                                                <i class="fas fa-list"></i>
                                                             </div>
                                                             <div class="spur-card-title"> Total Titles Per Category Since January 2020 </div>
-                                                            <!-- <div class="spur-card-menu">
-                                                                <div class="dropdown show">
-                                                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    </a>
-                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item" href="#">Action</a>
-                                                                        <a class="dropdown-item" href="#">Another action</a>
-                                                                        <a class="dropdown-item" href="#">Something else here</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div> -->
                                                         </div>
                                                         <div class="card-body spur-card-body-chart">
                                                             <canvas id="spurChartjsDougnut2"></canvas>
@@ -241,10 +208,10 @@
                                                                 var myChart = new Chart(ctx, {
                                                                     type: 'doughnut',
                                                                     data: {
-                                                                        labels: ["Australia", "Canada", "Great Britain", "New Zealand", "United States", "South Africa"],
+                                                                        labels: ["Headlines", "Business", "Technology", "Health", "Science", "Sports", "Entertainment"],
                                                                         datasets: [{
                                                                             label: 'Week',
-                                                                            data: [12, 19, 3, 5, 2, 8],
+                                                                            data: ["{{total_headlines_cat}}", "{{total_business_cat}}", "{{total_technology_cat}}", "{{total_health_cat}}", "{{total_science_cat}}", "{{total_sport_cat}}", "{{total_entertainment_cat}}"],
                                                                             backgroundColor: [
                                                                                 window.chartColors.primary,
                                                                                 window.chartColors.secondary,
@@ -270,63 +237,10 @@
                                                     </div>
                                                 
                                             </div>
-                                            
-                                
-                             <!-- <div class="col-lg-4">
-                                    <div class="stats stats-success">
 
-                                        <h3 class="stats-title"><font size="2">MOST FREQUENT TALKING POINT </font></h3>
-                                        <span class="stats-timeframe">Since January 2020</span>
-                                        <div class="stats-content">
-                                            <div class="stats-icon">
-                                               
-                                                    <i class="fas fa-comment"></i>
-                                            </div>
-                                            <div class="stats-data">
-                                                    <div class="stats-number">COVID-19</div>
-                                                <div class="stats-change">
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                             </div>
-                             <div class="col-lg-4">
-                                    <div class="stats stats-info">
-                                        <h3 class="stats-title"><font size="2">MOST FREQUENT TALKING POINT </font></h3>
-                                        <span class="stats-timeframe">For the last month</span>
-                                        <div class="stats-content">
-                                            <div class="stats-icon">
-                                                
-                                                    <i class="fas fa-comment"></i>
-                                            </div>
-                                            <div class="stats-data">
-                                                    <div class="stats-number">COVID-19</div>
-                                                <div class="stats-change">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                             </div>
-                             <div class="col-lg-4">
-                                    <div class="stats stats-primary">
-                                        <h3 class="stats-title"><font size="2">MOST FREQUENT TALKING POINT </font></h3>
-                                        <span class="stats-timeframe">For the last week</span>
-                                        <div class="stats-content">
-                                            <div class="stats-icon">
-                                                
-                                                    <i class="fas fa-comment"></i>
-                                            </div>
-                                            <div class="stats-data">
-                                                    <div class="stats-number">COVID-19</div>
-                                                <div class="stats-change">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                             </div> -->
-                        </div>
-                    </div>
-                </main>
+                                </main>
 
                    
 
