@@ -73,7 +73,6 @@ def index():
 
     con.close()
 
-
     # news_type = user_defaults[1]
     # if news_type == None:
     #     news_type = user_defaults[1]

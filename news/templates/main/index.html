@@ -9,6 +9,24 @@
 </style>
                     <main class="dash-content">
                         <div class="container-fluid">
+<!-- 
+                                <div class="col-lg-12">
+                                        <hr>
+                                          <p align="justify" class="text-big">
+                                              
+          
+                                              The <strong>World News Archive</strong> is a news aggregator. <br><br>
+                                              
+                                              It gathers, archives and then displays news titles published by world wide news outlets from six countries
+                                              within seven categories. News data has been gathered since January of 2020 and archived titles can be searched by date and per category under the country menu bar on
+                                              the left. To search the full catalog by word or phrase, use the search bar at the top of this index page.<br><br>
+                                              
+                                              The <strong>World News Archive</strong> is currently a non-commercial service for users who want to stay abreast of current world events, with the ability to search
+                                              older titles.
+                                          </p>
+                                         <hr>
+                                         <br>
+                                       </div> -->
                             
                             <div class="row">
                                 <div class="col-lg-4">
@@ -72,22 +90,168 @@
                                     </div>
                              </div>
                              
-                             <div class="col-lg-12">
-                                <p align="justify" class="text-big">
-                                    <hr>
+          
+                                    <div class="col-xl-8">
+                                        <div class="card spur-card">
+                                            <div class="card-header">
+                                                <div class="spur-card-icon">
+                                                    <i class="fas fa-chart-bar"></i>
+                                                </div>
+                                                <div class="spur-card-title"> Total Titles Per Month For 2020</div>
+                                                <!-- <div class="spur-card-menu">
+                                                    <div class="dropdown show">
+                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <div class="card-body spur-card-body-chart">
+                                                <canvas id="spurChartjsBar"></canvas>
+                                                <script>
+                                                    var ctx = document.getElementById("spurChartjsBar").getContext('2d');
+                                                    var myChart = new Chart(ctx, {
+                                                        type: 'bar',
+                                                        data: {
+                                                            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                                                            datasets: [{
+                                                                // label: 'Blue',
+                                                                data: [1200, 1900, 3000, 5000, 2000, 1200, 1900, 3000, 5000, 2000, 5400, 3200],
+                                                                backgroundColor: window.chartColors.primary,
+                                                                borderColor: 'transparent'
+                                                            }]
+                                                        },
+                                                        options: {
+                                                            legend: {
+                                                                display: false
+                                                            },
+                                                            scales: {
+                                                                yAxes: [{
+                                                                    ticks: {
+                                                                        beginAtZero: true
+                                                                    }
+                                                                }]
+                                                            }
+                                                        }
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    The <strong>World News Archive</strong> is a news aggregator. <br><br>
-                                    
-                                    It gathers, archives and then displays news titles published by world wide news outlets from six countries
-                                    within seven categories. News data has been gathered since January of 2020 and archived titles can be searched by date and per category under the country menu bar on
-                                    the left. To search the full catalog by word or phrase, use the search bar at the top of this index page.<br><br>
-                                    
-                                    The <strong>World News Archive</strong> is currently a non-commercial service for users who want to stay abreast of current world events, with the ability to search
-                                    older titles.
-
-
-                                </p>
-                             </div>
+                                            <div class="col-xl-4">
+                                                <div class="card spur-card">
+                                                    <div class="card-header">
+                                                        <div class="spur-card-icon">
+                                                            <i class="fas fa-chart-pie"></i>
+                                                        </div>
+                                                        <div class="spur-card-title"> Total Titles Per Country Since January 2020 </div>
+                                                        <!-- <div class="spur-card-menu">
+                                                            <div class="dropdown show">
+                                                                <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                                    <a class="dropdown-item" href="#">Action</a>
+                                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="card-body spur-card-body-chart">
+                                                        <canvas id="spurChartjsDougnut"></canvas>
+                                                        <script>
+                                                            var ctx = document.getElementById("spurChartjsDougnut").getContext('2d');
+                                                            var myChart = new Chart(ctx, {
+                                                                type: 'doughnut',
+                                                                data: {
+                                                                    labels: ["Australia", "Canada", "Great Britain", "New Zealand", "United States", "South Africa"],
+                                                                    datasets: [{
+                                                                        label: 'Week',
+                                                                        data: [12, 19, 3, 5, 2, 8],
+                                                                        backgroundColor: [
+                                                                            window.chartColors.primary,
+                                                                            window.chartColors.secondary,
+                                                                            window.chartColors.success,
+                                                                            window.chartColors.superwarning,
+                                                                            window.chartColors.danger,
+                                                                            window.chartColors.info,
+                                                                        ],
+                                                                        borderColor: '#fff',
+                                                                        fill: false
+                                                                    }]
+                                                                },
+                                                                options: {
+                                                                    legend: {
+                                                                        display: false
+                                                                    }
+                                                                }
+                                                            });
+                                                        </script>
+                                                        
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="card spur-card">
+                                                        <div class="card-header">
+                                                            <div class="spur-card-icon">
+                                                                <i class="fas fa-chart-pie"></i>
+                                                            </div>
+                                                            <div class="spur-card-title"> Total Titles Per Category Since January 2020 </div>
+                                                            <!-- <div class="spur-card-menu">
+                                                                <div class="dropdown show">
+                                                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    </a>
+                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item" href="#">Action</a>
+                                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
+                                                        </div>
+                                                        <div class="card-body spur-card-body-chart">
+                                                            <canvas id="spurChartjsDougnut2"></canvas>
+                                                            <script>
+                                                                var ctx = document.getElementById("spurChartjsDougnut2").getContext('2d');
+                                                                var myChart = new Chart(ctx, {
+                                                                    type: 'doughnut',
+                                                                    data: {
+                                                                        labels: ["Australia", "Canada", "Great Britain", "New Zealand", "United States", "South Africa"],
+                                                                        datasets: [{
+                                                                            label: 'Week',
+                                                                            data: [12, 19, 3, 5, 2, 8],
+                                                                            backgroundColor: [
+                                                                                window.chartColors.primary,
+                                                                                window.chartColors.secondary,
+                                                                                window.chartColors.success,
+                                                                                window.chartColors.superwarning,
+                                                                                window.chartColors.danger,
+                                                                                window.chartColors.info,
+                                                                            ],
+                                                                            borderColor: '#fff',
+                                                                            fill: false
+                                                                        }]
+                                                                    },
+                                                                    options: {
+                                                                        legend: {
+                                                                            display: false
+                                                                        }
+                                                                    }
+                                                                });
+                                                            </script>
+                                                            
+                                                        </div>
+                                                        
+                                                    </div>
+                                                
+                                            </div>
+                                            
+                                
                              <!-- <div class="col-lg-4">
                                     <div class="stats stats-success">
 
