@@ -1392,6 +1392,12 @@ def fav_updates():
         return redirect(url_for('main.index'))
 
 
+@main.route('/about/', methods=['GET'])
+def aboout():
+
+    return render_template('main/about.html')
+
+
 @main.route('/sso/', methods=['GET', 'POST'])
 #@login_required
 def sso():
