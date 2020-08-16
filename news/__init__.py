@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_user import login_required, UserManager, UserMixin, SQLAlchemyAdapter
 from flask_mail import Mail
+# from .utils import filters
 
 app = Flask(__name__)
 

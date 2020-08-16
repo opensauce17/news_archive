@@ -14,6 +14,7 @@ class za_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+    location = db.Column(db.String(100))
 
 # Define the us_news data-model
 class us_news(db.Model):
@@ -28,6 +29,7 @@ class us_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+    location = db.Column(db.String(100))
 
 # Define the au_news data-model
 class au_news(db.Model):
@@ -42,6 +44,7 @@ class au_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+    location = db.Column(db.String(100))
 
 # Define the ca_news data-model
 class ca_news(db.Model):
@@ -56,6 +59,7 @@ class ca_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+    location = db.Column(db.String(100))
 
 # Define the nz_news data-model
 class nz_news(db.Model):
@@ -70,6 +74,7 @@ class nz_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+    location = db.Column(db.String(100))
 
 # Define the gb_news data-model
 class gb_news(db.Model):
@@ -84,6 +89,7 @@ class gb_news(db.Model):
     publishedAt = db.Column(db.Text)
     content = db.Column(db.String(100))
     news_type = db.Column(db.String(100))
+    location = db.Column(db.String(100))
 
 # Define the User model
 class User(db.Model, UserMixin):

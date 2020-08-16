@@ -15,7 +15,12 @@
                                     {% endif %}
                                     <div class="card-body">
                                       <p class="card-text"> <a class="mt-3" href="{{ everything_search.url }}" target="_blank" style="font-family: Helvetica Neue">{{ everything_search.title }}</a></p>
-                                      <span class="stats-timeframe"><strong><font size=2>Posted by {{ everything_search.source }} on {{ everything_search.publishedAt }}</font></strong></span>
+                                      <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ everything_search.source }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ everything_search.publishedAt }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ everything_search.location }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ everything_search.news_type }}</font></span>
+
                                     </div>
                                   </div>
                             </div>
