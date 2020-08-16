@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
 
+<style>
+        .small-text { display: none; }
+        @media (max-width: 425px) {
+        .small-text { display: inline-block; }
+        .large-text { display: none; }
+    }
+</style>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -126,10 +134,10 @@
                     <img src="https://www.countryflags.io/za/shiny/64.png" style="padding-left: 10px;" class="navbar-nav mr-auto">
 
                     <div  class="navbar-nav mr-auto">
-                        <font size="5"><b>SOUTH AFRICA {{ news_type|upper }}</b></font>
-                    </div>
-                    <div style="padding-right: 10px; padding-left: 0px;">
-                        {{ today }}
+                            <span class="large-text"><font size="5"><b> {{ news_type|upper }}</b></font></span>
+                            <span class="small-text"><font size="1"><b> </b></font></span>
+                            <span class="large-text"><font size="5"> {{ today }}</font></span>
+                            <span class="small-text"><font size="1"><b> </b></font></span>        
                     </div>
 
                     <!--<input type="text" class="searchbox-input" placeholder="type to search">-->

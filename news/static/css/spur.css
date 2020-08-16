@@ -3745,8 +3745,8 @@ input[type="button"].btn-block {
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
-    padding-right: 0;
-    padding-left: 0; } }
+    padding-right: 10;
+    padding-left: 10; } }
 
 @media (min-width: 576px) {
   .navbar-expand-sm {

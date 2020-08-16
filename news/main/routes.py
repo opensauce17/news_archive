@@ -120,6 +120,15 @@ def index():
         if k == 'entertainment':
             total_entertainment_cat = v
 
+    # GET MOST COMMON
+
+    f = open('news/analytics/most_common.json')
+    mc = json.load(f)
+    for k,v in mc.items():
+        most_common = v
+        
+
+
     # news_type = user_defaults[1]
     # if news_type == None:
     #     news_type = user_defaults[1]
@@ -1236,7 +1245,7 @@ def index():
     mar_total=mar_total, apr_total=apr_total, may_total=may_total, jun_total=jun_total, jul_total=jul_total, aug_total=aug_total, sep_total=sep_total, oct_total=oct_total, nov_total=nov_total,
     dec_total=dec_total, au_title_total=au_title_total, ca_title_total=ca_title_total, gb_title_total=gb_title_total, nz_title_total=nz_title_total, us_title_total=us_title_total,
     za_title_total=za_title_total, total_headlines_cat=total_headlines_cat, total_business_cat=total_business_cat, total_technology_cat=total_technology_cat, total_health_cat=total_health_cat,
-    total_science_cat=total_science_cat, total_sport_cat=total_sport_cat, total_entertainment_cat=total_entertainment_cat)
+    total_science_cat=total_science_cat, total_sport_cat=total_sport_cat, total_entertainment_cat=total_entertainment_cat, most_common=most_common)
                         # username=username, user_data=user_data, default_settings=default_settings, news_type=news_type,location=location
                         #      total_au_headlines_titles=total_au_headlines_titles,
                         #    total_au_headlines_authors=total_au_headlines_authors, total_au_headlines_sources=total_au_headlines_sources,
