@@ -14,7 +14,7 @@ newsapi = NewsApiClient(api_key=api_key)
 
 
 ### DATABASE INSERTS ###
-def sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type):
+def sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location):
 
     try:
         sqliteConnection = sqlite3.connect('/opt/news_archive/news/db/db.db')
@@ -22,12 +22,12 @@ def sql_insert(source, author, title, description, url, urlToImage, publishedAt,
         print("Successfully Connected to SQLite")
 
         sqlite_insert_query = """INSERT INTO gb_news
-                                                 ('source', 'author', 'title', 'description', 'url', 'urlToImage', 'publishedAt', content, news_type)
+                                                 ('source', 'author', 'title', 'description', 'url', 'urlToImage', 'publishedAt', content, news_type, location)
                                                   VALUES
-                                                 (?, ?, ?, ?, ?, ?, ?, ?, ?)"""
+                                                 (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         count = cursor.execute(sqlite_insert_query,
-                              (source, author, title, description, url, urlToImage, publishedAt, content, news_type))
+                              (source, author, title, description, url, urlToImage, publishedAt, content, news_type, location))
 
         sqliteConnection.commit()
         print("Record inserted successfully into gb_news table ", cursor.rowcount)
@@ -41,7 +41,7 @@ def sql_insert(source, author, title, description, url, urlToImage, publishedAt,
             print("The SQLite connection is closed")
 
 
-### SOUTH AFRICA ####
+### GREAT BRITAIN ####
 
 def gb_top_headlines():
 
@@ -57,8 +57,9 @@ def gb_top_headlines():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'headlines'
+        location = 'Great Britain'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def gb_business():
 
@@ -75,8 +76,10 @@ def gb_business():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'business'
+        location = 'Great Britain'
+        
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def gb_technology():
 
@@ -92,8 +95,9 @@ def gb_technology():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'technology'
+        location = 'Great Britain'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 
 def gb_health():
@@ -110,8 +114,9 @@ def gb_health():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'health'
+        location = 'Great Britain'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 
 def gb_science():
@@ -128,8 +133,9 @@ def gb_science():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'science'
+        location = 'Great Britain'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def gb_sports():
 
@@ -145,8 +151,9 @@ def gb_sports():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'sports'
+        location = 'Great Britain'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def gb_entertainment():
 
@@ -162,10 +169,11 @@ def gb_entertainment():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'entertainment'
+        location = 'Great Britain'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
-### END SOUTH AFRICA ###
+### END GREAT BRITAIN ###
 
 def main():
 

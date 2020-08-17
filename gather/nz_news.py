@@ -14,7 +14,7 @@ newsapi = NewsApiClient(api_key=api_key)
 
 
 ### DATABASE INSERTS ###
-def sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type):
+def sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location):
 
     try:
         sqliteConnection = sqlite3.connect('/opt/news_archive/news/db/db.db')
@@ -22,12 +22,12 @@ def sql_insert(source, author, title, description, url, urlToImage, publishedAt,
         print("Successfully Connected to SQLite")
 
         sqlite_insert_query = """INSERT INTO nz_news
-                                                 ('source', 'author', 'title', 'description', 'url', 'urlToImage', 'publishedAt', content, news_type)
+                                                 ('source', 'author', 'title', 'description', 'url', 'urlToImage', 'publishedAt', content, news_type, location)
                                                   VALUES
-                                                 (?, ?, ?, ?, ?, ?, ?, ?, ?)"""
+                                                 (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         count = cursor.execute(sqlite_insert_query,
-                              (source, author, title, description, url, urlToImage, publishedAt, content, news_type))
+                              (source, author, title, description, url, urlToImage, publishedAt, content, news_type, location))
 
         sqliteConnection.commit()
         print("Record inserted successfully into nz_news table ", cursor.rowcount)
@@ -41,7 +41,7 @@ def sql_insert(source, author, title, description, url, urlToImage, publishedAt,
             print("The SQLite connection is closed")
 
 
-### SOUTH AFRICA ####
+### NEW ZEALAND ####
 
 def nz_top_headlines():
 
@@ -57,8 +57,9 @@ def nz_top_headlines():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'headlines'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def nz_business():
 
@@ -75,8 +76,9 @@ def nz_business():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'business'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def nz_technology():
 
@@ -92,8 +94,9 @@ def nz_technology():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'technology'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 
 def nz_health():
@@ -110,8 +113,9 @@ def nz_health():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'health'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 
 def nz_science():
@@ -128,8 +132,9 @@ def nz_science():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'science'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def nz_sports():
 
@@ -145,8 +150,9 @@ def nz_sports():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'sports'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
 def nz_entertainment():
 
@@ -162,10 +168,11 @@ def nz_entertainment():
         publishedAt = each_article['publishedAt']
         content = each_article['content']
         news_type = 'entertainment'
+        location = 'New Zealand'
 
-        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type)
+        sql_insert(source, author, title, description, url, urlToImage, publishedAt, content, news_type, location)
 
-### END SOUTH AFRICA ###
+### END NEW ZEALAND ###
 
 def main():
 
