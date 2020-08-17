@@ -1,0 +1,26 @@
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "publishedat" : {
+                            "gt" : "now-30d",
+                            "lt" : "now"      
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "location": "United States",
+                    }
+                },
+                {
+                    "match": {
+                        "news_type": "science",
+                    }
+                }
+            ]
+        }
+    }
+}

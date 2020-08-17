@@ -1,0 +1,46 @@
+{% extends "main/base.html" %}
+{% block content %}
+<style>
+        .text-big {
+            font-size: 1.4em;
+            line-height: 1.8em;
+            color: #111;
+        }
+        @media (max-width: 425px) {
+        .logo-image { display: none; }
+    }
+</style>
+
+<main class="dash-content">
+        <div class="container-fluid">
+            <div class="row">           
+                 <!-- <div class="col-lg-12">
+                    <img class="logo-image" src="{{ url_for('static', filename='images/about_logo.png') }}" width="1200" height="450">
+                </div>
+                </div> -->
+
+                <div class="col-lg-12">
+                        
+                        <hr>
+                          <p align="justify" class="text-big">
+                              The <strong>World News Archive</strong> is a news aggregator with an archiving feature. It is part of a portfolio suite featured on <a href="http://www.mikehyland.com" target="_blank">mikehyland.com</a> <br><br>
+                              
+                              The application gathers, archives and then displays news titles published by world wide news outlets from six countries
+                              within seven categories. News data has been gathered since January of 2020 and archived titles can be searched by date and per category under the country menu bar on
+                              the left. To search the full catalog by word or phrase, use the search bar featured on the <strong><a href="/about/">about</strong></a> and <strong><a href="/">home</strong></a> page.<br><br>
+                              
+                              The <strong>World News Archive</strong> is currently a non-commercial service and falls under<a href="https://en.wikipedia.org/wiki/Fair_use" target="_blank"> fair use.</a> The <strong>World News Archive</strong> claims no rights to any data, titles or images that it may feature. <br>
+
+                             
+                          </p>
+                         <hr>
+                         <center><strong><font size="2">This site is optimised for mobile dimensions from 375px and higher and the chrome browser on any device</strong></font></center>
+                         <br>
+                       </div>
+                       </div>
+                    </div>
+                       </main>
+
+
+
+{% endblock %}

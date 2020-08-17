@@ -1,0 +1,26 @@
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "publishedat" : {
+                            "gt" : "now-30d",
+                            "lt" : "now"      
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "location": "Australia",
+                    }
+                },
+                {
+                    "match": {
+                        "news_type": "sports",
+                    }
+                }
+            ]
+        }
+    }
+}

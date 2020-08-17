@@ -1,0 +1,26 @@
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "range": {
+                        "publishedat" : {
+                            "gt" : "now-30d",
+                            "lt" : "now"      
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "location": "Great Britain",
+                    }
+                },
+                {
+                    "match": {
+                        "news_type": "technology",
+                    }
+                }
+            ]
+        }
+    }
+}

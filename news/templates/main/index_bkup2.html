@@ -1,0 +1,498 @@
+{% extends "main/base.html" %}
+{% block content %}
+<!-- 
+            {% for user in user_data %}
+                    {% if user.pref_location == None %}
+                        <main class="dash-content">
+                            <div class="container-fluid">
+                                <div class="container">
+                                    <div class="row">
+                                        Hi {{ username }}. You have no default favourites set. Please go to your profile page and set your favourites.
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    {% else %} -->
+                    <main class="dash-content">
+                        <div class="container-fluid">
+                            
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="stats stats-primary">
+                                        <!-- TITLES -->
+                                        <!-- {% if location == 'au' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/au/shiny/32.png"> <font size="3">{{news_type|upper}} TITLES</font> </h3>
+                                        {% elif location == 'us' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/us/shiny/32.png"> <font size="3"> {{news_type|upper}} TITLES</font> </h3>
+                                        {% elif location == 'ca' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/ca/shiny/32.png"> <font size="3">{{news_type|upper}} TITLES </font></h3>
+                                        {% elif location == 'gb' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/gb/shiny/32.png"> <font size="3">{{news_type|upper}} TITLES </font></h3>
+                                        {% elif location == 'nz' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/nz/shiny/32.png"> <font size="3">{{news_type|upper}} TITLES </font></h3>
+                                        {% elif location == 'za' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/za/shiny/32.png"> <font size="3">{{news_type|upper}} TITLES </font></h3>
+                                        {% endif %}
+                                        <div class="stats-content">
+                                            <div class="stats-icon">
+                                                <i class="fas fa-list-alt"></i>
+                                            </div> -->
+                                            <div class="stats-data">
+                                                    <div class="stats-number">50</div>
+                                                <!-- AUSTRALIA -->
+                                                <!-- {% if (user.pref_location == 'Australia') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_au_headlines_titles }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_au_business_titles }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_au_technology_titles }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_au_health_titles }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_au_science_titles }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_au_sports_titles }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_au_entertainment_titles }}</div> -->
+                                                <!-- CANADA -->
+                                                <!-- {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_ca_headlines_titles }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_ca_business_titles }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_ca_technology_titles }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_ca_health_titles }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_ca_science_titles }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_ca_sports_titles }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_ca_entertainment_titles }}</div> -->
+                                                <!-- GREAT BRITAIN -->
+                                                <!-- {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_gb_headlines_titles }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_gb_business_titles }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_gb_technology_titles }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_gb_health_titles }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_gb_science_titles }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_gb_sports_titles }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_gb_entertainment_titles }}</div> -->
+                                                <!-- NEW ZEALAND -->
+                                                <!-- {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_nz_headlines_titles }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_nz_business_titles }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_nz_technology_titles }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_nz_health_titles }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_nz_science_titles }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_nz_sports_titles }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_nz_entertainment_titles }}</div> -->
+                                                <!-- SOUTH AFRICA -->
+                                                <!-- {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_za_headlines_titles }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_za_business_titles }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_za_technology_titles }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_za_health_titles }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_za_science_titles }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_za_sports_titles }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_za_entertainment_titles }}</div> -->
+                                                <!-- UNITED STATES -->
+                                                <!-- {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_us_headlines_titles }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_us_business_titles }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_us_technology_titles }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_us_health_titles }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_us_science_titles }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_us_sports_titles }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_us_entertainment_titles }}</div>
+                                                {% endif %} -->
+                                                <div class="stats-change">
+                                                    <!--<span class="stats-percentage">+17.5%</span>-->
+                                                    <span class="stats-timeframe">for the last 30 days</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="stats stats-info">
+                                        <!-- AUTHORS -->
+                                        {% if location == 'au' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/au/shiny/32.png"> <font size="3">{{news_type|upper}} AUTHORS </font></h3>
+                                        {% elif location == 'us' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/us/shiny/32.png"> <font size="3">{{news_type|upper}} AUTHORS </font></h3>
+                                        {% elif location == 'ca' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/ca/shiny/32.png"> <font size="3">{{news_type|upper}} AUTHORS </font></h3>
+                                        {% elif location == 'gb' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/gb/shiny/32.png"> <font size="3">{{news_type|upper}} AUTHORS </font></h3>
+                                        {% elif location == 'nz' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/nz/shiny/32.png"> <font size="3">{{news_type|upper}} AUTHORS </font></h3>
+                                        {% elif location == 'za' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/za/shiny/32.png"> <font size="3">{{news_type|upper}} AUTHORS </font></h3>
+                                        {% endif %}
+                                        <div class="stats-content">
+                                            <div class="stats-icon">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </div>
+                                            <div class="stats-data">
+                                                <!-- AUSTRALIA -->
+                                                {% if (user.pref_location == 'Australia') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_au_headlines_authors }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_au_business_authors }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_au_technology_authors }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_au_health_authors }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_au_science_authors }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_au_sports_authors }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_au_entertainment_authors }}</div>
+                                                <!-- CANADA -->
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_ca_headlines_authors }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_ca_business_authors }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_ca_technology_authors }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_ca_health_authors }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_ca_science_authors }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_ca_sports_authors }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_ca_entertainment_authors }}</div>
+                                                <!-- GREAT BRITAIN -->
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_gb_headlines_authors }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_gb_business_authors }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_gb_technology_authors }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_gb_health_authors }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_gb_science_authors }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_gb_sports_authors }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_gb_entertainment_authors }}</div>
+                                                <!-- NEW ZEALAND -->
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_nz_headlines_authors }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_nz_business_authors }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_nz_technology_authors }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_nz_health_authors }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_nz_science_authors }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_nz_sports_authors }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_nz_entertainment_authors }}</div>
+                                                <!-- SOUTH AFRICA -->
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_za_headlines_authors }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_za_business_authors }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_za_technology_authors }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_za_health_authors }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_za_science_authors }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_za_sports_authors }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_za_entertainment_authors }}</div>
+                                                <!-- UNITED STATES -->
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_us_headlines_authors }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_us_business_authors }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_us_technology_authors }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_us_health_authors }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_us_science_authors }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_us_sports_authors }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_us_entertainment_authors }}</div>
+                                                {% endif %}
+                                                <div class="stats-change">
+                                                    <!--<span class="stats-percentage">+17.5%</span>-->
+                                                    <span class="stats-timeframe">for the last 30 days</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="stats stats-success">
+                                        <!-- SOURCES -->
+                                        {% if location == 'au' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/au/shiny/32.png"> <font size="3">{{news_type|upper}} SOURCES </font></h3>
+                                        {% elif location == 'us' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/us/shiny/32.png"> <font size="3">{{news_type|upper}} SOURCES </font></h3>
+                                        {% elif location == 'ca' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/ca/shiny/32.png"> <font size="3">{{news_type|upper}} SOURCES </font></h3>
+                                        {% elif location == 'gb' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/gb/shiny/32.png"> <font size="3">{{news_type|upper}} SOURCES </font></h3>
+                                        {% elif location == 'nz' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/nz/shiny/32.png"> <font size="3">{{news_type|upper}} SOURCES </font></h3>
+                                        {% elif location == 'za' %}
+                                        <h3 class="stats-title"><img src="https://www.countryflags.io/za/shiny/32.png"> <font size="3">{{news_type|upper}} SOURCES </font></h3>
+                                        {% endif %}
+                                        <div class="stats-content">
+                                            <div class="stats-icon">
+                                                <i class="fas fa-newspaper"></i>
+                                            </div>
+                                            <div class="stats-data">
+                                                <!-- AUSTRALIA -->
+                                                {% if (user.pref_location == 'Australia') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_au_headlines_sources }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_au_business_sources }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_au_technology_sources }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_au_health_sources }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_au_science_sources }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_au_sports_sources }}</div>
+                                                {% elif (user.pref_location == 'Australia') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_au_sports_sources }}</div>
+                                                <!-- CANADA -->
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_ca_headlines_sources }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_ca_business_sources }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_ca_technology_sources }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_ca_health_sources }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_ca_science_sources }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_ca_sports_sources }}</div>
+                                                {% elif (user.pref_location == 'Canada') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_ca_sports_sources }}</div>
+                                                <!-- GREAT BRITAIN -->
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_gb_headlines_sources }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_gb_business_sources }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_gb_technology_sources }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_gb_health_sources }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_gb_science_sources }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_gb_sports_sources }}</div>
+                                                {% elif (user.pref_location == 'Great Britain') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_gb_sports_sources }}</div>
+                                                <!-- NEW ZEALAND -->
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_nz_headlines_sources }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_nz_business_sources }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_nz_technology_sources }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_nz_health_sources }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_nz_science_sources }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_nz_sports_sources }}</div>
+                                                {% elif (user.pref_location == 'New Zealand') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_nz_sports_sources }}</div>
+                                                <!-- SOUTH AFRICA -->
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_za_headlines_sources }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_za_business_sources }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_za_technology_sources }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_za_health_sources }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_za_science_sources }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_za_sports_sources }}</div>
+                                                {% elif (user.pref_location == 'South Africa') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_za_sports_sources }}</div>
+                                                <!-- UNITED STATES -->
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Headlines') %}
+                                                <div class="stats-number">{{ total_us_headlines_sources }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Business') %}
+                                                <div class="stats-number">{{ total_us_business_sources }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Technology') %}
+                                                <div class="stats-number">{{ total_us_technology_sources }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Health') %}
+                                                <div class="stats-number">{{ total_us_health_sources }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Science') %}
+                                                <div class="stats-number">{{ total_us_science_sources }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Sport') %}
+                                                <div class="stats-number">{{ total_us_sports_sources }}</div>
+                                                {% elif (user.pref_location == 'United States') and (user.pref_news_type == 'Entertainment') %}
+                                                <div class="stats-number">{{ total_us_sports_sources }}</div>
+                                                {% endif %}
+                                                <div class="stats-change">
+                                                    <!--<span class="stats-percentage">+17.5%</span>-->
+                                                    <span class="stats-timeframe">for the last 30 days</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                             </div>
+                                </div>
+                                </div>
+                </main>
+
+                   <main class="dash-content">
+                        <div class="container-fluid">
+                            <div class="row">
+                               <!--<div class="col-lg-12">-->
+                                    <div class="card spur-card mx-auto">
+                                        <div class="card-header">
+                                            <div class="spur-card-icon">
+                                                {% if location == 'au' %}
+                                                <img src="https://www.countryflags.io/au/shiny/32.png">
+                                                {% elif location == 'us' %}
+                                                <img src="https://www.countryflags.io/us/shiny/32.png">
+                                                {% elif location == 'ca' %}
+                                                <img src="https://www.countryflags.io/ca/shiny/32.png">
+                                                {% elif location == 'gb' %}
+                                                <img src="https://www.countryflags.io/gb/shiny/32.png">
+                                                {% elif location == 'nz' %}
+                                                <img src="https://www.countryflags.io/nz/shiny/32.png">
+                                                {% elif location == 'za' %}
+                                                <img src="https://www.countryflags.io/za/shiny/32.png">
+                                                {% endif %}
+                                            </div>
+                                            <div class="spur-card-title"> {{ news_type|capitalize }}  {{today}} </div>
+                                            <div class="dropdown show" >
+                                                <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                        <input type="date" class="form-control dropdown-item mb-2 mr-sm-2" value="" placeholder="Date" name="date" id="date" min="2020-01-09">
+                                                        <!--<a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                        <input type="hidden" name="news_id" value="something">
+                                                        <input type="hidden" name="location" value="au">
+                                                        <input type="hidden" name="newstype" value="{{ news_type }}"> -->
+                                                        <button type="button" class="btn btn-primary mb-1 dropdown-item"><font size="1">SUBMIT</font></button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card-body" style="max-height: 500px; overflow-y: auto;">
+                                            <main class="dash-content">
+                                                <div class="container-fluid">
+                                                             <div class="container">
+                                                                <div class="row">
+                                                                    {% for default in default_settings %}
+                                                                    {% for i in default %}
+                                                                    <div class="card mb-3 ml-3 d-flex" style="max-width: 540px; padding-right: 10px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                                 {% if i.urlToImage == None %}
+                                                                                <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170" style=" object-fit: cover;" >
+                                                                                    {% else %}
+                                                                                <img class="card-img-top" src="{{ i.urlToImage }}" alt="Card image" height="170" style=" object-fit: cover;">
+                                                                                 {% endif %}
+                                                                            </div>
+                                                                           <div class="col-md-8">
+                                                                               <form class="searchbox" action="{{ url_for('main.comments') }}" style="padding-right: 10px;">
+                                                                                <div class="spur-card-menu">
+                                                                                    <div class="dropdown show" >
+                                                                                        <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"></a>
+                                                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                                                                <a class="dropdown-item" href="{{ url_for('main.profile') }}"><font size="1">Archive Link</font></a>
+                                                                                                <input type="hidden" name="news_id" value="{{ i.id }}">
+                                                                                                <input type="hidden" name="location" value="au">
+                                                                                                <input type="hidden" name="newstype" value="{{ news_type }}">
+                                                                                                <button type="submit" class="dropdown-item"><font size="1">Comments</font></button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                </form>
+                                                                               <p class="card-title" style="padding-left: 0px; padding-top: 8px; padding-right: 3px"><a href="{{ i.url }}" target="_blank">{{ i.title }}</a></p>
+                                                                                <font size="1" class="post-meta">
+                                                                                    Posted by {{ i.source }} on {{ i.publishedAt }}
+                                                                                </font>
+                                                                           </div>
+                                                                          </div>
+                                                                        </div>
+                                                              {% endfor %}
+                                                              {% endfor %}     
+                                
+                                                               </div>
+                                                            </div>
+                                                            
+                                                    <!-- put your rows / columns here -->
+                                                </div>
+                                            </main>
+                                       <!-- <div class="notifications">
+                                        {% for default in default_settings %}
+                                        {% for i in default %}
+                                        <a href="{{ i.url }} " target="_blank" class="notification">
+                                            <div class="notification-icon">
+                                                <i class="fas fa-genderless"></i>
+                                            </div>
+                                            <div class="notification-text"><font size="1">{{ i.title }}</font></div>
+                                            <span class="notification-time"><font size="1">{{i.source}}</font></span>
+                                        </a>
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                     
+            </main>
+      {% endif %}
+   {% endfor %}
+
+
+
+<!--<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mikehyland.com" target="_blank"> mikehyland.com</a>
+  </div>
+
+</footer> -->
+{% endblock %}

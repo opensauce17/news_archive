@@ -1,0 +1,452 @@
+{% extends "search/base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+
+{% if news_type == 'Headlines' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for headline in us_headlines %}
+        {% for us_headline in headline %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_headline.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_headline.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_headline.url }}" target="_blank">{{ us_headline.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_headline.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_headline.source }} on {{ us_headline.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Business' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for business in us_business %}
+        {% for us_business in business %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_business.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_business.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_business.url }}" target="_blank">{{ us_business.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_business.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_business.source }} on {{ us_business.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Technology' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for technology in us_technology %}
+        {% for us_technology in technology %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_technology.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_technology.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_technology.url }}" target="_blank">{{ us_technology.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_technology.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_technology.source }} on {{ us_technology.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Health' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for health in us_health %}
+        {% for us_health in health %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_health.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_health.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_health.url }}" target="_blank">{{ us_health.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_health.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_health.source }} on {{ us_health.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Science' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for health in us_science %}
+        {% for us_science in health %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_science.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_science.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_science.url }}" target="_blank">{{ us_science.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_science.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_science.source }} on {{ us_science.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Sport' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for sport in us_sport %}
+        {% for us_sport in sport %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_sport.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_sport.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_sport.url }}" target="_blank">{{ us_sport.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_sport.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_sport.source }} on {{ us_sport.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Entertainment' and search == None %}
+<div class="container">
+    <div class="row">
+
+   {% for entertainment in us_entertainment %}
+        {% for us_entertainment in entertainment %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_entertainment.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_entertainment.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_entertainment.url }}" target="_blank">{{ us_entertainment.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_entertainment.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_entertainment.source }} on {{ us_entertainment.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+
+{% if news_type == 'Headlines' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for headlines in us_search_headlines %}
+        {% for us_search_headlines in headlines %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_headlines.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_headlines.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_headlines.url }}" target="_blank">{{ us_search_headlines.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_headlines.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_headlines.source }} on {{ us_search_headlines.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Business' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for business in us_search_business %}
+        {% for us_search_business in business %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_business.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_business.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_business.url }}" target="_blank">{{ us_search_business.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_business.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_business.source }} on {{ us_search_business.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Technology' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for technology in us_search_technology %}
+        {% for us_search_technology in technology %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_technology.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_technology.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_technology.url }}" target="_blank">{{ us_search_technology.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_technology.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_technology.source }} on {{ us_search_technology.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Health' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for health in us_search_health %}
+        {% for us_search_health in health %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_health.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_health.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_health.url }}" target="_blank">{{ us_search_health.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_health.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_health.source }} on {{ us_search_health.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Science' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for science in us_search_science %}
+        {% for us_search_science in science %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_science.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_science.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_science.url }}" target="_blank">{{ us_search_science.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_science.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_science.source }} on {{ us_search_science.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Sport' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for sport in us_search_sport %}
+        {% for us_search_sport in sport %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_sport.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_sport.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_sport.url }}" target="_blank">{{ us_search_sport.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_sport.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_sport.source }} on {{ us_search_sport.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+{% if news_type == 'Entertainment' and search != 'None' %}
+<div class="container">
+    <div class="row">
+
+   {% for entertainment in us_search_entertainment %}
+        {% for us_search_entertainment in entertainment %}
+  <div class="col-sm-4 mb-3 d-flex">
+    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        {% if us_search_entertainment.urlToImage == None %}
+     <img class="card-img-top" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" height="170">
+       {% else %}
+     <img class="card-img-top" src="{{ us_search_entertainment.urlToImage }}" alt="Card image" height="170">
+        {% endif %}
+      <div class="card-body">
+        <h6 class="card-title"><a href="{{ us_search_entertainment.url }}" target="_blank">{{ us_search_entertainment.title }}</a></h6>
+        <p class="card-subtitle"> {{ us_search_entertainment.description }} </p>
+            <hr>
+        <font size="2" class="post-meta">
+            Posted by {{ us_search_entertainment.source }} on {{ us_search_entertainment.publishedAt }}
+            <br>
+         </font>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+ {% endif %}
+
+    </div>
+</div>
+
+
+<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mikehyland.com" target="_blank"> mikehyland.com</a>
+  </div>
+
+</footer>
+
+{% endblock %}

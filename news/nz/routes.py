@@ -56,7 +56,7 @@ def search():
 
             return render_template('nz/search.html', entertainment=entertainment, today=full_date, news_type=news_type)
     except ValueError:
-        return render_template('nz/error.html')
+        return render_template('nz/error.html', news_type=news_type)
 
 
 
