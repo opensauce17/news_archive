@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = 'CGVC39xyCk8lUmR6DzT_LA'
 app.config['CSFR_ENABLED'] = True
 app.config['USER_ENABLE_EMAIL'] = True
 app.config['USER_ENABLE_CONFIRM_EMAIL'] = True
-app.config.from_pyfile('../mail.cfg')
+#app.config.from_pyfile('../mail.cfg')
 app.config['USER_SEND_PASSWORD_CHANGED_EMAIL'] = True
 app.config['USER_SEND_REGISTERED_EMAIL'] = True
 app.config['USER_SEND_USERNAME_CHANGED_EMAIL'] = True
