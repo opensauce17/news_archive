@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+{% block content %}
+<style>
+        .text-big {
+            font-size: 1.4em;
+            line-height: 1.8em;
+            color: #111;
+        }
+        @media (max-width: 425px) {
+        .logo-image { display: none; }
+    }
+</style>
+
+<main class="dash-content">
+        <div class="container-fluid">
+            <div class="row">           
+                 <!-- <div class="col-lg-12">
+                    <img class="logo-image" src="{{ url_for('static', filename='images/about_logo.png') }}" width="1200" height="450">
+                </div>
+                </div> -->
+
+                <div class="col-lg-12">
+                        
+                        <hr>
+                          <p align="justify" class="text-big">
+                             
+                            Sorry. Something went wrong with the search. We are aware of this limitation and are working on it. Thanks for your patience.
+
+                             
+                          </p>
+                         <hr>
+                         <center><strong><font size="2">This site is optimised for mobile dimensions from 375px and higher and the chrome browser on any device</strong></font></center>
+                         <br>
+                       </div>
+                       </div>
+                    </div>
+                       </main>
+
+
+
+{% endblock %}

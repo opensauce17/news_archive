@@ -1435,17 +1435,35 @@ def all_search():
 
     search = request.args.get('search_item')
 
-    au_everything_search = au_news.query.filter(and_(au_news.description.contains(search) | au_news.title.contains(search))).order_by(au_news.publishedAt.desc())
+    try:
+        au_everything_search = au_news.query.filter(and_(au_news.description.contains(search) | au_news.title.contains(search))).order_by(au_news.publishedAt.desc())
+    except MemoryError:
+        return render_template('search/error.html')
 
-    ca_everything_search = ca_news.query.filter(and_(ca_news.description.contains(search) | ca_news.title.contains(search))).order_by(ca_news.publishedAt.desc())
+    try:
+        ca_everything_search = ca_news.query.filter(and_(ca_news.description.contains(search) | ca_news.title.contains(search))).order_by(ca_news.publishedAt.desc())
+    except MemoryError:
+        return render_template('search/error.html')
 
-    gb_everything_search = gb_news.query.filter(and_(gb_news.description.contains(search) | gb_news.title.contains(search))).order_by(gb_news.publishedAt.desc())
+    try:
+        gb_everything_search = gb_news.query.filter(and_(gb_news.description.contains(search) | gb_news.title.contains(search))).order_by(gb_news.publishedAt.desc())
+    except MemoryError:
+        return render_template('search/error.html')
 
-    nz_everything_search = nz_news.query.filter(and_(nz_news.description.contains(search) | nz_news.title.contains(search))).order_by(nz_news.publishedAt.desc())
+    try:
+        nz_everything_search = nz_news.query.filter(and_(nz_news.description.contains(search) | nz_news.title.contains(search))).order_by(nz_news.publishedAt.desc())
+    except MemoryError:
+        return render_template('search/error.html')
 
-    za_everything_search = za_news.query.filter(and_(za_news.description.contains(search) | za_news.title.contains(search))).order_by(za_news.publishedAt.desc())
+    try:
+        za_everything_search = za_news.query.filter(and_(za_news.description.contains(search) | za_news.title.contains(search))).order_by(za_news.publishedAt.desc())
+    except MemoryError:
+        return render_template('search/error.html')
 
-    us_everything_search = us_news.query.filter(and_(us_news.description.contains(search) | us_news.title.contains(search))).order_by(us_news.publishedAt.desc())
+    try:
+        us_everything_search = us_news.query.filter(and_(us_news.description.contains(search) | us_news.title.contains(search))).order_by(us_news.publishedAt.desc())
+    except MemoryError:
+        return render_template('search/error.html')
 
     return render_template('search/everything_search.html', au_everything_search=au_everything_search, ca_everything_search=ca_everything_search, gb_everything_search=gb_everything_search, 
     nz_everything_search=nz_everything_search, za_everything_search=za_everything_search, us_everything_search=us_everything_search, search=search)
