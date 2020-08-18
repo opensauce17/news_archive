@@ -4,29 +4,139 @@
             <main class="dash-content">
                     <div class="container-fluid">
                         <div class="row">
-                            {% for everything in everything_search %}
-                            {% for everything_search in everything %}
+                            {% for au_everything in au_everything_search %}
+                          
                             <div class="col-lg-4 p-3 d-flex">
                             <div class="card-transparent">
-                                    {% if everything_search.urlToImage == None %}
+                                    {% if au_everything.urlToImage == None %}
                                     <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding:15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% else %}
-                                    <img class="card-img-top" src="{{ everything_search.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                                    <img class="card-img-top" src="{{ au_everything.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
                                     {% endif %}
                                     <div class="card-body">
-                                      <p class="card-text"> <a class="mt-3" href="{{ everything_search.url }}" target="_blank" style="font-family: Helvetica Neue">{{ everything_search.title }}</a></p>
+                                      <p class="card-text"> <a class="mt-3" href="{{ au_everything.url }}" target="_blank" style="font-family: Helvetica Neue">{{ au_everything.title }}</a></p>
                                       <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
-                                      <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ everything_search.source }}</font></span><br>
-                                      <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ everything_search.publishedAt }}</font></span><br>
-                                      <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ everything_search.location }}</font></span><br>
-                                      <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ everything_search.news_type }}</font></span>
+                                      <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ au_everything.source }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ au_everything.publishedAt }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ au_everything.location }}</font></span><br>
+                                      <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ au_everything.news_type }}</font></span>
 
                                     </div>
                                   </div>
                             </div>
                     {% endfor %}
-                {% endfor %}
+                    
+                    {% for ca_everything in ca_everything_search %}
+                        
+                    <div class="col-lg-4 p-3 d-flex">
+                    <div class="card-transparent">
+                            {% if ca_everything.urlToImage == None %}
+                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding:15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% else %}
+                            <img class="card-img-top" src="{{ ca_everything.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% endif %}
+                            <div class="card-body">
+                              <p class="card-text"> <a class="mt-3" href="{{ ca_everything.url }}" target="_blank" style="font-family: Helvetica Neue">{{ ca_everything.title }}</a></p>
+                              <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ ca_everything.source }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ ca_everything.publishedAt }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ ca_everything.location }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ ca_everything.news_type }}</font></span>
+
+                            </div>
+                          </div>
+                    </div>
+            {% endfor %}
+
+            {% for gb_everything in gb_everything_search %}
+                        
+                    <div class="col-lg-4 p-3 d-flex">
+                    <div class="card-transparent">
+                            {% if gb_everything.urlToImage == None %}
+                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding:15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% else %}
+                            <img class="card-img-top" src="{{ gb_everything.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% endif %}
+                            <div class="card-body">
+                              <p class="card-text"> <a class="mt-3" href="{{ gb_everything.url }}" target="_blank" style="font-family: Helvetica Neue">{{ gb_everything.title }}</a></p>
+                              <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ gb_everything.source }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ gb_everything.publishedAt }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ gb_everything.location }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ gb_everything.news_type }}</font></span>
+
+                            </div>
+                          </div>
+                    </div>
+            {% endfor %}
+
+            {% for nz_everything in nz_everything_search %}
+                        
+                    <div class="col-lg-4 p-3 d-flex">
+                    <div class="card-transparent">
+                            {% if nz_everything.urlToImage == None %}
+                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding:15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% else %}
+                            <img class="card-img-top" src="{{ nz_everything.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% endif %}
+                            <div class="card-body">
+                              <p class="card-text"> <a class="mt-3" href="{{ nz_everything.url }}" target="_blank" style="font-family: Helvetica Neue">{{ nz_everything.title }}</a></p>
+                              <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ nz_everything.source }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ nz_everything.publishedAt }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ nz_everything.location }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ nz_everything.news_type }}</font></span>
+
+                            </div>
+                          </div>
+                    </div>
+            {% endfor %}
+
+            {% for za_everything in za_everything_search %}
+                        
+                    <div class="col-lg-4 p-3 d-flex">
+                    <div class="card-transparent">
+                            {% if za_everything.urlToImage == None %}
+                            <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding:15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% else %}
+                            <img class="card-img-top" src="{{ za_everything.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                            {% endif %}
+                            <div class="card-body">
+                              <p class="card-text"> <a class="mt-3" href="{{ za_everything.url }}" target="_blank" style="font-family: Helvetica Neue">{{ za_everything.title }}</a></p>
+                              <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ za_everything.source }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ za_everything.publishedAt }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ za_everything.location }}</font></span><br>
+                              <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ za_everything.news_type }}</font></span>
+
+                            </div>
+                          </div>
+                    </div>
+            {% endfor %}
+
+            {% for us_everything in us_everything_search %}
+                        
+            <div class="col-lg-4 p-3 d-flex">
+            <div class="card-transparent">
+                    {% if us_everything.urlToImage == None %}
+                    <img class="card-img-top img-responsive flex-row" src="{{ url_for('static', filename='images/no_image_available.png') }}" alt="Card image" style="padding:15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% else %}
+                    <img class="card-img-top" src="{{ us_everything.urlToImage }}" onerror="this.onerror=null;this.src='https://world-news-archive-images.s3.af-south-1.amazonaws.com/no_image_available.png';" alt="Card image cap" style="padding: 15px;object-fit: cover;min-height:100px;width:100%; border-radius: 25px;">
+                    {% endif %}
+                    <div class="card-body">
+                      <p class="card-text"> <a class="mt-3" href="{{ us_everything.url }}" target="_blank" style="font-family: Helvetica Neue">{{ us_everything.title }}</a></p>
+                      <span class="stats-timeframe"><strong><font size=2>Search Item:</strong> {{ search }}</font></span><br>
+                      <span class="stats-timeframe"><strong><font size=2>Source:</strong> {{ us_everything.source }}</font></span><br>
+                      <span class="stats-timeframe"><strong><font size=2>Published Date:</strong> {{ us_everything.publishedAt }}</font></span><br>
+                      <span class="stats-timeframe"><strong><font size=2>Country:</strong> {{ us_everything.location }}</font></span><br>
+                      <span class="stats-timeframe"><strong><font size=2>Category:</strong> {{ us_everything.news_type }}</font></span>
+
+                    </div>
+                  </div>
+            </div>
+    {% endfor %}
                 </main>
+               
 
 <!-- <footer class="page-footer font-small blue">
 
