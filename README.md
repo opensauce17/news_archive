@@ -9,6 +9,8 @@ The application gathers, archives and then displays news titles published by wor
 
 As of now, news titles can only be searched by date within a selected country.
 
+***For those looking at the code : The master branch is under active development and the code is continuously being reviewed and new ideas being implemented.
+
 ## Requirements
 
 1. Python 3
