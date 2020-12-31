@@ -2,8 +2,12 @@ gather/.env
 news/main/__pycache__/routes.cpython-37.pyc
 news/db/db.db
 mail.cfg
-news_archive/news/analytics/country_totals.json
-news_archive/news/analytics/most_common.json
-news_archive/news/analytics/per_month.json
-news_archive/news/analytics/title_per_category.json
-news_archive/news/analytics/tas.json
+news/analytics/country_totals.json
+news/analytics/most_common.json
+news/analytics/per_month.json
+news/analytics/title_per_category.json
+news/analytics/tas.json
+__pycache__/
+test.py
+test.pyc
+test_duplicate.pyc
