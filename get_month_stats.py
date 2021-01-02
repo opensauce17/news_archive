@@ -15,93 +15,93 @@ def month_queries(query, month):
     return total, month
 
 aus = {
-    "jan": "select * from au_news where '2020-01-01' <= publishedAt and publishedAt < '2020-02-01'",
-    "feb": "select * from au_news where '2020-02-01' <= publishedAt and publishedAt < '2020-03-01'",
-    "mar": "select * from au_news where '2020-03-01' <= publishedAt and publishedAt < '2020-04-01'",
-    "apr": "select * from au_news where '2020-04-01' <= publishedAt and publishedAt < '2020-05-01'",
-    "may": "select * from au_news where '2020-05-01' <= publishedAt and publishedAt < '2020-06-01'",
-    "jun": "select * from au_news where '2020-06-01' <= publishedAt and publishedAt < '2020-07-01'",
-    "jul": "select * from au_news where '2020-07-01' <= publishedAt and publishedAt < '2020-08-01'",
-    "aug": "select * from au_news where '2020-08-01' <= publishedAt and publishedAt < '2020-09-01'",
-    "sep": "select * from au_news where '2020-09-01' <= publishedAt and publishedAt < '2020-10-01'",
-    "oct": "select * from au_news where '2020-10-01' <= publishedAt and publishedAt < '2020-11-01'",
-    "nov": "select * from au_news where '2020-11-01' <= publishedAt and publishedAt < '2020-12-01'",
-    "dec": "select * from au_news where '2020-12-01' <= publishedAt and publishedAt < '2021-01-01'"
+    "jan": "select * from au_news where '2021-01-01' <= publishedAt and publishedAt < '2021-02-01'",
+    "feb": "select * from au_news where '2021-02-01' <= publishedAt and publishedAt < '2021-03-01'",
+    "mar": "select * from au_news where '2021-03-01' <= publishedAt and publishedAt < '2021-04-01'",
+    "apr": "select * from au_news where '2021-04-01' <= publishedAt and publishedAt < '2021-05-01'",
+    "may": "select * from au_news where '2021-05-01' <= publishedAt and publishedAt < '2021-06-01'",
+    "jun": "select * from au_news where '2021-06-01' <= publishedAt and publishedAt < '2021-07-01'",
+    "jul": "select * from au_news where '2021-07-01' <= publishedAt and publishedAt < '2021-08-01'",
+    "aug": "select * from au_news where '2021-08-01' <= publishedAt and publishedAt < '2021-09-01'",
+    "sep": "select * from au_news where '2021-09-01' <= publishedAt and publishedAt < '2021-10-01'",
+    "oct": "select * from au_news where '2021-10-01' <= publishedAt and publishedAt < '2021-11-01'",
+    "nov": "select * from au_news where '2021-11-01' <= publishedAt and publishedAt < '2021-12-01'",
+    "dec": "select * from au_news where '2021-12-01' <= publishedAt and publishedAt < '2021-01-01'"
 }
 
 can = {
-    "jan": "select * from ca_news where '2020-01-01' <= publishedAt and publishedAt < '2020-02-01'",
-    "feb": "select * from ca_news where '2020-02-01' <= publishedAt and publishedAt < '2020-03-01'",
-    "mar": "select * from ca_news where '2020-03-01' <= publishedAt and publishedAt < '2020-04-01'",
-    "apr": "select * from ca_news where '2020-04-01' <= publishedAt and publishedAt < '2020-05-01'",
-    "may": "select * from ca_news where '2020-05-01' <= publishedAt and publishedAt < '2020-06-01'",
-    "jun": "select * from ca_news where '2020-06-01' <= publishedAt and publishedAt < '2020-07-01'",
-    "jul": "select * from ca_news where '2020-07-01' <= publishedAt and publishedAt < '2020-08-01'",
-    "aug": "select * from ca_news where '2020-08-01' <= publishedAt and publishedAt < '2020-09-01'",
-    "sep": "select * from ca_news where '2020-09-01' <= publishedAt and publishedAt < '2020-10-01'",
-    "oct": "select * from ca_news where '2020-10-01' <= publishedAt and publishedAt < '2020-11-01'",
-    "nov": "select * from ca_news where '2020-11-01' <= publishedAt and publishedAt < '2020-12-01'",
-    "dec": "select * from ca_news where '2020-12-01' <= publishedAt and publishedAt < '2021-01-01'"
+    "jan": "select * from ca_news where '2021-01-01' <= publishedAt and publishedAt < '2021-02-01'",
+    "feb": "select * from ca_news where '2021-02-01' <= publishedAt and publishedAt < '2021-03-01'",
+    "mar": "select * from ca_news where '2021-03-01' <= publishedAt and publishedAt < '2021-04-01'",
+    "apr": "select * from ca_news where '2021-04-01' <= publishedAt and publishedAt < '2021-05-01'",
+    "may": "select * from ca_news where '2021-05-01' <= publishedAt and publishedAt < '2021-06-01'",
+    "jun": "select * from ca_news where '2021-06-01' <= publishedAt and publishedAt < '2021-07-01'",
+    "jul": "select * from ca_news where '2021-07-01' <= publishedAt and publishedAt < '2021-08-01'",
+    "aug": "select * from ca_news where '2021-08-01' <= publishedAt and publishedAt < '2021-09-01'",
+    "sep": "select * from ca_news where '2021-09-01' <= publishedAt and publishedAt < '2021-10-01'",
+    "oct": "select * from ca_news where '2021-10-01' <= publishedAt and publishedAt < '2021-11-01'",
+    "nov": "select * from ca_news where '2021-11-01' <= publishedAt and publishedAt < '2021-12-01'",
+    "dec": "select * from ca_news where '2021-12-01' <= publishedAt and publishedAt < '2021-01-01'"
 }
 
 grb = {
-    "jan": "select * from gb_news where '2020-01-01' <= publishedAt and publishedAt < '2020-02-01'",
-    "feb": "select * from gb_news where '2020-02-01' <= publishedAt and publishedAt < '2020-03-01'",
-    "mar": "select * from gb_news where '2020-03-01' <= publishedAt and publishedAt < '2020-04-01'",
-    "apr": "select * from gb_news where '2020-04-01' <= publishedAt and publishedAt < '2020-05-01'",
-    "may": "select * from gb_news where '2020-05-01' <= publishedAt and publishedAt < '2020-06-01'",
-    "jun": "select * from gb_news where '2020-06-01' <= publishedAt and publishedAt < '2020-07-01'",
-    "jul": "select * from gb_news where '2020-07-01' <= publishedAt and publishedAt < '2020-08-01'",
-    "aug": "select * from gb_news where '2020-08-01' <= publishedAt and publishedAt < '2020-09-01'",
-    "sep": "select * from gb_news where '2020-09-01' <= publishedAt and publishedAt < '2020-10-01'",
-    "oct": "select * from gb_news where '2020-10-01' <= publishedAt and publishedAt < '2020-11-01'",
-    "nov": "select * from gb_news where '2020-11-01' <= publishedAt and publishedAt < '2020-12-01'",
-    "dec": "select * from gb_news where '2020-12-01' <= publishedAt and publishedAt < '2021-01-01'"
+    "jan": "select * from gb_news where '2021-01-01' <= publishedAt and publishedAt < '2021-02-01'",
+    "feb": "select * from gb_news where '2021-02-01' <= publishedAt and publishedAt < '2021-03-01'",
+    "mar": "select * from gb_news where '2021-03-01' <= publishedAt and publishedAt < '2021-04-01'",
+    "apr": "select * from gb_news where '2021-04-01' <= publishedAt and publishedAt < '2021-05-01'",
+    "may": "select * from gb_news where '2021-05-01' <= publishedAt and publishedAt < '2021-06-01'",
+    "jun": "select * from gb_news where '2021-06-01' <= publishedAt and publishedAt < '2021-07-01'",
+    "jul": "select * from gb_news where '2021-07-01' <= publishedAt and publishedAt < '2021-08-01'",
+    "aug": "select * from gb_news where '2021-08-01' <= publishedAt and publishedAt < '2021-09-01'",
+    "sep": "select * from gb_news where '2021-09-01' <= publishedAt and publishedAt < '2021-10-01'",
+    "oct": "select * from gb_news where '2021-10-01' <= publishedAt and publishedAt < '2021-11-01'",
+    "nov": "select * from gb_news where '2021-11-01' <= publishedAt and publishedAt < '2021-12-01'",
+    "dec": "select * from gb_news where '2021-12-01' <= publishedAt and publishedAt < '2021-01-01'"
 }
 
 nzl = {
-    "jan": "select * from nz_news where '2020-01-01' <= publishedAt and publishedAt < '2020-02-01'",
-    "feb": "select * from nz_news where '2020-02-01' <= publishedAt and publishedAt < '2020-03-01'",
-    "mar": "select * from nz_news where '2020-03-01' <= publishedAt and publishedAt < '2020-04-01'",
-    "apr": "select * from nz_news where '2020-04-01' <= publishedAt and publishedAt < '2020-05-01'",
-    "may": "select * from nz_news where '2020-05-01' <= publishedAt and publishedAt < '2020-06-01'",
-    "jun": "select * from nz_news where '2020-06-01' <= publishedAt and publishedAt < '2020-07-01'",
-    "jul": "select * from nz_news where '2020-07-01' <= publishedAt and publishedAt < '2020-08-01'",
-    "aug": "select * from nz_news where '2020-08-01' <= publishedAt and publishedAt < '2020-09-01'",
-    "sep": "select * from nz_news where '2020-09-01' <= publishedAt and publishedAt < '2020-10-01'",
-    "oct": "select * from nz_news where '2020-10-01' <= publishedAt and publishedAt < '2020-11-01'",
-    "nov": "select * from nz_news where '2020-11-01' <= publishedAt and publishedAt < '2020-12-01'",
-    "dec": "select * from nz_news where '2020-12-01' <= publishedAt and publishedAt < '2021-01-01'"
+    "jan": "select * from nz_news where '2021-01-01' <= publishedAt and publishedAt < '2021-02-01'",
+    "feb": "select * from nz_news where '2021-02-01' <= publishedAt and publishedAt < '2021-03-01'",
+    "mar": "select * from nz_news where '2021-03-01' <= publishedAt and publishedAt < '2021-04-01'",
+    "apr": "select * from nz_news where '2021-04-01' <= publishedAt and publishedAt < '2021-05-01'",
+    "may": "select * from nz_news where '2021-05-01' <= publishedAt and publishedAt < '2021-06-01'",
+    "jun": "select * from nz_news where '2021-06-01' <= publishedAt and publishedAt < '2021-07-01'",
+    "jul": "select * from nz_news where '2021-07-01' <= publishedAt and publishedAt < '2021-08-01'",
+    "aug": "select * from nz_news where '2021-08-01' <= publishedAt and publishedAt < '2021-09-01'",
+    "sep": "select * from nz_news where '2021-09-01' <= publishedAt and publishedAt < '2021-10-01'",
+    "oct": "select * from nz_news where '2021-10-01' <= publishedAt and publishedAt < '2021-11-01'",
+    "nov": "select * from nz_news where '2021-11-01' <= publishedAt and publishedAt < '2021-12-01'",
+    "dec": "select * from nz_news where '2021-12-01' <= publishedAt and publishedAt < '2021-01-01'"
 }
 
 usa = {
-    "jan": "select * from us_news where '2020-01-01' <= publishedAt and publishedAt < '2020-02-01'",
-    "feb": "select * from us_news where '2020-02-01' <= publishedAt and publishedAt < '2020-03-01'",
-    "mar": "select * from us_news where '2020-03-01' <= publishedAt and publishedAt < '2020-04-01'",
-    "apr": "select * from us_news where '2020-04-01' <= publishedAt and publishedAt < '2020-05-01'",
-    "may": "select * from us_news where '2020-05-01' <= publishedAt and publishedAt < '2020-06-01'",
-    "jun": "select * from us_news where '2020-06-01' <= publishedAt and publishedAt < '2020-07-01'",
-    "jul": "select * from us_news where '2020-07-01' <= publishedAt and publishedAt < '2020-08-01'",
-    "aug": "select * from us_news where '2020-08-01' <= publishedAt and publishedAt < '2020-09-01'",
-    "sep": "select * from us_news where '2020-09-01' <= publishedAt and publishedAt < '2020-10-01'",
-    "oct": "select * from us_news where '2020-10-01' <= publishedAt and publishedAt < '2020-11-01'",
-    "nov": "select * from us_news where '2020-11-01' <= publishedAt and publishedAt < '2020-12-01'",
-    "dec": "select * from us_news where '2020-12-01' <= publishedAt and publishedAt < '2021-01-01'"
+    "jan": "select * from us_news where '2021-01-01' <= publishedAt and publishedAt < '2021-02-01'",
+    "feb": "select * from us_news where '2021-02-01' <= publishedAt and publishedAt < '2021-03-01'",
+    "mar": "select * from us_news where '2021-03-01' <= publishedAt and publishedAt < '2021-04-01'",
+    "apr": "select * from us_news where '2021-04-01' <= publishedAt and publishedAt < '2021-05-01'",
+    "may": "select * from us_news where '2021-05-01' <= publishedAt and publishedAt < '2021-06-01'",
+    "jun": "select * from us_news where '2021-06-01' <= publishedAt and publishedAt < '2021-07-01'",
+    "jul": "select * from us_news where '2021-07-01' <= publishedAt and publishedAt < '2021-08-01'",
+    "aug": "select * from us_news where '2021-08-01' <= publishedAt and publishedAt < '2021-09-01'",
+    "sep": "select * from us_news where '2021-09-01' <= publishedAt and publishedAt < '2021-10-01'",
+    "oct": "select * from us_news where '2021-10-01' <= publishedAt and publishedAt < '2021-11-01'",
+    "nov": "select * from us_news where '2021-11-01' <= publishedAt and publishedAt < '2021-12-01'",
+    "dec": "select * from us_news where '2021-12-01' <= publishedAt and publishedAt < '2021-01-01'"
 }
 
 saf = {
-    "jan": "select * from za_news where '2020-01-01' <= publishedAt and publishedAt < '2020-02-01'",
-    "feb": "select * from za_news where '2020-02-01' <= publishedAt and publishedAt < '2020-03-01'",
-    "mar": "select * from za_news where '2020-03-01' <= publishedAt and publishedAt < '2020-04-01'",
-    "apr": "select * from za_news where '2020-04-01' <= publishedAt and publishedAt < '2020-05-01'",
-    "may": "select * from za_news where '2020-05-01' <= publishedAt and publishedAt < '2020-06-01'",
-    "jun": "select * from za_news where '2020-06-01' <= publishedAt and publishedAt < '2020-07-01'",
-    "jul": "select * from za_news where '2020-07-01' <= publishedAt and publishedAt < '2020-08-01'",
-    "aug": "select * from za_news where '2020-08-01' <= publishedAt and publishedAt < '2020-09-01'",
-    "sep": "select * from za_news where '2020-09-01' <= publishedAt and publishedAt < '2020-10-01'",
-    "oct": "select * from za_news where '2020-10-01' <= publishedAt and publishedAt < '2020-11-01'",
-    "nov": "select * from za_news where '2020-11-01' <= publishedAt and publishedAt < '2020-12-01'",
-    "dec": "select * from za_news where '2020-12-01' <= publishedAt and publishedAt < '2021-01-01'"
+    "jan": "select * from za_news where '2021-01-01' <= publishedAt and publishedAt < '2021-02-01'",
+    "feb": "select * from za_news where '2021-02-01' <= publishedAt and publishedAt < '2021-03-01'",
+    "mar": "select * from za_news where '2021-03-01' <= publishedAt and publishedAt < '2021-04-01'",
+    "apr": "select * from za_news where '2021-04-01' <= publishedAt and publishedAt < '2021-05-01'",
+    "may": "select * from za_news where '2021-05-01' <= publishedAt and publishedAt < '2021-06-01'",
+    "jun": "select * from za_news where '2021-06-01' <= publishedAt and publishedAt < '2021-07-01'",
+    "jul": "select * from za_news where '2021-07-01' <= publishedAt and publishedAt < '2021-08-01'",
+    "aug": "select * from za_news where '2021-08-01' <= publishedAt and publishedAt < '2021-09-01'",
+    "sep": "select * from za_news where '2021-09-01' <= publishedAt and publishedAt < '2021-10-01'",
+    "oct": "select * from za_news where '2021-10-01' <= publishedAt and publishedAt < '2021-11-01'",
+    "nov": "select * from za_news where '2021-11-01' <= publishedAt and publishedAt < '2021-12-01'",
+    "dec": "select * from za_news where '2021-12-01' <= publishedAt and publishedAt < '2021-01-01'"
 }
 
 au = {}
@@ -318,7 +318,7 @@ october = sum(october)
 november = sum(november)
 december = sum(december)
 
-news_per_month_2020 = {
+news_per_month_2021 = {
     "january": january,
     "february": february,
     "march": march,
@@ -334,4 +334,4 @@ news_per_month_2020 = {
 }
 
 with open('news/analytics/per_month.json', 'w') as f:
-    json.dump(news_per_month_2020, f)
+    json.dump(news_per_month_2021, f)

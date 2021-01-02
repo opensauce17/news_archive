@@ -8,7 +8,7 @@ def sql_query(country, table):
     con = sqlite3.connect("news/db/db.db")
     cur = con.cursor()
 
-    title_sql_query = "SELECT title FROM {}".format(table)
+    title_sql_query = "SELECT title FROM {} where '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'".format(table)
     cur.execute(title_sql_query)
     total_titles = (list(cur))
     total_titles = len(total_titles)

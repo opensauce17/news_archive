@@ -11,3 +11,13 @@ __pycache__/
 test.py
 test.pyc
 test_duplicate.pyc
+
+news/__init__.pyc
+news/au/__pycache__/__init__.cpython-37.pyc
+news/ca/__pycache__/__init__.cpython-37.pyc
+news/gb/__pycache__/__init__.cpython-37.pyc
+news/main/__pycache__/__init__.cpython-37.pyc
+news/nz/__pycache__/__init__.cpython-37.pyc
+news/search/__pycache__/__init__.cpython-37.pyc
+news/us/__pycache__/__init__.cpython-37.pyc
+news/za/__pycache__/__init__.cpython-37.pyc

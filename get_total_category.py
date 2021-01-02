@@ -15,63 +15,63 @@ def type_queries(query, news_type):
     return total, news_type
 
 aus = {
-    "headlines": "select * from au_news where news_type = 'headlines'",
-    "business": "select * from au_news where news_type = 'business'",
-    "technology": "select * from au_news where news_type = 'technology'",
-    "health": "select * from au_news where news_type = 'health'",
-    "science": "select * from au_news where news_type = 'science'",
-    "sport": "select * from au_news where news_type = 'sports'",
-    "entertainment": "select * from au_news where news_type = 'entertainment'"
+    "headlines": "select * from au_news where news_type = 'headlines' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "business": "select * from au_news where news_type = 'business' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "technology": "select * from au_news where news_type = 'technology' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "health": "select * from au_news where news_type = 'health' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "science": "select * from au_news where news_type = 'science' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "sport": "select * from au_news where news_type = 'sports' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "entertainment": "select * from au_news where news_type = 'entertainment' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'"
 }
 
 can = {
-    "headlines": "select * from ca_news where news_type = 'headlines'",
-    "business": "select * from ca_news where news_type = 'business'",
-    "technology": "select * from ca_news where news_type = 'technology'",
-    "health": "select * from ca_news where news_type = 'health'",
-    "science": "select * from ca_news where news_type = 'science'",
-    "sport": "select * from ca_news where news_type = 'sports'",
-    "entertainment": "select * from ca_news where news_type = 'entertainment'"
+    "headlines": "select * from ca_news where news_type = 'headlines' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "business": "select * from ca_news where news_type = 'business' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "technology": "select * from ca_news where news_type = 'technology' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "health": "select * from ca_news where news_type = 'health' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "science": "select * from ca_news where news_type = 'science' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "sport": "select * from ca_news where news_type = 'sports' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "entertainment": "select * from ca_news where news_type = 'entertainment' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'"
 }
 
 grb = {
-    "headlines": "select * from gb_news where news_type = 'headlines'",
-    "business": "select * from gb_news where news_type = 'business'",
-    "technology": "select * from gb_news where news_type = 'technology'",
-    "health": "select * from gb_news where news_type = 'health'",
-    "science": "select * from gb_news where news_type = 'science'",
-    "sport": "select * from gb_news where news_type = 'sports'",
-    "entertainment": "select * from gb_news where news_type = 'entertainment'"
+    "headlines": "select * from gb_news where news_type = 'headlines' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "business": "select * from gb_news where news_type = 'business' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "technology": "select * from gb_news where news_type = 'technology' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "health": "select * from gb_news where news_type = 'health' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "science": "select * from gb_news where news_type = 'science' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "sport": "select * from gb_news where news_type = 'sports' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "entertainment": "select * from gb_news where news_type = 'entertainment' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'"
 }
 
 nzl = {
-    "headlines": "select * from nz_news where news_type = 'headlines'",
-    "business": "select * from nz_news where news_type = 'business'",
-    "technology": "select * from nz_news where news_type = 'technology'",
-    "health": "select * from nz_news where news_type = 'health'",
-    "science": "select * from nz_news where news_type = 'science'",
-    "sport": "select * from nz_news where news_type = 'sports'",
-    "entertainment": "select * from nz_news where news_type = 'entertainment'"
+    "headlines": "select * from nz_news where news_type = 'headlines' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "business": "select * from nz_news where news_type = 'business' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "technology": "select * from nz_news where news_type = 'technology' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "health": "select * from nz_news where news_type = 'health' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "science": "select * from nz_news where news_type = 'science' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "sport": "select * from nz_news where news_type = 'sports' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "entertainment": "select * from nz_news where news_type = 'entertainment' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'"
 }
 
 usa = {
-    "headlines": "select * from us_news where news_type = 'headlines'",
-    "business": "select * from us_news where news_type = 'business'",
-    "technology": "select * from us_news where news_type = 'technology'",
-    "health": "select * from us_news where news_type = 'health'",
-    "science": "select * from us_news where news_type = 'science'",
-    "sport": "select * from us_news where news_type = 'sports'",
-    "entertainment": "select * from us_news where news_type = 'entertainment'"
+    "headlines": "select * from us_news where news_type = 'headlines' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "business": "select * from us_news where news_type = 'business' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "technology": "select * from us_news where news_type = 'technology' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "health": "select * from us_news where news_type = 'health' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "science": "select * from us_news where news_type = 'science' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "sport": "select * from us_news where news_type = 'sports' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "entertainment": "select * from us_news where news_type = 'entertainment' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'"
 }
 
 saf = {
-    "headlines": "select * from za_news where news_type = 'headlines'",
-    "business": "select * from za_news where news_type = 'business'",
-    "technology": "select * from za_news where news_type = 'technology'",
-    "health": "select * from za_news where news_type = 'health'",
-    "science": "select * from za_news where news_type = 'science'",
-    "sport": "select * from za_news where news_type = 'sports'",
-    "entertainment": "select * from za_news where news_type = 'entertainment'"
+    "headlines": "select * from za_news where news_type = 'headlines' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "business": "select * from za_news where news_type = 'business' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "technology": "select * from za_news where news_type = 'technology' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "health": "select * from za_news where news_type = 'health' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "science": "select * from za_news where news_type = 'science' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "sport": "select * from za_news where news_type = 'sports' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'",
+    "entertainment": "select * from za_news where news_type = 'entertainment' and '2021-01-01' <= publishedAt and publishedAt < '2021-12-31'"
 }
 
 au = {}

@@ -12,7 +12,7 @@ cur = conn.cursor()
 
 today = datetime.today().strftime('%Y-%m-%d')
 
-from_date = "2020-01-01"
+from_date = "2021-01-01"
 to_date = today
 
 f_from_date = datetime.strptime(from_date, "%Y-%m-%d")
@@ -80,7 +80,7 @@ for d in dd:
             pass
 
 
-    collection = [item for item, count in collections.Counter(word_list).items() if count > 200]
+    collection = [item for item, count in collections.Counter(word_list).items() if count > 5]
 
     remove_words = ['and', 'the', 'for', 'are', 'at', 'The', 'is', 'a', 'on', 'was', 'it', 'an', 'in',
      'of', 'but', 'be', 'he', 'she', 'A', 'up', 'can', 'at', 'by', 'can', 'now', 'his', 'for', 'his',
@@ -100,7 +100,7 @@ for d in dd:
     'For', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', 'From', 'down', 'free', 'home', 'latest',
     'South', 'Africa', 'season', 'World', 'New Zealand', 'Canada', 'Zealand', 'company', 'long', 'around',
     'next', 'While', 'need', 'before', 'might', 'came', 'soon', 'took', 'being', 'today', 'since', 'only',
-    'After', 'set', 'Stuffconz', 'Herald']
+    'After', 'set', 'Stuffconz', 'Herald', 'New', "Sydney", "us"]
     
     new_collection = [word for word in collection if word not in remove_words]
 
